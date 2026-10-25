@@ -33,7 +33,9 @@ body{
 body.lock{overflow:hidden}
 button,input{font-family:inherit}
 
-/* البصمة */
+/* =========================
+   شاشة البصمة
+========================= */
 
 #gate{
   position:fixed;
@@ -312,7 +314,9 @@ button,input{font-family:inherit}
   }
 }
 
-/* الموقع */
+/* =========================
+   الموقع
+========================= */
 
 #app{
   opacity:0;
@@ -353,8 +357,6 @@ nav{
   text-decoration:none;
   font-size:10px;
 }
-
-/* الرئيسية */
 
 .hero{
   min-height:100svh;
@@ -434,7 +436,9 @@ nav{
   50%{transform:translate(50%,8px)}
 }
 
-/* المدرسة */
+/* =========================
+   المدرسة
+========================= */
 
 .section{
   padding:100px 0;
@@ -521,7 +525,9 @@ nav{
   font-size:10px;
 }
 
-/* الاسم */
+/* =========================
+   استلام الدرع
+========================= */
 
 .guardian{
   min-height:100svh;
@@ -627,7 +633,9 @@ nav{
   box-shadow:0 12px 35px #0005;
 }
 
-/* بطاقة الدرع */
+/* =========================
+   البطاقة
+========================= */
 
 #cardOverlay{
   position:fixed;
@@ -827,7 +835,9 @@ nav{
   cursor:pointer;
 }
 
-/* الصوت */
+/* =========================
+   زر الصوت
+========================= */
 
 #audioBtn{
   position:fixed;
@@ -845,7 +855,9 @@ nav{
   cursor:pointer;
 }
 
-#audioBtn.show{display:grid}
+#audioBtn.show{
+  display:grid;
+}
 
 .bars{
   display:flex;
@@ -875,16 +887,6 @@ nav{
   to{height:4px}
 }
 
-#ytHolder{
-  position:fixed;
-  left:-100px;
-  bottom:-100px;
-  width:2px;
-  height:2px;
-  opacity:.01;
-  overflow:hidden;
-}
-
 footer{
   padding:55px 20px;
   text-align:center;
@@ -905,38 +907,72 @@ footer{
 }
 
 @media(max-width:700px){
+
   nav{
     height:60px;
     padding:0 14px;
   }
 
   .brand{font-size:10px}
-  .links{gap:9px}
-  .links a{font-size:8px}
+
+  .links{
+    gap:9px;
+  }
+
+  .links a{
+    font-size:8px;
+  }
 
   .hero{
     text-align:center;
     justify-content:center;
   }
 
-  .hero-line{margin:22px auto}
-  .people{grid-template-columns:1fr}
-  .school-card{padding:24px 18px}
+  .hero-line{
+    margin:22px auto;
+  }
+
+  .people{
+    grid-template-columns:1fr;
+  }
+
+  .school-card{
+    padding:24px 18px;
+  }
 
   .guard-card{
     min-height:660px;
     padding:42px 22px 35px;
   }
 
-  .card-title{font-size:31px}
-}
+  .card-title{
+    font-size:31px;
+  }
 
+}
 </style>
 </head>
 
 <body class="lock">
 
-<!-- شاشة البصمة -->
+
+<!-- =====================================
+     ملف النشيد الوطني المحلي
+===================================== -->
+
+<audio
+  id="anthemAudio"
+  preload="auto"
+  playsinline>
+  <source
+    src="النشيد%20الوطني%20السعودي%20الرسمي.mp3"
+    type="audio/mpeg">
+</audio>
+
+
+<!-- =====================================
+     شاشة البصمة
+===================================== -->
 
 <section id="gate">
 
@@ -960,12 +996,18 @@ footer{
 <div class="fingerprint" id="fingerprint">
 
 <svg viewBox="0 0 100 100">
+
 <path d="M50 8C27 8 9 27 9 50"/>
 <path d="M91 50C91 27 73 8 50 8"/>
+
 <path d="M17 61V48C17 30 32 15 50 15C68 15 83 30 83 48V61"/>
+
 <path d="M25 69V49C25 35 36 23 50 23C64 23 75 35 75 49V69"/>
+
 <path d="M33 75V50C33 40 41 32 50 32C59 32 67 40 67 50V75"/>
+
 <path d="M41 81V50C41 45 45 40 50 40C55 40 59 45 59 50V82"/>
+
 <path d="M17 67C18 79 23 89 33 96"/>
 <path d="M26 75C28 84 33 91 40 97"/>
 <path d="M75 74C73 84 68 92 61 97"/>
@@ -973,11 +1015,15 @@ footer{
 <path d="M34 83C37 90 42 95 47 98"/>
 <path d="M67 82C65 89 61 94 56 98"/>
 <path d="M48 88C49 91 50 94 50 98"/>
+
 </svg>
 
 <div class="scan-area"></div>
 <div class="scan-line"></div>
-<div class="check">✓</div>
+
+<div class="check">
+✓
+</div>
 
 </div>
 
@@ -1000,22 +1046,38 @@ footer{
 </section>
 
 
-<!-- الموقع -->
+<!-- =====================================
+     الموقع
+===================================== -->
 
 <div id="app">
 
 <nav>
 
-<div class="brand">درع الوطن</div>
+<div class="brand">
+درع الوطن
+</div>
 
 <div class="links">
-<a href="#home">الرئيسية</a>
-<a href="#school">مدرستنا</a>
-<a href="#guardian">استلمي درعك</a>
+
+<a href="#home">
+الرئيسية
+</a>
+
+<a href="#school">
+مدرستنا
+</a>
+
+<a href="#guardian">
+استلمي درعك
+</a>
+
 </div>
 
 </nav>
 
+
+<!-- الرئيسية -->
 
 <section class="hero" id="home">
 
@@ -1036,9 +1098,12 @@ footer{
 <div class="hero-line reveal"></div>
 
 <p class="reveal">
+
 رحلة وطنية تبدأ ببصمتك،
 وتحمل اسمك لتصبحي واحدةً من حارسات درع الوطن.
+
 بالعلم والانتماء نصنع أثرًا يليق بوطننا.
+
 </p>
 
 </div>
@@ -1050,15 +1115,28 @@ footer{
 </section>
 
 
+<!-- المدرسة -->
+
 <section class="section about" id="school">
 
 <div class="container">
 
 <div class="heading reveal">
-<small>قيادة • تعليم • انتماء</small>
-<h2>مدرستنا</h2>
-<p>بالعلم نصنع المستقبل، وبالقيم والانتماء نحفظ الوطن.</p>
+
+<small>
+قيادة • تعليم • انتماء
+</small>
+
+<h2>
+مدرستنا
+</h2>
+
+<p>
+بالعلم نصنع المستقبل، وبالقيم والانتماء نحفظ الوطن.
+</p>
+
 </div>
+
 
 <div class="school-card reveal">
 
@@ -1069,19 +1147,42 @@ footer{
 <div class="people">
 
 <div class="person">
-<small>مديرة المدرسة</small>
-<h3>هبة فلمبان</h3>
-<p>بقيادة تصنع الإلهام، وبالعلم نبني مستقبل الوطن.</p>
+
+<small>
+مديرة المدرسة
+</small>
+
+<h3>
+هبة فلمبان
+</h3>
+
+<p>
+بقيادة تصنع الإلهام، وبالعلم نبني مستقبل الوطن.
+</p>
+
 </div>
+
 
 <div class="person">
 
-<small>المعلمات</small>
+<small>
+المعلمات
+</small>
 
 <div class="teacher-tags">
-<span>حصة الحربي</span>
-<span>نبيهه عسيري</span>
-<span>دارالهناء الحربي</span>
+
+<span>
+حصة الحربي
+</span>
+
+<span>
+نبيهه عسيري
+</span>
+
+<span>
+دارالهناء الحربي
+</span>
+
 </div>
 
 <p>
@@ -1091,13 +1192,17 @@ footer{
 </div>
 
 </div>
+
 </div>
+
 </div>
 
 </section>
 
 
-<!-- الاسم فقط -->
+<!-- =====================================
+     كتابة الاسم فقط
+===================================== -->
 
 <section class="guardian" id="guardian">
 
@@ -1116,8 +1221,11 @@ footer{
 </h2>
 
 <p>
-اكتبي اسمك فقط، وسيظهر درعك الشخصي
-وعبارتك الوطنية ورقمك بين حارسات الدرع.
+
+اكتبي اسمك فقط،
+وسيظهر درعك الشخصي وعبارتك الوطنية
+ورقمك بين حارسات الدرع.
+
 </p>
 
 <div class="name-box">
@@ -1132,7 +1240,9 @@ placeholder="اكتبي اسمك هنا">
 <button
 class="gold-btn"
 onclick="createGuardianCard()">
+
 استلمي درعك
+
 </button>
 
 </div>
@@ -1143,15 +1253,21 @@ onclick="createGuardianCard()">
 
 
 <footer>
+
 الابتدائية الخامسة والأربعون
+
 <br><br>
+
 درع الوطن • المملكة العربية السعودية
+
 </footer>
 
 </div>
 
 
-<!-- البطاقة -->
+<!-- =====================================
+     بطاقة الطالبة
+===================================== -->
 
 <div id="cardOverlay">
 
@@ -1171,9 +1287,11 @@ onclick="createGuardianCard()">
 </div>
 
 <div class="card-shield">
+
 <div class="card-shield-inner">
 <span>✦</span>
 </div>
+
 </div>
 
 <div class="quote-label">
@@ -1193,14 +1311,18 @@ onclick="createGuardianCard()">
 <div id="guardNumber"></div>
 
 <div class="success-text">
+
 ببصمتك واسمك أصبحتِ واحدةً من حارسات درع الوطن،
 فليكن علمك وعطاؤك أثرًا يليق بوطنك.
+
 </div>
 
 <button
 class="card-action"
 onclick="closeCard()">
+
 العودة للرئيسية
+
 </button>
 
 </div>
@@ -1208,9 +1330,14 @@ onclick="closeCard()">
 </div>
 
 
-<!-- مشغل النشيد -->
+<!-- =====================================
+     زر التحكم بالنشيد
+===================================== -->
 
-<button id="audioBtn" onclick="toggleAudio()" aria-label="الصوت">
+<button
+id="audioBtn"
+onclick="toggleAudio()"
+aria-label="الصوت">
 
 <span class="bars">
 <i></i>
@@ -1221,11 +1348,6 @@ onclick="closeCard()">
 
 </button>
 
-<div id="ytHolder">
-<div id="anthemPlayer"></div>
-</div>
-
-<script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
 
@@ -1233,87 +1355,58 @@ onclick="closeCard()">
    النشيد الوطني
 ========================================== */
 
-let player=null;
-let playerReady=false;
-let anthemPlaying=false;
-let startRequested=false;
+const anthemAudio =
+  document.getElementById("anthemAudio");
 
-function onYouTubeIframeAPIReady(){
+const audioBtn =
+  document.getElementById("audioBtn");
 
-  player=new YT.Player("anthemPlayer",{
+let anthemPlaying = false;
 
-    width:"2",
-    height:"2",
 
-    videoId:"-jU8Wt1LU4g",
-
-    playerVars:{
-      autoplay:0,
-      controls:0,
-      playsinline:1,
-      rel:0
-    },
-
-    events:{
-
-      onReady:function(){
-
-        playerReady=true;
-
-        if(startRequested){
-          startAnthem();
-        }
-
-      },
-
-      onStateChange:function(event){
-
-        const button=
-          document.getElementById("audioBtn");
-
-        if(event.data===YT.PlayerState.PLAYING){
-
-          anthemPlaying=true;
-          button.classList.remove("paused");
-
-        }
-
-        if(
-          event.data===YT.PlayerState.PAUSED ||
-          event.data===YT.PlayerState.ENDED
-        ){
-
-          anthemPlaying=false;
-          button.classList.add("paused");
-
-        }
-
-      }
-
-    }
-
-  });
-
-}
-
+/*
+  هذه الدالة يتم تشغيلها مباشرة
+  من لمسة الطالبة على البصمة.
+*/
 
 function startAnthem(){
 
-  startRequested=true;
+  audioBtn.classList.add("show");
 
-  document
-    .getElementById("audioBtn")
-    .classList.add("show");
+  anthemAudio.volume = 1;
 
-  if(playerReady && player){
+  /*
+    إذا كان النشيد يعمل بالفعل
+    لا نعيده من البداية.
+  */
 
-    try{
+  if(!anthemAudio.paused){
+    return;
+  }
 
-      player.unMute();
-      player.setVolume(100);
-      player.playVideo();
+  const playPromise =
+    anthemAudio.play();
 
-    }catch(error){}
+  if(playPromise !== undefined){
+
+    playPromise
+      .then(function(){
+
+        anthemPlaying = true;
+
+        audioBtn.classList.remove(
+          "paused"
+        );
+
+      })
+      .catch(function(error){
+
+        console.log(
+          "تعذر تشغيل الصوت:",
+          error
+        );
+
+      });
 
   }
 
@@ -1322,36 +1415,89 @@ function startAnthem(){
 
 function toggleAudio(){
 
-  if(!playerReady || !player){
-    return;
-  }
+  if(anthemAudio.paused){
 
-  if(anthemPlaying){
+    anthemAudio
+      .play()
+      .then(function(){
 
-    player.pauseVideo();
+        anthemPlaying=true;
+
+        audioBtn.classList.remove(
+          "paused"
+        );
+
+      })
+      .catch(function(){});
 
   }else{
 
-    player.unMute();
-    player.setVolume(100);
-    player.playVideo();
+    anthemAudio.pause();
+
+    anthemPlaying=false;
+
+    audioBtn.classList.add(
+      "paused"
+    );
 
   }
 
 }
 
 
+anthemAudio.addEventListener(
+  "play",
+  function(){
+
+    anthemPlaying=true;
+
+    audioBtn.classList.remove(
+      "paused"
+    );
+
+  }
+);
+
+
+anthemAudio.addEventListener(
+  "pause",
+  function(){
+
+    anthemPlaying=false;
+
+    audioBtn.classList.add(
+      "paused"
+    );
+
+  }
+);
+
+
+anthemAudio.addEventListener(
+  "ended",
+  function(){
+
+    anthemPlaying=false;
+
+    audioBtn.classList.add(
+      "paused"
+    );
+
+  }
+);
+
+
 /* ==========================================
    البصمة
 ========================================== */
 
-const fingerprint=
+const fingerprint =
   document.getElementById("fingerprint");
 
-const instruction=
+const instruction =
   document.getElementById("instruction");
 
-const progressBar=
+const progressBar =
   document.getElementById("scanProgress");
 
 let scanning=false;
@@ -1361,19 +1507,17 @@ let minY=9999;
 let maxY=-9999;
 
 
-/*
-   التعديل المهم هنا:
-   أول ما تلمس الطالبة البصمة
-   نحاول تشغيل النشيد فورًا.
-*/
-
 function startScan(y){
 
   if(verified){
     return;
   }
 
-  /* تشغيل النشيد من نفس لمسة المستخدم */
+  /*
+    مهم جدًا:
+    تشغيل ملف MP3 من نفس لمسة البصمة
+  */
+
   startAnthem();
 
   scanning=true;
@@ -1381,9 +1525,11 @@ function startScan(y){
   minY=y;
   maxY=y;
 
-  fingerprint.classList.add("scanning");
+  fingerprint.classList.add(
+    "scanning"
+  );
 
-  instruction.textContent=
+  instruction.textContent =
     "جارٍ مسح البصمة... استمري";
 
 }
@@ -1395,42 +1541,56 @@ function moveScan(y){
     return;
   }
 
-  const rect=
+  const rect =
     fingerprint.getBoundingClientRect();
 
-  let localY=
-    y-rect.top;
+  let localY =
+    y - rect.top;
 
-  localY=Math.max(
-    10,
-    Math.min(rect.height-10,localY)
-  );
+  localY =
+    Math.max(
+      10,
+      Math.min(
+        rect.height-10,
+        localY
+      )
+    );
 
-  const linePercent=
+  const linePercent =
     (localY/rect.height)*100;
 
-  document.documentElement.style.setProperty(
-    "--scanY",
-    linePercent+"%"
-  );
+  document.documentElement
+    .style
+    .setProperty(
+      "--scanY",
+      linePercent+"%"
+    );
 
-  minY=Math.min(minY,y);
-  maxY=Math.max(maxY,y);
+  minY =
+    Math.min(minY,y);
 
-  const travelled=
+  maxY =
+    Math.max(maxY,y);
+
+  const travelled =
     maxY-minY;
 
-  const required=
+  const required =
     rect.height*.60;
 
-  const progress=
-    Math.min(travelled/required,1);
+  const progress =
+    Math.min(
+      travelled/required,
+      1
+    );
 
-  progressBar.style.width=
+  progressBar.style.width =
     (progress*100)+"%";
 
   if(progress>=1){
+
     scanSuccess();
+
   }
 
 }
@@ -1444,16 +1604,20 @@ function cancelScan(){
 
   scanning=false;
 
-  fingerprint.classList.remove("scanning");
+  fingerprint.classList.remove(
+    "scanning"
+  );
 
   progressBar.style.width="0%";
 
-  document.documentElement.style.setProperty(
-    "--scanY",
-    "15%"
-  );
+  document.documentElement
+    .style
+    .setProperty(
+      "--scanY",
+      "15%"
+    );
 
-  instruction.textContent=
+  instruction.textContent =
     "المسح غير مكتمل — مرّري إصبعك عبر البصمة";
 
 }
@@ -1468,29 +1632,43 @@ function scanSuccess(){
   verified=true;
   scanning=false;
 
-  fingerprint.classList.remove("scanning");
-  fingerprint.classList.add("verified");
+  fingerprint.classList.remove(
+    "scanning"
+  );
+
+  fingerprint.classList.add(
+    "verified"
+  );
 
   progressBar.style.width="100%";
 
-  instruction.textContent=
+  instruction.textContent =
     "تم التحقق بنجاح ✓";
 
   /*
-    محاولة ثانية عند اكتمال البصمة.
+    لو لم يبدأ من أول لمسة،
+    نحاول مرة أخرى هنا.
   */
+
   startAnthem();
 
   if(navigator.vibrate){
+
     navigator.vibrate(70);
+
   }
 
-  setTimeout(openSite,650);
+  setTimeout(
+    openSite,
+    650
+  );
 
 }
 
 
-/* اللمس */
+/* ==========================================
+   لمس البصمة على الآيفون والآيباد
+========================================== */
 
 fingerprint.addEventListener(
   "touchstart",
@@ -1537,7 +1715,9 @@ fingerprint.addEventListener(
     event.preventDefault();
 
     if(!verified){
+
       cancelScan();
+
     }
 
   },
@@ -1545,7 +1725,9 @@ fingerprint.addEventListener(
 );
 
 
-/* الماوس */
+/* ==========================================
+   الماوس / الكمبيوتر
+========================================== */
 
 fingerprint.addEventListener(
   "pointerdown",
@@ -1555,7 +1737,9 @@ fingerprint.addEventListener(
       return;
     }
 
-    startScan(event.clientY);
+    startScan(
+      event.clientY
+    );
 
     try{
 
@@ -1578,7 +1762,11 @@ fingerprint.addEventListener(
     }
 
     if(scanning){
-      moveScan(event.clientY);
+
+      moveScan(
+        event.clientY
+      );
+
     }
 
   }
@@ -1594,7 +1782,9 @@ fingerprint.addEventListener(
     }
 
     if(!verified){
+
       cancelScan();
+
     }
 
   }
@@ -1602,53 +1792,76 @@ fingerprint.addEventListener(
 
 
 /* ==========================================
-   فتح الصفحة
+   فتح الموقع بعد البصمة
 ========================================== */
 
 function openSite(){
 
-  const gate=
+  const gate =
     document.getElementById("gate");
 
-  const app=
+  const app =
     document.getElementById("app");
 
-  gate.classList.add("success");
+  gate.classList.add(
+    "success"
+  );
 
-  setTimeout(function(){
+  setTimeout(
+    function(){
 
-    app.classList.add("visible");
+      app.classList.add(
+        "visible"
+      );
 
-    document.body.classList.remove("lock");
+      document.body
+        .classList
+        .remove(
+          "lock"
+        );
 
-  },800);
+    },
+    800
+  );
 
-  setTimeout(function(){
+  setTimeout(
+    function(){
 
-    gate.classList.add("leave");
+      gate.classList.add(
+        "leave"
+      );
 
-  },1200);
+    },
+    1200
+  );
 
-  setTimeout(function(){
+  setTimeout(
+    function(){
 
-    gate.style.display="none";
+      gate.style.display =
+        "none";
 
-    window.scrollTo(0,0);
+      window.scrollTo(
+        0,
+        0
+      );
 
-    activateReveal();
+      activateReveal();
 
-  },1900);
+    },
+    1900
+  );
 
 }
 
 
 /* ==========================================
-   الحركة
+   حركات الظهور
 ========================================== */
 
 function activateReveal(){
 
-  const observer=
+  const observer =
     new IntersectionObserver(
 
       function(entries){
@@ -1656,15 +1869,20 @@ function activateReveal(){
         entries.forEach(
           function(entry){
 
-            if(entry.isIntersecting){
+            if(
+              entry.isIntersecting
+            ){
 
-              entry.target.classList.add(
-                "visible"
-              );
+              entry.target
+                .classList
+                .add(
+                  "visible"
+                );
 
-              observer.unobserve(
-                entry.target
-              );
+              observer
+                .unobserve(
+                  entry.target
+                );
 
             }
 
@@ -1673,67 +1891,83 @@ function activateReveal(){
 
       },
 
-      {threshold:.1}
+      {
+        threshold:.1
+      }
 
     );
 
   document
-    .querySelectorAll(".reveal")
-    .forEach(function(element){
+    .querySelectorAll(
+      ".reveal"
+    )
+    .forEach(
+      function(element){
 
-      observer.observe(element);
+        observer.observe(
+          element
+        );
 
-    });
+      }
+    );
 
 }
 
 
 /* ==========================================
-   عبارات الطالبات
+   العبارات الوطنية
 ========================================== */
 
 const nationalQuotes=[
 
-"وطني عزٌ نسكنه، وفخرٌ يسكن فينا.",
+  "وطني عزٌ نسكنه، وفخرٌ يسكن فينا.",
 
-"السعودية وطن المجد، ومستقبل نصنعه بالعلم والطموح.",
+  "السعودية وطن المجد، ومستقبل نصنعه بالعلم والطموح.",
 
-"حب الوطن عملٌ وعطاءٌ ومسؤولية.",
+  "حب الوطن عملٌ وعطاءٌ ومسؤولية.",
 
-"في وطننا نكبر بالأمل، ونبني بالعلم، ونحفظ العهد.",
+  "في وطننا نكبر بالأمل، ونبني بالعلم، ونحفظ العهد.",
 
-"وطني قصة فخر أرويها، وأمانة أحملها.",
+  "وطني قصة فخر أرويها، وأمانة أحملها.",
 
-"السعودية دار العز، وفي القلب لها عهدٌ لا يتغير.",
+  "السعودية دار العز، وفي القلب لها عهدٌ لا يتغير.",
 
-"بعلمي وأخلاقي وعطائي أشارك في بناء وطني.",
+  "بعلمي وأخلاقي وعطائي أشارك في بناء وطني.",
 
-"وطنٌ شامخ، وطموحٌ يعانق السماء.",
+  "وطنٌ شامخ، وطموحٌ يعانق السماء.",
 
-"هنا وطننا، وهنا جذورنا، وهنا مستقبلنا.",
+  "هنا وطننا، وهنا جذورنا، وهنا مستقبلنا.",
 
-"أحمل وطني في قلبي، وأخدمه بعلمي وعملي.",
+  "أحمل وطني في قلبي، وأخدمه بعلمي وعملي.",
 
-"كل إنجاز نصنعه اليوم هو هدية لمستقبل وطننا.",
+  "كل إنجاز نصنعه اليوم هو هدية لمستقبل وطننا.",
 
-"للوطن في القلب مكان، وفي العمل أثر، وفي المستقبل وعد.",
+  "للوطن في القلب مكان، وفي العمل أثر، وفي المستقبل وعد.",
 
-"السعودية فخرٌ نعتز به، ومستقبلٌ نشارك في صناعته.",
+  "السعودية فخرٌ نعتز به، ومستقبلٌ نشارك في صناعته.",
 
-"وطني أمانة، وعلمي طريق لخدمته.",
+  "وطني أمانة، وعلمي طريق لخدمته.",
 
-"من أرض الوطن يبدأ الحلم، وبالعطاء يصبح إنجازًا."
+  "من أرض الوطن يبدأ الحلم، وبالعطاء يصبح إنجازًا."
 
 ];
 
+
+/* ==========================================
+   رقم ثابت حسب الاسم
+========================================== */
 
 function nameHash(name){
 
   let hash=0;
 
-  for(let i=0;i<name.length;i++){
+  for(
+    let i=0;
+    i<name.length;
+    i++
+  ){
 
-    hash=
+    hash =
       ((hash<<5)-hash)
       +name.charCodeAt(i);
 
@@ -1746,17 +1980,25 @@ function nameHash(name){
 }
 
 
+/* ==========================================
+   إنشاء الدرع
+========================================== */
+
 function createGuardianCard(){
 
-  const input=
-    document.getElementById("guardianName");
+  const input =
+    document.getElementById(
+      "guardianName"
+    );
 
-  const name=
+  const name =
     input.value.trim();
 
   if(name.length<2){
 
-    alert("اكتبي اسمك أولًا ✨");
+    alert(
+      "اكتبي اسمك أولًا ✨"
+    );
 
     input.focus();
 
@@ -1764,48 +2006,84 @@ function createGuardianCard(){
 
   }
 
-  const hash=nameHash(name);
+  const hash =
+    nameHash(name);
 
-  const quote=
+  const quote =
     nationalQuotes[
-      hash % nationalQuotes.length
+      hash %
+      nationalQuotes.length
     ];
 
-  const number=
-    101+(hash%899);
+  const number =
+    101 +
+    (hash%899);
 
   document
-    .getElementById("nationalQuote")
-    .textContent=quote;
+    .getElementById(
+      "nationalQuote"
+    )
+    .textContent =
+    quote;
 
   document
-    .getElementById("cardName")
-    .textContent=name;
+    .getElementById(
+      "cardName"
+    )
+    .textContent =
+    name;
 
   document
-    .getElementById("guardNumber")
-    .textContent=
-    "حارسة الدرع رقم "+number;
+    .getElementById(
+      "guardNumber"
+    )
+    .textContent =
+    "حارسة الدرع رقم "
+    +number;
 
   document
-    .getElementById("cardOverlay")
-    .classList.add("show");
+    .getElementById(
+      "cardOverlay"
+    )
+    .classList
+    .add(
+      "show"
+    );
 
-  document.body.classList.add("lock");
+  document.body
+    .classList
+    .add(
+      "lock"
+    );
 
 }
 
 
+/* ==========================================
+   إغلاق البطاقة
+========================================== */
+
 function closeCard(){
 
   document
-    .getElementById("cardOverlay")
-    .classList.remove("show");
+    .getElementById(
+      "cardOverlay"
+    )
+    .classList
+    .remove(
+      "show"
+    );
 
-  document.body.classList.remove("lock");
+  document.body
+    .classList
+    .remove(
+      "lock"
+    );
 
   document
-    .getElementById("home")
+    .getElementById(
+      "home"
+    )
     .scrollIntoView({
       behavior:"smooth"
     });
@@ -1813,14 +2091,24 @@ function closeCard(){
 }
 
 
+/* ==========================================
+   زر Enter
+========================================== */
+
 document
-  .getElementById("guardianName")
+  .getElementById(
+    "guardianName"
+  )
   .addEventListener(
     "keydown",
     function(event){
 
-      if(event.key==="Enter"){
+      if(
+        event.key==="Enter"
+      ){
+
         createGuardianCard();
+
       }
 
     }
