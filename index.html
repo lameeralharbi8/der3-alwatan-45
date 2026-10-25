@@ -6,608 +6,599 @@
 <title>درع الوطن | الابتدائية الخامسة والأربعون</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&display=swap');
 
+:root{
+ --bg:#01150f; --green:#07543a;
+ --gold:#d9b45b; --gold2:#ffe59a;
+ --white:#fff9e8; --muted:#c9c4b3;
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;
-  font-family:'Noto Kufi Arabic',Tahoma,sans-serif;
-  color:#f8f0d8;
-  background:#021b13;
-  overflow-x:hidden;
+ margin:0;background:var(--bg);color:var(--white);
+ font-family:"Noto Kufi Arabic",Tahoma,sans-serif;
+ overflow-x:hidden;
 }
-:root{
-  --gold:#e7c46a;
-  --gold2:#fff0aa;
-  --green:#063d2c;
-  --green2:#087451;
-}
+body.lock{overflow:hidden}
 
 /* ===== شاشة الدخول ===== */
 #intro{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  min-height:100svh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 38%,rgba(19,145,93,.45),transparent 30%),
-    radial-gradient(circle at 50% 100%,#0a5139 0%,#03271d 42%,#01120d 100%);
-  transition:opacity 1s,visibility 1s,transform 1.2s;
+ position:fixed;inset:0;z-index:9999;
+ min-height:100svh;display:flex;
+ align-items:center;justify-content:center;
+ background:
+ radial-gradient(circle at 50% 42%,rgba(15,133,89,.42),transparent 27%),
+ radial-gradient(circle at 50% 105%,#0a563b,#03291e 42%,#01130e 78%);
+ overflow:hidden;
 }
 #intro::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  opacity:.20;
-  background-image:
-    linear-gradient(30deg,transparent 48%,rgba(255,221,128,.25) 49%,transparent 50%),
-    linear-gradient(-30deg,transparent 48%,rgba(255,221,128,.18) 49%,transparent 50%);
-  background-size:45px 45px;
+ content:"";position:absolute;width:700px;height:700px;
+ border:1px solid rgba(232,198,107,.08);border-radius:50%;
+ box-shadow:0 0 0 80px rgba(232,198,107,.025),
+ 0 0 0 160px rgba(232,198,107,.018);
 }
-#intro.exit{
-  opacity:0;
-  visibility:hidden;
-  transform:scale(1.08);
+.intro-wrap{
+ width:min(600px,92%);text-align:center;
+ position:relative;z-index:5;transition:.7s;
 }
-.intro-content{
-  width:min(680px,92%);
-  text-align:center;
-  position:relative;
-  z-index:2;
+.intro-school{font-size:13px;color:#e8d59a;margin-bottom:25px}
+
+.shield{
+ width:min(340px,75vw);height:405px;
+ margin:auto;position:relative;
+ filter:drop-shadow(0 25px 45px #0008);
+ animation:shieldIn 1.2s ease both;
 }
-.school{
-  font-size:clamp(14px,2.2vw,19px);
-  letter-spacing:.3px;
-  margin-bottom:20px;
+.shield-border,.shield-inner{
+ position:absolute;inset:0;
+ clip-path:polygon(50% 0,91% 13%,88% 62%,78% 80%,50% 100%,22% 80%,12% 62%,9% 13%);
 }
-.crest{
-  width:min(380px,76vw);
-  height:430px;
-  margin:auto;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  filter:drop-shadow(0 0 35px rgba(229,194,99,.30));
+.shield-border{
+ background:linear-gradient(130deg,#8b621d,#ffe79a 24%,#b78a35 48%,#fff0b0 68%,#8c631f);
 }
-.crest-shape{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(145deg,#ffeaa0,#9d6e1f 35%,#fff0a5 58%,#8a601d);
-  clip-path:polygon(50% 0,93% 14%,89% 65%,76% 83%,50% 100%,24% 83%,11% 65%,7% 14%);
+.shield-inner{
+ inset:6px;
+ background:radial-gradient(circle at 50% 36%,#0b7651,#06412f 48%,#021e16);
 }
-.crest-inner{
-  position:absolute;
-  inset:7px;
-  background:
-    radial-gradient(circle at 50% 35%,#0b704d,#043a2a 57%,#02271d);
-  clip-path:polygon(50% 0,93% 14%,89% 65%,76% 83%,50% 100%,24% 83%,11% 65%,7% 14%);
-}
-.crest-title{
-  position:absolute;
-  top:65px;
-  width:100%;
-  font-size:clamp(36px,7vw,60px);
-  font-weight:800;
-  color:var(--gold2);
-  text-shadow:0 3px 18px #000;
+.intro-title{
+ position:absolute;top:58px;width:100%;z-index:4;
+ color:var(--gold2);font-size:clamp(34px,8vw,52px);
+ font-weight:800;text-shadow:0 4px 20px #000;
 }
 
-/* ===== البصمة ===== */
-.scanner{
-  position:absolute;
-  top:185px;
-  width:155px;
-  height:155px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  cursor:pointer;
-  border:1px solid rgba(244,211,119,.8);
-  background:rgba(0,20,14,.52);
-  box-shadow:
-    0 0 0 10px rgba(222,190,96,.06),
-    0 0 0 22px rgba(222,190,96,.035),
-    0 0 35px rgba(255,226,130,.38);
-  transition:.3s;
+/* البصمة */
+.fingerprint{
+ position:absolute;z-index:10;width:150px;height:150px;
+ top:166px;left:50%;transform:translateX(-50%);
+ border-radius:50%;cursor:pointer;display:grid;place-items:center;
+ background:radial-gradient(circle,#082f23,#021a13 72%);
+ border:1px solid rgba(255,228,144,.7);
+ box-shadow:0 0 0 10px rgba(228,192,96,.05),
+ 0 0 0 20px rgba(228,192,96,.025),
+ 0 0 35px rgba(255,222,127,.3);
 }
-.scanner:hover{transform:scale(1.04)}
-.scanner svg{
-  width:105px;
-  height:105px;
-  fill:none;
-  stroke:#f6df8b;
-  stroke-width:3.2;
-  stroke-linecap:round;
-  filter:drop-shadow(0 0 5px #e9ca67);
+.fingerprint svg{
+ width:105px;height:105px;fill:none;
+ stroke:#f7df8a;stroke-width:2.8;
+ stroke-linecap:round;filter:drop-shadow(0 0 5px #d9b24e);
 }
-.scanline{
-  position:absolute;
-  width:120px;
-  height:2px;
-  left:17px;
-  top:30px;
-  background:#fff3a7;
-  box-shadow:0 0 10px #fff3a7,0 0 22px #51ffba;
-  animation:scan 2.2s ease-in-out infinite alternate;
-}
-@keyframes scan{
-  from{transform:translateY(0)}
-  to{transform:translateY(92px)}
+.scan{
+ position:absolute;width:112px;height:2px;top:25px;
+ background:#fff5ba;
+ box-shadow:0 0 7px #fff,0 0 15px #f4d469,0 0 28px #4dffbb;
+ animation:scan 2s ease-in-out infinite alternate;
 }
 .ring{
-  position:absolute;
-  inset:-13px;
-  border-radius:50%;
-  border:1px solid rgba(231,196,106,.3);
-  animation:ring 2s infinite;
+ position:absolute;inset:-12px;border-radius:50%;
+ border:1px solid rgba(239,207,119,.32);
+ animation:pulse 2s infinite;
 }
-@keyframes ring{
-  50%{transform:scale(1.08);opacity:.35}
+.touch{
+ position:absolute;top:335px;width:100%;
+ color:#e7d6a4;font-size:12px;
 }
-.enter{
-  position:absolute;
-  top:355px;
-  width:100%;
-  color:#f6e7b0;
-  font-size:14px;
+.intro-sub{margin-top:22px;color:#c9b878;font-size:13px}
+
+.flash{
+ position:absolute;z-index:100;width:20px;height:20px;
+ border-radius:50%;background:#fff4bc;opacity:0;
+ box-shadow:0 0 70px #ffe38a;
 }
-.intro-bottom{
-  margin-top:10px;
-  font-size:15px;
-  color:#d9c48b;
+
+#intro.activating .fingerprint{
+ box-shadow:0 0 0 20px rgba(255,223,122,.1),
+ 0 0 0 45px rgba(255,223,122,.06),
+ 0 0 100px rgba(255,226,129,.9);
 }
+#intro.activating .flash{animation:flash 1.3s .35s forwards}
+#intro.leave{animation:leave .8s forwards}
+
+@keyframes scan{to{transform:translateY(98px)}}
+@keyframes pulse{50%{transform:scale(1.08);opacity:.35}}
+@keyframes shieldIn{
+ from{opacity:0;transform:translateY(35px) scale(.9)}
+ to{opacity:1;transform:none}
+}
+@keyframes flash{
+ 0%{opacity:0;transform:scale(1)}
+ 10%{opacity:1}
+ 100%{opacity:1;transform:scale(130)}
+}
+@keyframes leave{to{opacity:0;visibility:hidden}}
 
 /* ===== الموقع ===== */
-#site{
-  opacity:0;
-  transition:opacity 1.4s;
-}
-#site.show{opacity:1}
+#site{opacity:0;transition:opacity 1s}
+#site.visible{opacity:1}
 
+nav{
+ position:fixed;top:0;left:0;right:0;z-index:500;
+ height:70px;display:flex;align-items:center;
+ justify-content:space-between;padding:0 6%;
+ background:rgba(1,21,15,.72);
+ border-bottom:1px solid rgba(221,185,90,.15);
+ backdrop-filter:blur(16px);
+}
+.brand{font-weight:800;color:#f0d278}
+.navlinks{display:flex;gap:22px}
+.navlinks a{color:#e7e0cc;text-decoration:none;font-size:11px}
+
+/* الرئيسية */
 .hero{
-  min-height:100svh;
-  position:relative;
-  display:flex;
-  align-items:center;
-  padding:80px 7%;
-  overflow:hidden;
-  background:
-    linear-gradient(90deg,rgba(1,19,13,.35),rgba(1,19,13,.8)),
-    radial-gradient(circle at 75% 40%,#0c6b49 0%,#063b2b 38%,#011b13 80%);
+ min-height:100svh;position:relative;display:flex;
+ align-items:center;padding:120px 7% 70px;overflow:hidden;
+ background:
+ radial-gradient(circle at 80% 40%,rgba(14,119,80,.5),transparent 33%),
+ radial-gradient(circle at 10% 90%,rgba(212,177,82,.08),transparent 25%),
+ linear-gradient(120deg,#01140e,#03291d 55%,#06432e);
 }
 .hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent 20%,rgba(255,220,120,.08),transparent 65%);
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(115deg,transparent 25%,rgba(255,232,160,.06) 50%,transparent 70%);
 }
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:750px;
-}
-.mini-title{
-  color:var(--gold);
-  letter-spacing:2px;
-  font-size:14px;
-}
+.hero-content{position:relative;z-index:2;max-width:780px}
+.eyebrow{color:#d9bb69;font-size:12px;letter-spacing:2px}
 .hero h1{
-  margin:12px 0;
-  color:#f1d276;
-  font-size:clamp(55px,10vw,110px);
-  line-height:1.15;
-  text-shadow:0 8px 35px #000;
+ margin:8px 0;color:#f4d579;
+ font-size:clamp(60px,11vw,120px);line-height:1.15;
+ text-shadow:0 10px 35px #0008;
 }
-.hero h2{
-  margin:0 0 20px;
-  font-size:clamp(23px,4vw,40px);
-}
-.hero p{
-  color:#e7e0ce;
-  line-height:2;
-  font-size:17px;
-}
+.hero h2{font-size:clamp(20px,4vw,36px);margin:10px 0}
+.hero p{max-width:650px;line-height:2.2;color:#d7d4c8;font-size:15px}
 .gold-line{
-  width:100px;
-  height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold));
-  margin:25px 0;
+ width:115px;height:2px;
+ background:linear-gradient(90deg,transparent,#f2d47a);
+ margin:25px 0;
 }
 
-.wrap{
-  width:min(1100px,92%);
-  margin:auto;
+/* الأقسام */
+.section{padding:100px 0;position:relative}
+.wrap{width:min(1100px,90%);margin:auto}
+.heading{text-align:center;margin-bottom:50px}
+.heading span{color:#caae60;font-size:11px}
+.heading h2{margin:8px;color:#f1d57c;font-size:clamp(28px,5vw,44px)}
+.heading p{color:#aaa99e;line-height:2;font-size:13px}
+
+.reveal{
+ opacity:0;transform:translateY(45px);
+ transition:opacity .9s,transform .9s;
 }
-.section{
-  padding:80px 0;
+.reveal.show{opacity:1;transform:none}
+
+/* المدرسة */
+.about{
+ background:radial-gradient(circle at 50% 0,rgba(9,92,62,.25),transparent 42%),#021710;
 }
-.section-title{
-  text-align:center;
-  margin-bottom:35px;
+.school-card{
+ padding:45px;border:1px solid rgba(220,187,96,.27);
+ border-radius:28px;
+ background:linear-gradient(145deg,rgba(8,52,38,.85),rgba(2,27,20,.92));
+ box-shadow:0 30px 80px #0005;
 }
-.section-title small{color:var(--gold)}
-.section-title h2{
-  color:#f0d379;
-  font-size:clamp(27px,5vw,42px);
-  margin:8px;
+.school-name{text-align:center;color:#f5dd92;font-size:27px;margin-bottom:35px}
+.people{display:grid;grid-template-columns:1fr 2fr;gap:18px}
+.person{
+ padding:25px;border-radius:20px;
+ background:rgba(255,255,255,.025);
+ border:1px solid rgba(255,230,154,.1);
+}
+.person small{color:#b9a25e}
+.person h3{color:#fff1bb}
+.teacher-list{display:flex;flex-wrap:wrap;gap:10px}
+.teacher-list span{
+ padding:9px 14px;border:1px solid rgba(219,184,90,.25);
+ border-radius:30px;color:#e9dfbf;font-size:12px;
 }
 
-.info{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-.glass{
-  border:1px solid rgba(226,192,100,.35);
-  background:linear-gradient(145deg,rgba(15,55,41,.78),rgba(3,28,21,.88));
-  backdrop-filter:blur(10px);
-  border-radius:25px;
-  padding:30px;
-  box-shadow:0 20px 55px #0005;
-}
-.glass .label{
-  color:#bea761;
-  font-size:13px;
-}
-.glass h3{
-  color:#fff0b2;
-  margin:8px 0;
-  font-size:23px;
-}
-
+/* المشاركة */
 .participate{
-  background:
-    radial-gradient(circle at 50% 0,rgba(15,115,77,.35),transparent 40%),
-    #021811;
+ background:radial-gradient(circle at 50% 20%,rgba(8,109,72,.3),transparent 37%),#01130e;
 }
-.cards{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
+.options{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.option{
+ min-height:190px;padding:28px 18px;text-align:center;
+ border-radius:22px;border:1px solid rgba(220,187,96,.22);
+ background:linear-gradient(#082e22,#031b14);
+ cursor:pointer;transition:.35s;
 }
-.action{
-  border:1px solid rgba(227,194,101,.42);
-  min-height:230px;
-  padding:30px 18px;
-  border-radius:24px;
-  text-align:center;
-  background:linear-gradient(180deg,#092d22,#041b15);
-  transition:.3s;
-  cursor:pointer;
+.option:hover,.option.active{
+ transform:translateY(-6px);
+ border-color:#d9b85e;
+ box-shadow:0 18px 50px #0006;
 }
-.action:hover,.action.active{
-  transform:translateY(-7px);
-  border-color:#f0d274;
-  box-shadow:0 15px 40px rgba(225,191,92,.12);
+.icon{
+ width:55px;height:55px;border:1px solid rgba(237,206,119,.42);
+ border-radius:16px;display:grid;place-items:center;
+ margin:auto;color:#edce72;font-size:22px;
 }
-.action .ico{
-  font-size:42px;
-  color:#e6c565;
-}
-.action h3{
-  color:#e9ca70;
-  font-size:22px;
-}
-.action p{
-  color:#c8c5b9;
-  font-size:13px;
-  line-height:1.8;
-}
+.option h3{color:#f0d47c}
+.option p{color:#aaa99e;font-size:11px;line-height:1.9}
 
-.formbox{margin-top:25px}
+.form{
+ margin-top:25px;padding:30px;
+ border:1px solid rgba(221,188,95,.22);
+ border-radius:25px;background:rgba(4,39,29,.75);
+}
+.form-title{color:#e7c96e;font-size:18px}
+.form-hint{color:#98998e;font-size:11px;margin:5px 0 15px}
+
 input,textarea{
-  width:100%;
-  padding:17px;
-  margin-top:12px;
-  border:1px solid #365b4d;
-  border-radius:15px;
-  background:#011b14;
-  color:white;
-  font:inherit;
-  outline:none;
+ width:100%;border:1px solid #315346;background:#011a13;
+ border-radius:14px;padding:15px;color:white;font:inherit;
+ outline:none;margin-top:10px;
 }
 textarea{min-height:130px;resize:vertical}
 button{
-  border:1px solid #f0d476;
-  border-radius:50px;
-  padding:15px 28px;
-  margin-top:15px;
-  font:inherit;
-  font-weight:700;
-  color:#172015;
-  background:linear-gradient(100deg,#c69d3e,#ffe69a,#c69d3e);
-  cursor:pointer;
+ border:1px solid #f0d174;border-radius:50px;
+ padding:14px 28px;margin-top:15px;font:inherit;font-weight:800;
+ cursor:pointer;color:#162219;
+ background:linear-gradient(100deg,#a87927,#ffe99b,#bc8c35);
 }
 
-.wall{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:20px;
+/* العهد */
+.pledge{
+ text-align:center;padding:110px 20px;
+ background:radial-gradient(circle,#075039,#02251a 45%,#01150f 75%);
 }
-.badge{
-  border:1px solid #d5b85e;
-  border-radius:30px;
-  padding:9px 15px;
-  background:#2c281b;
-  color:#ead078;
+.quote{
+ max-width:780px;margin:auto;color:#f3dc92;
+ font-size:clamp(22px,5vw,38px);line-height:1.9;font-weight:700;
 }
-.post{
-  padding:17px;
-  margin-top:12px;
-  border-radius:16px;
-  background:#031e16;
-  border-right:3px solid #d8b75c;
+.pledge p{color:#b5b3a7;font-size:12px}
+
+/* الحائط */
+.wall-section{background:#021811}
+.wall-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.wall-card{
+ padding:22px;border:1px solid rgba(222,189,96,.2);
+ border-radius:20px;background:linear-gradient(145deg,#082c21,#031b14);
+ border-right:3px solid #d5b45d;
 }
-.post b{color:#e7c76c}
+.wall-card small{color:#c7aa59}
+.wall-card h4{color:#f1dc9a;margin:6px 0}
+.wall-card p{color:#c5c3b8;font-size:12px;line-height:1.9}
+.empty{
+ grid-column:1/-1;text-align:center;padding:50px;
+ border:1px dashed rgba(217,183,89,.2);
+ border-radius:20px;color:#878980;
+}
 
 footer{
-  padding:55px 20px;
-  text-align:center;
-  color:#a9a797;
-  border-top:1px solid #183c30;
+ text-align:center;padding:45px;background:#010d09;
+ color:#777c73;font-size:11px;
 }
 
-/* ===== النجوم ===== */
-.spark{
-  position:fixed;
-  z-index:20;
-  pointer-events:none;
-  width:4px;height:4px;
-  border-radius:50%;
-  background:#ffe99a;
-  box-shadow:0 0 10px #ffe99a;
-  animation:float linear infinite;
-}
-@keyframes float{
-  from{transform:translateY(110vh);opacity:0}
-  20%{opacity:.9}
-  to{transform:translateY(-10vh);opacity:0}
-}
-
-@media(max-width:750px){
-  .crest{height:390px}
-  .crest-title{top:55px}
-  .scanner{top:170px}
-  .enter{top:335px}
-  .info{grid-template-columns:1fr}
-  .cards{grid-template-columns:1fr 1fr}
-  .hero{text-align:center;justify-content:center}
-  .gold-line{margin:25px auto}
+/* الجوال */
+@media(max-width:760px){
+ nav{height:62px;padding:0 15px}
+ .brand{font-size:11px}
+ .navlinks{gap:10px}
+ .navlinks a{font-size:8px}
+ .hero{text-align:center;justify-content:center}
+ .hero p{margin:auto}
+ .gold-line{margin:22px auto}
+ .people{grid-template-columns:1fr}
+ .options{grid-template-columns:1fr 1fr}
+ .wall-grid{grid-template-columns:1fr}
+ .school-card{padding:25px 18px}
 }
 </style>
 </head>
 
-<body>
+<body class="lock">
 
 <div id="intro">
-  <div class="intro-content">
-    <div class="school">الابتدائية الخامسة والأربعون</div>
+ <div class="flash"></div>
 
-    <div class="crest">
-      <div class="crest-shape"></div>
-      <div class="crest-inner"></div>
-      <div class="crest-title">درع الوطن</div>
+ <div class="intro-wrap">
+  <div class="intro-school">الابتدائية الخامسة والأربعون</div>
 
-      <div class="scanner" onclick="enterSite()">
-        <div class="ring"></div>
+  <div class="shield">
+   <div class="shield-border"></div>
+   <div class="shield-inner"></div>
 
-        <svg viewBox="0 0 100 100" aria-label="بصمة">
-          <path d="M50 10c-22 0-39 17-39 39"/>
-          <path d="M89 49c0-22-17-39-39-39"/>
-          <path d="M20 58V47c0-17 13-30 30-30s30 13 30 30v12"/>
-          <path d="M28 67V48c0-13 10-23 22-23s22 10 22 23v20"/>
-          <path d="M36 73V49c0-8 6-15 14-15s14 7 14 15v25"/>
-          <path d="M44 78V50c0-4 3-7 6-7s6 3 6 7v29"/>
-          <path d="M20 65c1 12 6 21 14 28"/>
-          <path d="M29 72c2 9 6 15 12 21"/>
-          <path d="M72 70c-2 10-6 18-13 25"/>
-          <path d="M80 64c-1 13-6 24-14 32"/>
-        </svg>
+   <div class="intro-title">درع الوطن</div>
 
-        <div class="scanline"></div>
-      </div>
+   <div class="fingerprint" onclick="enterSite()">
+    <div class="ring"></div>
 
-      <div class="enter">المسي البصمة للدخول</div>
-    </div>
+    <svg viewBox="0 0 100 100">
+     <path d="M50 9C27 9 10 27 10 50"/>
+     <path d="M90 50C90 27 73 9 50 9"/>
+     <path d="M18 61V48C18 30 32 16 50 16C68 16 82 30 82 48V61"/>
+     <path d="M26 69V49C26 35 37 24 50 24C63 24 74 35 74 49V69"/>
+     <path d="M34 75V50C34 41 41 33 50 33C59 33 66 41 66 50V75"/>
+     <path d="M42 81V50C42 45 45 41 50 41C55 41 58 45 58 50V82"/>
+     <path d="M18 67C19 79 24 88 33 95"/>
+     <path d="M27 75C29 84 34 91 40 96"/>
+     <path d="M74 74C72 84 67 91 61 96"/>
+     <path d="M82 66C81 79 76 89 68 97"/>
+     <path d="M35 83C38 89 42 94 47 97"/>
+     <path d="M66 82C64 88 61 93 56 97"/>
+    </svg>
 
-    <div class="intro-bottom">معًا نصنع درع وطننا</div>
+    <div class="scan"></div>
+   </div>
+
+   <div class="touch">المسي البصمة للدخول</div>
   </div>
+
+  <div class="intro-sub">انتماءٌ راسخ • علمٌ يبني • وطنٌ نفخر به</div>
+ </div>
 </div>
 
 <div id="site">
 
-<section class="hero">
-  <div class="hero-content">
-    <div class="mini-title">الابتدائية الخامسة والأربعون</div>
-    <h1>درع الوطن</h1>
-    <h2>وطنٌ نحميه بالعلم، ونبنيه بالعطاء</h2>
-    <div class="gold-line"></div>
-    <p>
-      هنا تلتقي كلمات الوفاء ومشاعر الانتماء،
-      لتصنع طالبات مدرستنا معًا درعًا يعبّر عن حب الوطن
-      وفخرنا بالمملكة العربية السعودية.
-    </p>
-  </div>
+<nav>
+ <div class="brand">درع الوطن</div>
+ <div class="navlinks">
+  <a href="#home">الرئيسية</a>
+  <a href="#about">مدرستنا</a>
+  <a href="#participate">شاركي</a>
+  <a href="#wall">حائط الدرع</a>
+ </div>
+</nav>
+
+<section class="hero" id="home">
+ <div class="hero-content">
+  <div class="eyebrow reveal">الابتدائية الخامسة والأربعون</div>
+  <h1 class="reveal">درع الوطن</h1>
+  <h2 class="reveal">وطنٌ نحبه... وعهدٌ نحفظه</h2>
+  <div class="gold-line reveal"></div>
+  <p class="reveal">
+   من هنا تبدأ حكاية الانتماء، حيث تجتمع كلمات طالباتنا
+   ومشاعرهن لتشكّل معًا درعًا يعبّر عن الحب والوفاء
+   والفخر بوطننا الغالي، المملكة العربية السعودية.
+  </p>
+ </div>
 </section>
 
-<section class="section">
-<div class="wrap">
+<section class="section about" id="about">
+ <div class="wrap">
 
-  <div class="section-title">
-    <small>قيادة وعطاء</small>
-    <h2>من نحن</h2>
+  <div class="heading reveal">
+   <span>قيادة • تعليم • انتماء</span>
+   <h2>مدرستنا</h2>
+   <p>بالعلم والقيم والانتماء نصنع جيلًا يعتز بوطنه.</p>
   </div>
 
-  <div class="info">
-    <div class="glass">
-      <div class="label">مديرة المدرسة</div>
-      <h3>هبة فلمبان</h3>
-      <p>بقيادة تصنع الإلهام، وبالعلم نبني مستقبل الوطن.</p>
+  <div class="school-card reveal">
+   <div class="school-name">الابتدائية الخامسة والأربعون</div>
+
+   <div class="people">
+    <div class="person">
+     <small>مديرة المدرسة</small>
+     <h3>هبة فلمبان</h3>
+     <p>بقيادة تصنع الإلهام، وبالعلم نبني مستقبل الوطن.</p>
     </div>
 
-    <div class="glass">
-      <div class="label">المعلمات</div>
-      <h3>حصة الحربي</h3>
-      <h3>نبيهه عسيري</h3>
-      <h3>دارالهناء الحربي</h3>
+    <div class="person">
+     <small>المعلمات</small>
+     <div class="teacher-list">
+      <span>حصة الحربي</span>
+      <span>نبيهه عسيري</span>
+      <span>دارالهناء الحربي</span>
+     </div>
+     <p>بعطاء المعلمة تبدأ المعرفة، وبالمعرفة يزدهر الوطن.</p>
     </div>
+   </div>
   </div>
 
-</div>
+ </div>
 </section>
 
-<section class="section participate">
-<div class="wrap">
+<section class="section participate" id="participate">
+ <div class="wrap">
 
-  <div class="section-title">
-    <small>صوتك جزء من الدرع</small>
-    <h2>شاركي في درع الوطن</h2>
+  <div class="heading reveal">
+   <span>أضيفي أثرك</span>
+   <h2>شاركي في درع الوطن</h2>
+   <p>اختاري نوع مشاركتك وأضيفي كلماتك إلى حائط الدرع.</p>
   </div>
 
-  <div class="cards">
-    <div class="action active" onclick="choose(this,'رسالة')">
-      <div class="ico">✉</div>
-      <h3>رسالة</h3>
-      <p>عبّري عن حبك لوطنك بكلمات من القلب.</p>
-    </div>
+  <div class="options reveal">
+   <div class="option active" onclick="choose(this,'رسالة')">
+    <div class="icon">✦</div>
+    <h3>رسالة</h3>
+    <p>كلمات من القلب لوطنك.</p>
+   </div>
 
-    <div class="action" onclick="choose(this,'بطاقة')">
-      <div class="ico">◇</div>
-      <h3>بطاقة</h3>
-      <p>اكتبي عبارة وطنية تبقى ذكرى جميلة.</p>
-    </div>
+   <div class="option" onclick="choose(this,'بطاقة')">
+    <div class="icon">◇</div>
+    <h3>بطاقة</h3>
+    <p>عبارة وطنية تحمل معنى جميلًا.</p>
+   </div>
 
-    <div class="action" onclick="choose(this,'رسمة')">
-      <div class="ico">◉</div>
-      <h3>رسمة</h3>
-      <p>صفي فكرة فنية تعبّر عن الوطن.</p>
-    </div>
+   <div class="option" onclick="choose(this,'رسمة')">
+    <div class="icon">✎</div>
+    <h3>رسمة</h3>
+    <p>فكرة فنية تعبّر عن الوطن.</p>
+   </div>
 
-    <div class="action" onclick="choose(this,'صوت')">
-      <div class="ico">♬</div>
-      <h3>صوت</h3>
-      <p>شاركي بكلمات تعبّر عن مشاعرك الوطنية.</p>
-    </div>
+   <div class="option" onclick="choose(this,'صوت')">
+    <div class="icon">♪</div>
+    <h3>صوت</h3>
+    <p>صوتك يحمل رسالة انتماء.</p>
+   </div>
   </div>
 
-  <div class="glass formbox">
-    <div class="label">اسم الطالبة</div>
-    <input id="name" placeholder="اكتبي اسمك">
+  <div class="form reveal">
+   <div class="form-title" id="formTitle">رسالة إلى الوطن</div>
+   <div class="form-hint">أضيفي مشاركتك لتصبح جزءًا من الدرع</div>
 
-    <div class="label" style="margin-top:20px">مشاركتك</div>
-    <textarea id="msg" placeholder="اكتبي مشاركتك هنا..."></textarea>
+   <input id="name" placeholder="اسم الطالبة">
+   <textarea id="message" placeholder="اكتبي مشاركتك هنا..."></textarea>
 
-    <button onclick="send()">أضيفي قطعتك إلى الدرع</button>
+   <button onclick="sendPost()">أضيفي مشاركتك إلى الدرع</button>
   </div>
 
-</div>
+ </div>
 </section>
 
-<section class="section">
-<div class="wrap">
+<section class="pledge">
+ <div class="reveal">
+  <div class="quote">
+   «وطنٌ يسكن القلب، وعهدٌ نحمله علمًا وعملًا وانتماءً»
+  </div>
+  <p>حفظ الله المملكة العربية السعودية وأدام عليها أمنها وعزها.</p>
+ </div>
+</section>
 
-  <div class="section-title">
-    <small>كلمات تصنع الأثر</small>
-    <h2>حائط الدرع</h2>
+<section class="section wall-section" id="wall">
+ <div class="wrap">
+
+  <div class="heading reveal">
+   <span>أثرٌ يبقى</span>
+   <h2>حائط الدرع</h2>
+   <p>هنا تجتمع كلمات طالباتنا في صورة واحدة من الوفاء والانتماء.</p>
   </div>
 
-  <div class="glass">
-    <div class="wall" id="wall"></div>
-    <div id="posts"></div>
-  </div>
+  <div class="wall-grid reveal" id="wallGrid"></div>
 
-</div>
+ </div>
 </section>
 
 <footer>
-الابتدائية الخامسة والأربعون<br>
-درع الوطن • المملكة العربية السعودية
+ الابتدائية الخامسة والأربعون
+ <br><br>
+ درع الوطن • المملكة العربية السعودية
 </footer>
 
 </div>
 
 <script>
-let type="رسالة";
+let selectedType="رسالة";
 
 function enterSite(){
-  document.getElementById("intro").classList.add("exit");
-  document.getElementById("site").classList.add("show");
-  window.scrollTo(0,0);
+ const intro=document.getElementById("intro");
+ const site=document.getElementById("site");
+
+ intro.classList.add("activating");
+
+ setTimeout(()=>{
+  site.classList.add("visible");
+  document.body.classList.remove("lock");
+ },800);
+
+ setTimeout(()=>intro.classList.add("leave"),1100);
+
+ setTimeout(()=>{
+  intro.style.display="none";
+  startReveal();
+ },1900);
 }
 
-function choose(el,t){
-  document.querySelectorAll(".action").forEach(x=>x.classList.remove("active"));
-  el.classList.add("active");
-  type=t;
+function choose(el,type){
+ selectedType=type;
+
+ document.querySelectorAll(".option")
+ .forEach(x=>x.classList.remove("active"));
+
+ el.classList.add("active");
+
+ document.getElementById("formTitle").textContent=
+ type==="رسالة"?"رسالة إلى الوطن":
+ type==="بطاقة"?"بطاقتك الوطنية":
+ type==="رسمة"?"فكرتك الفنية":"صوت الوطن";
 }
 
-function clean(s){
-  return String(s)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;");
+function safe(x){
+ return String(x)
+ .replaceAll("&","&amp;")
+ .replaceAll("<","&lt;")
+ .replaceAll(">","&gt;");
 }
 
 function getPosts(){
-  try{return JSON.parse(localStorage.getItem("shieldPosts")||"[]")}
-  catch(e){return[]}
+ try{
+  return JSON.parse(localStorage.getItem("watanPosts")||"[]");
+ }catch{return[]}
 }
 
-function send(){
-  const name=document.getElementById("name").value.trim();
-  const msg=document.getElementById("msg").value.trim();
+function sendPost(){
+ const name=document.getElementById("name").value.trim();
+ const message=document.getElementById("message").value.trim();
 
-  if(!name||!msg){
-    alert("اكتبي اسمك ومشاركتك أولًا");
-    return;
-  }
+ if(!name||!message){
+  alert("اكتبي اسمك ومشاركتك أولًا");
+  return;
+ }
 
-  const posts=getPosts();
-  posts.push({name,msg,type});
-  localStorage.setItem("shieldPosts",JSON.stringify(posts));
-  document.getElementById("msg").value="";
-  render();
-  alert("تمت إضافة مشاركتك إلى درع الوطن");
+ const posts=getPosts();
+
+ posts.push({
+  name:name,
+  message:message,
+  type:selectedType
+ });
+
+ localStorage.setItem("watanPosts",JSON.stringify(posts));
+
+ document.getElementById("message").value="";
+
+ renderWall();
+
+ alert("تمت إضافة مشاركتك إلى درع الوطن");
 }
 
-function render(){
-  const posts=getPosts();
-  const wall=document.getElementById("wall");
-  const area=document.getElementById("posts");
+function renderWall(){
+ const grid=document.getElementById("wallGrid");
+ const posts=getPosts().slice().reverse();
 
-  wall.innerHTML="";
-  area.innerHTML="";
+ if(!posts.length){
+  grid.innerHTML='<div class="empty">ستظهر أولى مشاركات طالباتنا هنا.</div>';
+  return;
+ }
 
-  posts.slice().reverse().forEach((p,i)=>{
-    if(i<40)
-      wall.innerHTML+=`<span class="badge">${clean(p.name)}</span>`;
+ grid.innerHTML="";
 
-    if(i<12)
-      area.innerHTML+=`
-      <div class="post">
-        <b>${clean(p.name)} • ${clean(p.type)}</b>
-        <div>${clean(p.msg)}</div>
-      </div>`;
+ posts.forEach(p=>{
+  grid.innerHTML+=`
+   <div class="wall-card">
+    <small>${safe(p.type)}</small>
+    <h4>${safe(p.name)}</h4>
+    <p>${safe(p.message)}</p>
+   </div>
+  `;
+ });
+}
+
+function startReveal(){
+ const els=document.querySelectorAll(".reveal");
+
+ const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+   if(entry.isIntersecting){
+    entry.target.classList.add("show");
+    observer.unobserve(entry.target);
+   }
   });
+ },{threshold:.12});
+
+ els.forEach(el=>observer.observe(el));
 }
 
-for(let i=0;i<28;i++){
-  const s=document.createElement("span");
-  s.className="spark";
-  s.style.left=Math.random()*100+"%";
-  s.style.animationDuration=(6+Math.random()*8)+"s";
-  s.style.animationDelay=(-Math.random()*10)+"s";
-  document.body.appendChild(s);
-}
-
-render();
+renderWall();
 </script>
 
 </body>
