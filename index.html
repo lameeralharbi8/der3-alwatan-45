@@ -11,7 +11,7 @@
 
 :root{
   --deep:#010d09;
-  --green:#043d2b;
+  --green:#063d2c;
   --green2:#08714e;
   --gold:#d5ad52;
   --gold2:#ffe49a;
@@ -25,18 +25,18 @@ html{scroll-behavior:smooth}
 
 body{
   margin:0;
-  overflow-x:hidden;
   background:var(--deep);
   color:var(--cream);
   font-family:"Noto Kufi Arabic",Tahoma,sans-serif;
+  overflow-x:hidden;
 }
 
 body.lock{overflow:hidden}
 
-button,input,textarea{font-family:inherit}
+button,input{font-family:inherit}
 
 /* =========================
-   INTRO
+   شاشة البصمة
 ========================= */
 
 #gate{
@@ -48,29 +48,33 @@ button,input,textarea{font-family:inherit}
   place-items:center;
   overflow:hidden;
   background:
-    radial-gradient(circle at 50% 35%,rgba(10,125,82,.45),transparent 28%),
-    radial-gradient(circle at 50% 110%,#0a5a3d,#03281c 42%,#010b08 80%);
+    radial-gradient(circle at 50% 35%,rgba(12,128,84,.46),transparent 28%),
+    radial-gradient(circle at 50% 110%,#0a5a3d,#03281c 43%,#010b08 80%);
 }
 
-#gate:before{
+#gate::before{
   content:"";
   position:absolute;
-  inset:-40%;
+  inset:-35%;
   background:
-    repeating-radial-gradient(circle,
-    transparent 0 70px,
-    rgba(255,224,140,.04) 71px 72px,
-    transparent 73px 140px);
+    repeating-radial-gradient(
+      circle,
+      transparent 0 70px,
+      rgba(255,224,140,.04) 71px 72px,
+      transparent 73px 140px
+    );
   animation:rotate 30s linear infinite;
 }
 
-@keyframes rotate{to{transform:rotate(360deg)}}
+@keyframes rotate{
+  to{transform:rotate(360deg)}
+}
 
 .gate-content{
   width:min(620px,92%);
-  text-align:center;
   position:relative;
   z-index:5;
+  text-align:center;
 }
 
 .school-top{
@@ -89,25 +93,47 @@ button,input,textarea{font-family:inherit}
 }
 
 @keyframes shieldIn{
-  from{opacity:0;transform:translateY(35px) scale(.9)}
+  from{
+    opacity:0;
+    transform:translateY(35px) scale(.9)
+  }
 }
 
-.shield-border,.shield-core{
+.shield-border,
+.shield-core{
   position:absolute;
   inset:0;
-  clip-path:polygon(50% 0,91% 13%,88% 61%,78% 80%,50% 100%,22% 80%,12% 61%,9% 13%);
+  clip-path:polygon(
+    50% 0,
+    91% 13%,
+    88% 61%,
+    78% 80%,
+    50% 100%,
+    22% 80%,
+    12% 61%,
+    9% 13%
+  );
 }
 
 .shield-border{
-  background:linear-gradient(135deg,#765019,#ffe59a 20%,#a87928 45%,#fff0b0 65%,#825516);
+  background:
+    linear-gradient(
+      135deg,
+      #765019,
+      #ffe59a 20%,
+      #a87928 45%,
+      #fff0b0 65%,
+      #825516
+    );
 }
 
 .shield-core{
   inset:6px;
-  background:radial-gradient(circle at 50% 35%,#0c7752,#074632 47%,#021c14);
+  background:
+    radial-gradient(circle at 50% 35%,#0c7752,#074632 47%,#021c14);
 }
 
-.shield-core:before{
+.shield-core::before{
   content:"";
   position:absolute;
   inset:0;
@@ -123,13 +149,13 @@ button,input,textarea{font-family:inherit}
   top:52px;
   width:100%;
   z-index:5;
-  font-weight:800;
-  font-size:48px;
   color:var(--gold2);
+  font-size:48px;
+  font-weight:800;
   text-shadow:0 8px 25px #000;
 }
 
-/* fingerprint */
+/* البصمة */
 
 .fingerprint{
   position:absolute;
@@ -146,7 +172,8 @@ button,input,textarea{font-family:inherit}
   touch-action:none;
   user-select:none;
   -webkit-user-select:none;
-  background:radial-gradient(circle,#073d2b,#021a13 72%);
+  background:
+    radial-gradient(circle,#073d2b,#021a13 72%);
   border:1px solid #e5c56a;
   box-shadow:
     0 0 0 11px rgba(230,195,96,.05),
@@ -169,7 +196,6 @@ button,input,textarea{font-family:inherit}
   left:20px;
   right:20px;
   height:2px;
-  opacity:.35;
   background:#79ffc7;
   box-shadow:
     0 0 8px #fff,
@@ -184,7 +210,12 @@ button,input,textarea{font-family:inherit}
   right:15px;
   height:45px;
   top:calc(var(--scanY) - 22px);
-  background:linear-gradient(transparent,rgba(74,255,182,.11),transparent);
+  background:
+    linear-gradient(
+      transparent,
+      rgba(74,255,182,.12),
+      transparent
+    );
   transition:top .04s linear;
 }
 
@@ -192,7 +223,7 @@ button,input,textarea{font-family:inherit}
   border-color:#63ffc0;
   box-shadow:
     0 0 0 12px rgba(90,255,190,.07),
-    0 0 55px rgba(80,255,185,.38);
+    0 0 55px rgba(80,255,185,.40);
 }
 
 .fingerprint.verified{
@@ -205,7 +236,9 @@ button,input,textarea{font-family:inherit}
 }
 
 @keyframes successPulse{
-  50%{transform:translateX(-50%) scale(1.08)}
+  50%{
+    transform:translateX(-50%) scale(1.08)
+  }
 }
 
 .check{
@@ -213,7 +246,7 @@ button,input,textarea{font-family:inherit}
   inset:0;
   display:grid;
   place-items:center;
-  background:rgba(1,29,20,.7);
+  background:rgba(1,29,20,.72);
   color:#73ffca;
   font-size:52px;
   font-weight:800;
@@ -251,7 +284,8 @@ button,input,textarea{font-family:inherit}
   display:block;
   height:100%;
   width:0;
-  background:linear-gradient(90deg,#64ffc2,#ffe28a);
+  background:
+    linear-gradient(90deg,#64ffc2,#ffe28a);
   box-shadow:0 0 10px #63ffc1;
 }
 
@@ -273,12 +307,15 @@ button,input,textarea{font-family:inherit}
 }
 
 #gate.success .flash{
-  animation:flash 1.5s .45s forwards;
+  animation:flash 1.45s .35s forwards;
 }
 
 @keyframes flash{
   10%{opacity:1}
-  100%{opacity:1;transform:scale(150)}
+  100%{
+    opacity:1;
+    transform:scale(150)
+  }
 }
 
 #gate.leave{
@@ -286,11 +323,14 @@ button,input,textarea{font-family:inherit}
 }
 
 @keyframes leave{
-  to{opacity:0;visibility:hidden}
+  to{
+    opacity:0;
+    visibility:hidden
+  }
 }
 
 /* =========================
-   SITE
+   الموقع
 ========================= */
 
 #app{
@@ -304,16 +344,17 @@ nav{
   position:fixed;
   z-index:700;
   top:0;
-  left:0;
   right:0;
+  left:0;
   height:68px;
   padding:0 5%;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  background:#01140fae;
+  background:#01140fc2;
   border-bottom:1px solid #d8b65c24;
   backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
 }
 
 .brand{
@@ -332,54 +373,9 @@ nav{
   font-size:10px;
 }
 
-/* AUDIO */
-
-#audioBtn{
-  position:fixed;
-  left:18px;
-  bottom:18px;
-  z-index:850;
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  border:1px solid #e3bd5d88;
-  background:#052c21e8;
-  color:#f5d777;
-  display:none;
-  place-items:center;
-  cursor:pointer;
-  box-shadow:0 12px 35px #0008;
-}
-
-#audioBtn.show{display:grid}
-
-.bars{
-  display:flex;
-  align-items:flex-end;
-  gap:3px;
-  height:18px;
-}
-
-.bars i{
-  width:3px;
-  background:#f5d777;
-  border-radius:5px;
-  animation:music .65s infinite alternate;
-}
-
-.bars i:nth-child(1){height:7px}
-.bars i:nth-child(2){height:17px;animation-delay:.2s}
-.bars i:nth-child(3){height:11px;animation-delay:.4s}
-.bars i:nth-child(4){height:15px;animation-delay:.1s}
-
-#audioBtn.paused i{
-  animation:none;
-  height:4px;
-}
-
-@keyframes music{to{height:4px}}
-
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
   min-height:100svh;
@@ -389,16 +385,22 @@ nav{
   overflow:hidden;
   padding:110px 7% 80px;
   background:
-    radial-gradient(circle at 80% 30%,rgba(13,126,82,.52),transparent 31%),
-    radial-gradient(circle at 10% 90%,rgba(222,183,80,.08),transparent 25%),
+    radial-gradient(circle at 80% 30%,rgba(13,126,82,.54),transparent 31%),
+    radial-gradient(circle at 10% 90%,rgba(222,183,80,.09),transparent 25%),
     linear-gradient(125deg,#010d09,#03281d 55%,#075038);
 }
 
-.hero:after{
+.hero::after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(115deg,transparent 20%,rgba(255,235,168,.05) 50%,transparent 72%);
+  background:
+    linear-gradient(
+      115deg,
+      transparent 20%,
+      rgba(255,235,168,.05) 50%,
+      transparent 72%
+    );
 }
 
 .hero-content{
@@ -429,7 +431,8 @@ nav{
   width:110px;
   height:2px;
   margin:25px 0;
-  background:linear-gradient(90deg,transparent,#f2d478);
+  background:
+    linear-gradient(90deg,transparent,#f2d478);
 }
 
 .hero p{
@@ -438,6 +441,27 @@ nav{
   line-height:2.2;
   font-size:13px;
 }
+
+.down{
+  position:absolute;
+  z-index:5;
+  bottom:25px;
+  right:50%;
+  transform:translateX(50%);
+  color:#a4a296;
+  font-size:10px;
+  animation:down 1.6s infinite ease-in-out;
+}
+
+@keyframes down{
+  50%{
+    transform:translate(50%,8px)
+  }
+}
+
+/* =========================
+   SCHOOL
+========================= */
 
 .section{
   padding:100px 0;
@@ -469,329 +493,17 @@ nav{
   line-height:2;
 }
 
-.reveal{
-  opacity:0;
-  transform:translateY(35px);
-  transition:.85s;
-}
-
-.reveal.visible{
-  opacity:1;
-  transform:none;
-}
-
-/* =========================
-   NAME / GUARDIAN EXPERIENCE
-========================= */
-
-.guardian{
-  min-height:100svh;
-  display:grid;
-  place-items:center;
-  position:relative;
-  overflow:hidden;
-  padding:100px 20px;
-  background:
-    radial-gradient(circle at 50% 40%,#0b6042 0,#03271c 40%,#010e0a 80%);
-}
-
-.guardian:before{
-  content:"";
-  position:absolute;
-  width:650px;
-  height:650px;
-  border-radius:50%;
-  border:1px solid #e2be5d20;
-  box-shadow:
-    0 0 0 80px #e2be5d08,
-    0 0 0 160px #e2be5d04;
-}
-
-.name-stage{
-  position:relative;
-  z-index:3;
-  width:min(620px,100%);
-  text-align:center;
-}
-
-.mini-shield{
-  width:85px;
-  height:100px;
-  margin:0 auto 20px;
-  clip-path:polygon(50% 0,91% 14%,87% 65%,50% 100%,13% 65%,9% 14%);
-  display:grid;
-  place-items:center;
-  background:linear-gradient(135deg,#8a611d,#ffe496,#a97928);
-  padding:4px;
-}
-
-.mini-shield div{
-  width:100%;
-  height:100%;
-  clip-path:inherit;
-  display:grid;
-  place-items:center;
-  background:#073b2a;
-  color:#f6d97d;
-  font-size:32px;
-}
-
-.name-stage h2{
-  color:#f4d77e;
-  font-size:clamp(30px,7vw,53px);
-  margin:8px 0;
-}
-
-.name-stage p{
-  color:#c4c0b2;
-  line-height:2;
-  font-size:12px;
-}
-
-.name-box{
-  margin:30px auto 0;
-  max-width:480px;
-  padding:25px;
-  border-radius:25px;
-  border:1px solid #e2be5d42;
-  background:#021c15cc;
-  backdrop-filter:blur(12px);
-}
-
-.name-box input{
-  width:100%;
-  border:1px solid #49675d;
-  background:#01150f;
-  color:white;
-  padding:17px;
-  border-radius:15px;
-  outline:none;
-  text-align:center;
-  font-size:14px;
-}
-
-.name-box input:focus{
-  border-color:#e1bd61;
-}
-
-.gold-btn{
-  margin-top:14px;
-  border:1px solid #ffe39a;
-  border-radius:40px;
-  padding:14px 27px;
-  cursor:pointer;
-  font-weight:800;
-  color:#182117;
-  background:linear-gradient(100deg,#a77524,#ffe99c,#bd8c32);
-  box-shadow:0 12px 35px #0005;
-}
-
-/* =========================
-   PERSONAL SHIELD CARD
-========================= */
-
-#cardOverlay{
-  position:fixed;
-  inset:0;
-  z-index:5000;
-  display:none;
-  place-items:center;
-  overflow:auto;
-  padding:25px 12px;
-  background:
-    radial-gradient(circle at center,#0b5139,#021b14 58%,#010a07);
-}
-
-#cardOverlay.show{
-  display:grid;
-  animation:overlayIn .7s ease;
-}
-
-@keyframes overlayIn{
-  from{opacity:0}
-}
-
-.guard-card{
-  position:relative;
-  width:min(520px,94vw);
-  min-height:690px;
-  padding:50px 32px 40px;
-  text-align:center;
-  overflow:hidden;
-  border:1px solid #f1cf73;
-  border-radius:4px;
-  background:
-    radial-gradient(circle at 50% 20%,rgba(10,109,72,.6),transparent 32%),
-    linear-gradient(155deg,#062e22,#021a13 65%,#01100c);
-  box-shadow:
-    0 0 0 7px #041c15,
-    0 0 0 8px #b88a36,
-    0 30px 100px #000c;
-  animation:cardEnter 1s cubic-bezier(.2,.8,.2,1);
-}
-
-@keyframes cardEnter{
-  from{
-    opacity:0;
-    transform:translateY(80px) scale(.88);
-  }
-}
-
-.corner{
-  position:absolute;
-  width:90px;
-  height:90px;
-  border-color:#dcb75b;
-}
-
-.c1{
-  top:15px;right:15px;
-  border-top:2px solid;
-  border-right:2px solid;
-}
-
-.c2{
-  top:15px;left:15px;
-  border-top:2px solid;
-  border-left:2px solid;
-}
-
-.c3{
-  bottom:15px;right:15px;
-  border-bottom:2px solid;
-  border-right:2px solid;
-}
-
-.c4{
-  bottom:15px;left:15px;
-  border-bottom:2px solid;
-  border-left:2px solid;
-}
-
-.card-school{
-  color:#cfb365;
-  font-size:10px;
-  margin-bottom:10px;
-}
-
-.card-title{
-  color:#f3d77f;
-  font-size:37px;
-  font-weight:800;
-}
-
-.card-shield{
-  width:135px;
-  height:160px;
-  margin:25px auto;
-  position:relative;
-  clip-path:polygon(50% 0,91% 13%,88% 62%,77% 80%,50% 100%,23% 80%,12% 62%,9% 13%);
-  background:linear-gradient(135deg,#805716,#ffe69c,#9b6c20);
-  padding:5px;
-  filter:drop-shadow(0 15px 30px #0009);
-  animation:shieldDrop 1s .3s both;
-}
-
-@keyframes shieldDrop{
-  from{
-    opacity:0;
-    transform:translateY(-60px) scale(.7);
-  }
-}
-
-.card-shield-inner{
-  width:100%;
-  height:100%;
-  clip-path:inherit;
-  display:grid;
-  place-items:center;
-  background:radial-gradient(circle,#0b6848,#03281d);
-}
-
-.card-shield-inner span{
-  color:#f5dc8b;
-  font-size:52px;
-}
-
-.quote-label{
-  color:#a99b6c;
-  font-size:9px;
-}
-
-#nationalQuote{
-  min-height:75px;
-  max-width:390px;
-  margin:10px auto 25px;
-  color:#f7e9b6;
-  font-size:16px;
-  line-height:2;
-  font-weight:600;
-}
-
-.card-divider{
-  width:80px;
-  height:1px;
-  margin:18px auto;
-  background:linear-gradient(90deg,transparent,#e0bd61,transparent);
-}
-
-.student-label{
-  color:#a69e83;
-  font-size:9px;
-}
-
-#cardName{
-  color:#f5d97e;
-  font-size:30px;
-  font-weight:800;
-  margin:6px 0;
-  animation:nameReveal 1s .8s both;
-}
-
-@keyframes nameReveal{
-  from{
-    opacity:0;
-    letter-spacing:12px;
-  }
-}
-
-#guardNumber{
-  display:inline-block;
-  margin-top:10px;
-  padding:8px 20px;
-  border:1px solid #cba85366;
-  border-radius:30px;
-  color:#d6c38c;
-  font-size:11px;
-}
-
-.card-actions{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-top:25px;
-}
-
-.card-action{
-  border:1px solid #d6b45a70;
-  background:#062a20;
-  color:#ead58f;
-  padding:10px 18px;
-  border-radius:30px;
-  cursor:pointer;
-}
-
-/* SCHOOL */
-
 .about{
   background:#021710;
 }
 
 .school-card{
-  border:1px solid #dfbd602f;
+  border:1px solid #dfbd6033;
   border-radius:28px;
   padding:40px;
-  background:linear-gradient(145deg,#073628,#021a13);
+  background:
+    linear-gradient(145deg,#073628,#021a13);
+  box-shadow:0 30px 80px #0005;
 }
 
 .school-name{
@@ -815,12 +527,23 @@ nav{
 }
 
 .person small{color:#b89d55}
-.person h3{color:#f3dfa0}
+
+.person h3{
+  color:#f3dfa0;
+  margin:8px 0;
+}
+
+.person p{
+  color:#b8b7ac;
+  font-size:11px;
+  line-height:2;
+}
 
 .teacher-tags{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
+  margin-top:12px;
 }
 
 .teacher-tags span{
@@ -830,70 +553,393 @@ nav{
   font-size:10px;
 }
 
-/* PARTICIPATION */
+/* =========================
+   الاسم فقط
+========================= */
 
-.participate{
-  background:
-    radial-gradient(circle at top,#084e37,#021710 50%);
-}
-
-.form{
-  max-width:700px;
-  margin:auto;
-  padding:30px;
-  border:1px solid #d8b65b35;
-  border-radius:25px;
-  background:#04271d;
-}
-
-.form input,.form textarea{
-  width:100%;
-  margin-top:12px;
-  padding:15px;
-  border-radius:14px;
-  border:1px solid #34584b;
-  background:#011710;
-  color:white;
-  outline:none;
-}
-
-.form textarea{
-  min-height:120px;
-  resize:vertical;
-}
-
-.wall{
-  background:#01120d;
-}
-
-.wall-grid{
+.guardian{
+  min-height:100svh;
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+  padding:100px 20px;
+  background:
+    radial-gradient(circle at 50% 40%,#0b6042 0,#03271c 40%,#010e0a 80%);
 }
 
-.post{
-  padding:22px;
-  border-radius:20px;
-  border:1px solid #d8b65b31;
-  background:linear-gradient(145deg,#073326,#021b14);
+.guardian::before{
+  content:"";
+  position:absolute;
+  width:650px;
+  height:650px;
+  border-radius:50%;
+  border:1px solid #e2be5d20;
+  box-shadow:
+    0 0 0 80px #e2be5d08,
+    0 0 0 160px #e2be5d04;
 }
 
-.post small{color:#b89e59}
-.post h4{color:#f2da91}
-.post p{
-  color:#c5c1b4;
-  font-size:11px;
-  line-height:1.9;
-}
-
-.empty{
-  grid-column:1/-1;
+.name-stage{
+  position:relative;
+  z-index:3;
+  width:min(620px,100%);
   text-align:center;
-  padding:45px;
-  color:#888e84;
-  border:1px dashed #d7b45a2e;
-  border-radius:20px;
+}
+
+.mini-shield{
+  width:90px;
+  height:105px;
+  margin:0 auto 20px;
+  clip-path:
+    polygon(50% 0,91% 14%,87% 65%,50% 100%,13% 65%,9% 14%);
+  background:
+    linear-gradient(135deg,#8a611d,#ffe496,#a97928);
+  padding:4px;
+}
+
+.mini-shield div{
+  width:100%;
+  height:100%;
+  clip-path:inherit;
+  display:grid;
+  place-items:center;
+  background:#073b2a;
+  color:#f6d97d;
+  font-size:35px;
+}
+
+.name-stage h2{
+  color:#f4d77e;
+  font-size:clamp(30px,7vw,53px);
+  margin:8px 0;
+}
+
+.name-stage p{
+  color:#c4c0b2;
+  line-height:2;
+  font-size:12px;
+}
+
+.name-box{
+  margin:30px auto 0;
+  max-width:480px;
+  padding:25px;
+  border-radius:25px;
+  border:1px solid #e2be5d42;
+  background:#021c15d9;
+  backdrop-filter:blur(12px);
+}
+
+.name-box input{
+  width:100%;
+  border:1px solid #49675d;
+  background:#01150f;
+  color:white;
+  padding:17px;
+  border-radius:15px;
+  outline:none;
+  text-align:center;
+  font-size:15px;
+}
+
+.name-box input:focus{
+  border-color:#e1bd61;
+  box-shadow:0 0 0 3px #d7b55812;
+}
+
+.gold-btn{
+  width:100%;
+  margin-top:14px;
+  border:1px solid #ffe39a;
+  border-radius:40px;
+  padding:14px 27px;
+  cursor:pointer;
+  font-weight:800;
+  color:#182117;
+  background:
+    linear-gradient(100deg,#a77524,#ffe99c,#bd8c32);
+  box-shadow:0 12px 35px #0005;
+}
+
+/* =========================
+   بطاقة حارسة الدرع
+========================= */
+
+#cardOverlay{
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  display:none;
+  place-items:center;
+  overflow:auto;
+  padding:28px 12px;
+  background:
+    radial-gradient(circle at center,#0b5139,#021b14 58%,#010a07);
+}
+
+#cardOverlay.show{
+  display:grid;
+  animation:overlayIn .7s ease;
+}
+
+@keyframes overlayIn{
+  from{opacity:0}
+}
+
+.guard-card{
+  position:relative;
+  width:min(520px,94vw);
+  min-height:700px;
+  padding:47px 30px 38px;
+  text-align:center;
+  overflow:hidden;
+  border:1px solid #f1cf73;
+  background:
+    radial-gradient(circle at 50% 20%,rgba(10,109,72,.62),transparent 32%),
+    linear-gradient(155deg,#062e22,#021a13 65%,#01100c);
+  box-shadow:
+    0 0 0 7px #041c15,
+    0 0 0 8px #b88a36,
+    0 30px 100px #000c;
+  animation:
+    cardEnter 1s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes cardEnter{
+  from{
+    opacity:0;
+    transform:translateY(80px) scale(.88)
+  }
+}
+
+.guard-card::before{
+  content:"";
+  position:absolute;
+  inset:22px;
+  pointer-events:none;
+  border:1px solid rgba(231,194,95,.25);
+}
+
+.corner{
+  position:absolute;
+  width:95px;
+  height:95px;
+  border-color:#dcb75b;
+}
+
+.c1{
+  top:15px;
+  right:15px;
+  border-top:2px solid;
+  border-right:2px solid;
+}
+
+.c2{
+  top:15px;
+  left:15px;
+  border-top:2px solid;
+  border-left:2px solid;
+}
+
+.c3{
+  bottom:15px;
+  right:15px;
+  border-bottom:2px solid;
+  border-right:2px solid;
+}
+
+.c4{
+  bottom:15px;
+  left:15px;
+  border-bottom:2px solid;
+  border-left:2px solid;
+}
+
+.card-school{
+  position:relative;
+  color:#cfb365;
+  font-size:10px;
+}
+
+.card-title{
+  position:relative;
+  margin-top:5px;
+  color:#f3d77f;
+  font-size:38px;
+  font-weight:800;
+}
+
+.card-shield{
+  width:140px;
+  height:165px;
+  margin:25px auto;
+  position:relative;
+  clip-path:
+    polygon(50% 0,91% 13%,88% 62%,77% 80%,50% 100%,23% 80%,12% 62%,9% 13%);
+  background:
+    linear-gradient(135deg,#805716,#ffe69c,#9b6c20);
+  padding:5px;
+  filter:drop-shadow(0 15px 30px #0009);
+  animation:shieldDrop 1s .3s both;
+}
+
+@keyframes shieldDrop{
+  from{
+    opacity:0;
+    transform:translateY(-60px) scale(.7)
+  }
+}
+
+.card-shield-inner{
+  width:100%;
+  height:100%;
+  clip-path:inherit;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle,#0b6848,#03281d);
+}
+
+.card-shield-inner span{
+  color:#f5dc8b;
+  font-size:54px;
+}
+
+.quote-label{
+  color:#a99b6c;
+  font-size:9px;
+}
+
+#nationalQuote{
+  min-height:85px;
+  max-width:390px;
+  margin:10px auto 22px;
+  color:#f7e9b6;
+  font-size:16px;
+  line-height:2;
+  font-weight:600;
+}
+
+.card-divider{
+  width:90px;
+  height:1px;
+  margin:18px auto;
+  background:
+    linear-gradient(90deg,transparent,#e0bd61,transparent);
+}
+
+.student-label{
+  color:#a69e83;
+  font-size:9px;
+}
+
+#cardName{
+  color:#f5d97e;
+  font-size:30px;
+  font-weight:800;
+  margin:7px 0;
+  animation:nameReveal 1s .7s both;
+}
+
+@keyframes nameReveal{
+  from{
+    opacity:0;
+    transform:translateY(15px);
+    letter-spacing:10px
+  }
+}
+
+#guardNumber{
+  display:inline-block;
+  margin-top:10px;
+  padding:8px 20px;
+  border:1px solid #cba85366;
+  border-radius:30px;
+  color:#d6c38c;
+  font-size:11px;
+}
+
+.success-text{
+  margin:22px auto 0;
+  max-width:360px;
+  color:#aeb2a7;
+  font-size:10px;
+  line-height:2;
+}
+
+.card-action{
+  margin-top:18px;
+  border:1px solid #d6b45a70;
+  background:#062a20;
+  color:#ead58f;
+  padding:11px 22px;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+/* =========================
+   AUDIO
+========================= */
+
+#audioBtn{
+  position:fixed;
+  left:18px;
+  bottom:18px;
+  z-index:850;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  border:1px solid #e3bd5d88;
+  background:#052c21ed;
+  color:#f5d777;
+  display:none;
+  place-items:center;
+  cursor:pointer;
+  box-shadow:0 12px 35px #0008;
+}
+
+#audioBtn.show{
+  display:grid;
+}
+
+.bars{
+  display:flex;
+  align-items:flex-end;
+  gap:3px;
+  height:18px;
+}
+
+.bars i{
+  width:3px;
+  background:#f5d777;
+  border-radius:5px;
+  animation:music .65s infinite alternate;
+}
+
+.bars i:nth-child(1){height:7px}
+.bars i:nth-child(2){height:17px;animation-delay:.2s}
+.bars i:nth-child(3){height:11px;animation-delay:.4s}
+.bars i:nth-child(4){height:15px;animation-delay:.1s}
+
+#audioBtn.paused i{
+  animation:none;
+  height:4px;
+}
+
+@keyframes music{
+  to{height:4px}
+}
+
+#ytHolder{
+  position:fixed;
+  left:-100px;
+  bottom:-100px;
+  width:2px;
+  height:2px;
+  opacity:.01;
+  overflow:hidden;
+  pointer-events:none;
 }
 
 footer{
@@ -904,23 +950,30 @@ footer{
   font-size:10px;
 }
 
-/* youtube */
-#ytHolder{
-  position:fixed;
-  left:-100px;
-  bottom:-100px;
-  width:2px;
-  height:2px;
-  overflow:hidden;
-  opacity:.01;
+/* ظهور */
+
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:.85s;
 }
 
-/* MOBILE */
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
 
 @media(max-width:700px){
-  nav{height:60px;padding:0 14px}
+
+  nav{
+    height:60px;
+    padding:0 14px;
+  }
+
   .brand{font-size:10px}
+
   .links{gap:9px}
+
   .links a{font-size:8px}
 
   .hero{
@@ -928,19 +981,27 @@ footer{
     justify-content:center;
   }
 
-  .hero-line{margin:22px auto}
+  .hero-line{
+    margin:22px auto;
+  }
 
-  .people{grid-template-columns:1fr}
-  .wall-grid{grid-template-columns:1fr}
+  .people{
+    grid-template-columns:1fr;
+  }
 
-  .school-card{padding:24px 18px}
+  .school-card{
+    padding:24px 18px;
+  }
 
   .guard-card{
-    min-height:650px;
+    min-height:660px;
     padding:42px 22px 35px;
   }
 
-  .card-title{font-size:31px}
+  .card-title{
+    font-size:31px;
+  }
+
 }
 
 </style>
@@ -948,7 +1009,7 @@ footer{
 
 <body class="lock">
 
-<!-- INTRO -->
+<!-- البصمة -->
 
 <section id="gate">
 
@@ -965,7 +1026,9 @@ footer{
 <div class="shield-border"></div>
 <div class="shield-core"></div>
 
-<div class="gate-title">درع الوطن</div>
+<div class="gate-title">
+درع الوطن
+</div>
 
 <div class="fingerprint" id="fingerprint">
 
@@ -1006,25 +1069,30 @@ footer{
 </div>
 
 </div>
+
 </section>
 
 
-<!-- SITE -->
+<!-- الموقع -->
 
 <div id="app">
 
 <nav>
-<div class="brand">درع الوطن</div>
+
+<div class="brand">
+درع الوطن
+</div>
 
 <div class="links">
 <a href="#home">الرئيسية</a>
-<a href="#guardian">درعك</a>
 <a href="#school">مدرستنا</a>
-<a href="#participate">شاركي</a>
-<a href="#wall">الحائط</a>
+<a href="#guardian">استلمي درعك</a>
 </div>
+
 </nav>
 
+
+<!-- الرئيسية -->
 
 <section class="hero" id="home">
 
@@ -1034,7 +1102,9 @@ footer{
 الابتدائية الخامسة والأربعون
 </div>
 
-<h1 class="reveal">درع الوطن</h1>
+<h1 class="reveal">
+درع الوطن
+</h1>
 
 <h2 class="reveal">
 وطنٌ نحبه... وعهدٌ نحفظه
@@ -1043,55 +1113,21 @@ footer{
 <div class="hero-line reveal"></div>
 
 <p class="reveal">
-رحلة وطنية تجمع العلم والانتماء والوفاء،
-وتمنح كل طالبة درعًا يحمل اسمها وأثرها،
-لتكون حارسةً جديدة من حارسات درع الوطن.
+رحلة وطنية تبدأ ببصمتك،
+وتحمل اسمك لتصبحي واحدةً من حارسات درع الوطن.
+بالعلم والانتماء نصنع أثرًا يليق بوطننا.
 </p>
 
 </div>
+
+<div class="down">
+اكتشفي درعك ↓
+</div>
+
 </section>
 
 
-<!-- NAME -->
-
-<section class="guardian" id="guardian">
-
-<div class="name-stage reveal">
-
-<div class="mini-shield">
-<div>✦</div>
-</div>
-
-<div class="kicker">هويتك الوطنية</div>
-
-<h2>أنتِ جزء من الدرع</h2>
-
-<p>
-اكتبي اسمك، وسيُصنع لك درع شخصي
-يحمل اسمك وعبارة وطنية خاصة بك.
-</p>
-
-<div class="name-box">
-
-<input
-id="guardianName"
-type="text"
-maxlength="30"
-placeholder="اكتبي اسمك هنا">
-
-<button
-class="gold-btn"
-onclick="createGuardianCard()">
-استلمي درعك
-</button>
-
-</div>
-
-</div>
-</section>
-
-
-<!-- SCHOOL -->
+<!-- المدرسة -->
 
 <section class="section about" id="school">
 
@@ -1101,7 +1137,7 @@ onclick="createGuardianCard()">
 <small>قيادة • تعليم • انتماء</small>
 <h2>مدرستنا</h2>
 <p>
-بالعلم نبني المستقبل، وبالانتماء نحفظ الوطن.
+بالعلم نصنع المستقبل، وبالقيم والانتماء نحفظ الوطن.
 </p>
 </div>
 
@@ -1116,7 +1152,9 @@ onclick="createGuardianCard()">
 <div class="person">
 <small>مديرة المدرسة</small>
 <h3>هبة فلمبان</h3>
-<p>بقيادة تصنع الإلهام، وبالعلم نبني مستقبل الوطن.</p>
+<p>
+بقيادة تصنع الإلهام، وبالعلم نبني مستقبل الوطن.
+</p>
 </div>
 
 <div class="person">
@@ -1129,69 +1167,62 @@ onclick="createGuardianCard()">
 <span>دارالهناء الحربي</span>
 </div>
 
-<p>بعطاء المعلمة تبدأ المعرفة، وبالمعرفة يزدهر الوطن.</p>
+<p>
+بعطاء المعلمة تبدأ المعرفة،
+وبالمعرفة يزدهر الوطن.
+</p>
+
+</div>
 
 </div>
 </div>
 </div>
-</div>
+
 </section>
 
 
-<!-- PARTICIPATION -->
+<!-- الاسم فقط -->
 
-<section class="section participate" id="participate">
+<section class="guardian" id="guardian">
 
-<div class="container">
+<div class="name-stage reveal">
 
-<div class="heading reveal">
-<small>أضيفي أثرك</small>
-<h2>رسالتك للوطن</h2>
-<p>
-اكتبي كلماتك لتصبح جزءًا من حائط درع الوطن.
-</p>
+<div class="mini-shield">
+<div>✦</div>
 </div>
 
-<div class="form reveal">
+<div class="kicker">
+حارسات درع الوطن
+</div>
+
+<h2>
+حان وقت استلام درعك
+</h2>
+
+<p>
+اكتبي اسمك فقط، وسيظهر درعك الشخصي
+وعبارتك الوطنية ورقمك بين حارسات الدرع.
+</p>
+
+<div class="name-box">
 
 <input
-id="postName"
+id="guardianName"
 type="text"
-placeholder="اسم الطالبة">
-
-<textarea
-id="postMessage"
-placeholder="اكتبي رسالتك الوطنية هنا..."></textarea>
+maxlength="30"
+autocomplete="off"
+placeholder="اكتبي اسمك هنا">
 
 <button
 class="gold-btn"
-onclick="addPost()">
-أضيفي مشاركتي
+onclick="createGuardianCard()">
+استلمي درعك
 </button>
 
 </div>
 
 </div>
-</section>
 
-
-<!-- WALL -->
-
-<section class="section wall" id="wall">
-
-<div class="container">
-
-<div class="heading reveal">
-<small>أثرٌ يبقى</small>
-<h2>حائط الدرع</h2>
-<p>
-هنا تجتمع كلمات حارسات درع الوطن.
-</p>
-</div>
-
-<div class="wall-grid reveal" id="wallGrid"></div>
-
-</div>
 </section>
 
 
@@ -1204,11 +1235,11 @@ onclick="addPost()">
 </div>
 
 
-<!-- PERSONAL CARD -->
+<!-- البطاقة -->
 
 <div id="cardOverlay">
 
-<div class="guard-card" id="guardCard">
+<div class="guard-card">
 
 <div class="corner c1"></div>
 <div class="corner c2"></div>
@@ -1224,13 +1255,15 @@ onclick="addPost()">
 </div>
 
 <div class="card-shield">
+
 <div class="card-shield-inner">
 <span>✦</span>
 </div>
+
 </div>
 
 <div class="quote-label">
-رسالتك الوطنية
+عبارتك الوطنية
 </div>
 
 <div id="nationalQuote"></div>
@@ -1238,33 +1271,40 @@ onclick="addPost()">
 <div class="card-divider"></div>
 
 <div class="student-label">
-حارسة من حارسات الوطن
+شاركتِ في رحلة درع الوطن
 </div>
 
 <div id="cardName"></div>
 
 <div id="guardNumber"></div>
 
-<div class="card-actions">
+<div class="success-text">
+ببصمتك واسمك أصبحتِ واحدةً من حارسات درع الوطن،
+فليكن علمك وعطاؤك أثرًا يليق بوطنك.
+</div>
 
 <button
 class="card-action"
 onclick="closeCard()">
-متابعة الرحلة
+العودة للرئيسية
 </button>
 
 </div>
 
 </div>
-</div>
 
 
-<!-- AUDIO -->
+<!-- النشيد -->
 
-<button id="audioBtn" onclick="toggleAudio()">
+<button id="audioBtn" onclick="toggleAudio()" aria-label="الصوت">
+
 <span class="bars">
-<i></i><i></i><i></i><i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
 </span>
+
 </button>
 
 <div id="ytHolder">
@@ -1276,10 +1316,10 @@ onclick="closeCard()">
 <script>
 
 /* =========================
-   YOUTUBE ANTHEM
+   النشيد
 ========================= */
 
-let player;
+let player=null;
 let playerReady=false;
 let anthemPlaying=false;
 let startRequested=false;
@@ -1287,8 +1327,10 @@ let startRequested=false;
 function onYouTubeIframeAPIReady(){
 
   player=new YT.Player("anthemPlayer",{
+
     width:"2",
     height:"2",
+
     videoId:"-jU8Wt1LU4g",
 
     playerVars:{
@@ -1301,76 +1343,101 @@ function onYouTubeIframeAPIReady(){
     events:{
 
       onReady:function(){
+
         playerReady=true;
 
         if(startRequested){
-          playAnthem();
+          startAnthem();
         }
+
       },
 
-      onStateChange:function(e){
+      onStateChange:function(event){
 
-        if(e.data===YT.PlayerState.PLAYING){
+        const button=
+          document.getElementById("audioBtn");
+
+        if(event.data===YT.PlayerState.PLAYING){
+
           anthemPlaying=true;
-          document.getElementById("audioBtn")
-            .classList.remove("paused");
+          button.classList.remove("paused");
+
         }
 
         if(
-          e.data===YT.PlayerState.PAUSED ||
-          e.data===YT.PlayerState.ENDED
+          event.data===YT.PlayerState.PAUSED ||
+          event.data===YT.PlayerState.ENDED
         ){
+
           anthemPlaying=false;
-          document.getElementById("audioBtn")
-            .classList.add("paused");
+          button.classList.add("paused");
+
         }
 
       }
 
     }
+
   });
 
 }
 
-function playAnthem(){
+
+function startAnthem(){
 
   startRequested=true;
 
-  const btn=document.getElementById("audioBtn");
-  btn.classList.add("show");
+  document.getElementById("audioBtn")
+    .classList.add("show");
 
   if(playerReady && player){
 
     try{
+
       player.unMute();
       player.setVolume(100);
       player.playVideo();
-    }catch(e){}
+
+    }catch(error){}
 
   }
+
 }
+
 
 function toggleAudio(){
 
-  if(!playerReady || !player)return;
+  if(!playerReady || !player){
+    return;
+  }
 
   if(anthemPlaying){
+
     player.pauseVideo();
+
   }else{
+
     player.unMute();
+    player.setVolume(100);
     player.playVideo();
+
   }
 
 }
 
 
 /* =========================
-   REAL FINGERPRINT SWIPE
+   البصمة
 ========================= */
 
-const fingerprint=document.getElementById("fingerprint");
-const instruction=document.getElementById("instruction");
-const scanProgress=document.getElementById("scanProgress");
+const fingerprint=
+  document.getElementById("fingerprint");
+
+const instruction=
+  document.getElementById("instruction");
+
+const progressBar=
+  document.getElementById("scanProgress");
 
 let scanning=false;
 let verified=false;
@@ -1378,53 +1445,66 @@ let verified=false;
 let minY=9999;
 let maxY=-9999;
 
-function scanStart(y){
 
-  if(verified)return;
+function startScan(y){
+
+  if(verified){
+    return;
+  }
 
   scanning=true;
+
   minY=y;
   maxY=y;
 
   fingerprint.classList.add("scanning");
 
   instruction.textContent=
-    "جارٍ قراءة البصمة... مرّري إصبعك";
+    "جارٍ مسح البصمة... استمري";
 
 }
 
-function scanMove(y){
 
-  if(!scanning || verified)return;
+function moveScan(y){
 
-  const rect=fingerprint.getBoundingClientRect();
+  if(!scanning || verified){
+    return;
+  }
 
-  let localY=y-rect.top;
+  const rect=
+    fingerprint.getBoundingClientRect();
 
-  localY=Math.max(10,Math.min(rect.height-10,localY));
+  let localY=
+    y-rect.top;
 
-  const percentage=(localY/rect.height)*100;
+  localY=
+    Math.max(
+      10,
+      Math.min(rect.height-10,localY)
+    );
+
+  const linePercent=
+    (localY/rect.height)*100;
 
   document.documentElement.style.setProperty(
     "--scanY",
-    percentage+"%"
+    linePercent+"%"
   );
 
   minY=Math.min(minY,y);
   maxY=Math.max(maxY,y);
 
-  const travelled=maxY-minY;
+  const travelled=
+    maxY-minY;
 
-  const required=rect.height*.60;
+  const required=
+    rect.height*.60;
 
-  const progress=Math.min(travelled/required,1);
+  const progress=
+    Math.min(travelled/required,1);
 
-  scanProgress.style.width=(progress*100)+"%";
-
-  /*
-    لازم إصبعها يمر على 60% من مساحة البصمة.
-    الطقة لوحدها ما تنجح.
-  */
+  progressBar.style.width=
+    (progress*100)+"%";
 
   if(progress>=1){
     scanSuccess();
@@ -1432,14 +1512,18 @@ function scanMove(y){
 
 }
 
-function scanEnd(){
 
-  if(verified)return;
+function cancelScan(){
+
+  if(verified){
+    return;
+  }
 
   scanning=false;
+
   fingerprint.classList.remove("scanning");
 
-  scanProgress.style.width="0%";
+  progressBar.style.width="0%";
 
   document.documentElement.style.setProperty(
     "--scanY",
@@ -1451,9 +1535,12 @@ function scanEnd(){
 
 }
 
+
 function scanSuccess(){
 
-  if(verified)return;
+  if(verified){
+    return;
+  }
 
   verified=true;
   scanning=false;
@@ -1461,19 +1548,19 @@ function scanSuccess(){
   fingerprint.classList.remove("scanning");
   fingerprint.classList.add("verified");
 
-  scanProgress.style.width="100%";
+  progressBar.style.width="100%";
 
   instruction.textContent=
     "تم التحقق بنجاح ✓";
 
   /*
-    تشغيل النشيد في نفس لحظة نجاح
-    تفاعل المستخدم مع البصمة.
+    هنا نحاول تشغيل النشيد فورًا
+    من نفس تفاعل البصمة.
   */
-  playAnthem();
+  startAnthem();
 
   if(navigator.vibrate){
-    navigator.vibrate([50,30,80]);
+    navigator.vibrate(70);
   }
 
   setTimeout(openSite,650);
@@ -1481,121 +1568,145 @@ function scanSuccess(){
 }
 
 
-/* TOUCH */
+/* اللمس */
 
 fingerprint.addEventListener(
-"touchstart",
-function(e){
+  "touchstart",
+  function(event){
 
-  e.preventDefault();
+    event.preventDefault();
 
-  if(e.touches[0]){
-    scanStart(e.touches[0].clientY);
-  }
+    if(event.touches[0]){
+      startScan(
+        event.touches[0].clientY
+      );
+    }
 
-},
-{passive:false}
-);
-
-fingerprint.addEventListener(
-"touchmove",
-function(e){
-
-  e.preventDefault();
-
-  if(e.touches[0]){
-    scanMove(e.touches[0].clientY);
-  }
-
-},
-{passive:false}
-);
-
-fingerprint.addEventListener(
-"touchend",
-function(e){
-
-  e.preventDefault();
-
-  if(!verified){
-    scanEnd();
-  }
-
-},
-{passive:false}
+  },
+  {passive:false}
 );
 
 
-/* POINTER */
-
 fingerprint.addEventListener(
-"pointerdown",
-function(e){
+  "touchmove",
+  function(event){
 
-  if(e.pointerType==="touch")return;
+    event.preventDefault();
 
-  scanStart(e.clientY);
+    if(event.touches[0]){
+      moveScan(
+        event.touches[0].clientY
+      );
+    }
 
-  try{
-    fingerprint.setPointerCapture(e.pointerId);
-  }catch(err){}
-
-}
+  },
+  {passive:false}
 );
 
+
 fingerprint.addEventListener(
-"pointermove",
-function(e){
+  "touchend",
+  function(event){
 
-  if(e.pointerType==="touch")return;
+    event.preventDefault();
 
-  if(scanning){
-    scanMove(e.clientY);
-  }
+    if(!verified){
+      cancelScan();
+    }
 
-}
+  },
+  {passive:false}
 );
 
+
+/* الماوس / المؤشر */
+
 fingerprint.addEventListener(
-"pointerup",
-function(e){
+  "pointerdown",
+  function(event){
 
-  if(e.pointerType==="touch")return;
+    if(event.pointerType==="touch"){
+      return;
+    }
 
-  if(!verified){
-    scanEnd();
+    startScan(event.clientY);
+
+    try{
+      fingerprint.setPointerCapture(
+        event.pointerId
+      );
+    }catch(error){}
+
   }
+);
 
-}
+
+fingerprint.addEventListener(
+  "pointermove",
+  function(event){
+
+    if(event.pointerType==="touch"){
+      return;
+    }
+
+    if(scanning){
+      moveScan(event.clientY);
+    }
+
+  }
+);
+
+
+fingerprint.addEventListener(
+  "pointerup",
+  function(event){
+
+    if(event.pointerType==="touch"){
+      return;
+    }
+
+    if(!verified){
+      cancelScan();
+    }
+
+  }
 );
 
 
 /* =========================
-   ENTER SITE
+   فتح الموقع
 ========================= */
 
 function openSite(){
 
-  const gate=document.getElementById("gate");
-  const app=document.getElementById("app");
+  const gate=
+    document.getElementById("gate");
+
+  const app=
+    document.getElementById("app");
 
   gate.classList.add("success");
 
   setTimeout(function(){
 
     app.classList.add("visible");
+
     document.body.classList.remove("lock");
 
   },800);
 
   setTimeout(function(){
+
     gate.classList.add("leave");
+
   },1200);
 
   setTimeout(function(){
 
     gate.style.display="none";
+
     window.scrollTo(0,0);
+
     activateReveal();
 
   },1900);
@@ -1604,37 +1715,52 @@ function openSite(){
 
 
 /* =========================
-   REVEAL
+   ظهور العناصر
 ========================= */
 
 function activateReveal(){
 
-  const observer=new IntersectionObserver(
-    function(entries){
+  const observer=
+    new IntersectionObserver(
 
-      entries.forEach(function(entry){
+      function(entries){
 
-        if(entry.isIntersecting){
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
+        entries.forEach(
+          function(entry){
 
-      });
+            if(entry.isIntersecting){
 
-    },
-    {threshold:.1}
-  );
+              entry.target.classList.add(
+                "visible"
+              );
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          }
+        );
+
+      },
+
+      {threshold:.1}
+
+    );
 
   document.querySelectorAll(".reveal")
-    .forEach(function(item){
-      observer.observe(item);
+    .forEach(function(element){
+
+      observer.observe(element);
+
     });
 
 }
 
 
 /* =========================
-   GUARDIAN CARD
+   العبارات الوطنية
 ========================= */
 
 const nationalQuotes=[
@@ -1661,23 +1787,33 @@ const nationalQuotes=[
 
 "كل إنجاز نصنعه اليوم هو هدية لمستقبل وطننا.",
 
-"للوطن في القلب مكان، وفي العمل أثر، وفي المستقبل وعد."
+"للوطن في القلب مكان، وفي العمل أثر، وفي المستقبل وعد.",
+
+"السعودية فخرٌ نعتز به، ومستقبلٌ نشارك في صناعته.",
+
+"وطني أمانة، وعلمي طريق لخدمته.",
+
+"من أرض الوطن يبدأ الحلم، وبالعطاء يصبح إنجازًا."
 
 ];
 
 
-/*
-  نفس الاسم يعطي نفس الرقم تقريباً
-  حتى لو فتحت الطالبة بطاقتها مرة ثانية.
-*/
+/* =========================
+   صناعة بطاقة الطالبة
+========================= */
 
 function nameHash(name){
 
   let hash=0;
 
   for(let i=0;i<name.length;i++){
-    hash=((hash<<5)-hash)+name.charCodeAt(i);
+
+    hash=
+      ((hash<<5)-hash)
+      +name.charCodeAt(i);
+
     hash|=0;
+
   }
 
   return Math.abs(hash);
@@ -1687,18 +1823,31 @@ function nameHash(name){
 
 function createGuardianCard(){
 
-  const input=document.getElementById("guardianName");
-  const name=input.value.trim();
+  const input=
+    document.getElementById(
+      "guardianName"
+    );
+
+  const name=
+    input.value.trim();
 
   if(name.length<2){
 
     alert("اكتبي اسمك أولًا ✨");
+
     input.focus();
+
     return;
 
   }
 
-  const hash=nameHash(name);
+  const hash=
+    nameHash(name);
+
+  /*
+    كل اسم يحصل على عبارة
+    من العبارات الموجودة.
+  */
 
   const quote=
     nationalQuotes[
@@ -1706,162 +1855,82 @@ function createGuardianCard(){
     ];
 
   /*
-    أرقام من 101 إلى 999
+    رقم حارسة الدرع
+    من 101 إلى 999
   */
 
   const number=
-    101 + (hash % 899);
+    101+(hash%899);
 
-  document.getElementById("cardName")
-    .textContent=name;
 
-  document.getElementById("nationalQuote")
-    .textContent=quote;
+  document.getElementById(
+    "nationalQuote"
+  ).textContent=quote;
 
-  document.getElementById("guardNumber")
-    .textContent=
-    "حارسة الدرع رقم " + number;
 
-  /*
-    نحط الاسم تلقائياً أيضاً
-    في نموذج المشاركة.
-  */
+  document.getElementById(
+    "cardName"
+  ).textContent=name;
 
-  document.getElementById("postName")
-    .value=name;
 
-  const overlay=
-    document.getElementById("cardOverlay");
+  document.getElementById(
+    "guardNumber"
+  ).textContent=
+    "حارسة الدرع رقم "+number;
 
-  overlay.classList.add("show");
 
-  document.body.classList.add("lock");
+  document.getElementById(
+    "cardOverlay"
+  ).classList.add("show");
+
+
+  document.body.classList.add(
+    "lock"
+  );
 
 }
 
 
 function closeCard(){
 
-  document.getElementById("cardOverlay")
-    .classList.remove("show");
-
-  document.body.classList.remove("lock");
-
-  document.getElementById("participate")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
-}
+  document.getElementById(
+    "cardOverlay"
+  ).classList.remove("show");
 
 
-/* =========================
-   WALL
-========================= */
-
-function safe(text){
-
-  return String(text)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;");
-
-}
-
-
-function getPosts(){
-
-  try{
-
-    return JSON.parse(
-      localStorage.getItem("shield45Posts") || "[]"
-    );
-
-  }catch(e){
-
-    return [];
-
-  }
-
-}
-
-
-function addPost(){
-
-  const name=
-    document.getElementById("postName")
-    .value.trim();
-
-  const message=
-    document.getElementById("postMessage")
-    .value.trim();
-
-  if(!name || !message){
-
-    alert("اكتبي اسم الطالبة والرسالة أولًا");
-    return;
-
-  }
-
-  const posts=getPosts();
-
-  posts.push({
-    name:name,
-    message:message
-  });
-
-  localStorage.setItem(
-    "shield45Posts",
-    JSON.stringify(posts)
+  document.body.classList.remove(
+    "lock"
   );
 
-  document.getElementById("postMessage").value="";
 
-  renderWall();
-
-  alert("تمت إضافة مشاركتك إلى درع الوطن ✓");
-
-  document.getElementById("wall")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
-}
-
-
-function renderWall(){
-
-  const grid=document.getElementById("wallGrid");
-
-  const posts=getPosts().slice().reverse();
-
-  if(posts.length===0){
-
-    grid.innerHTML=
-    '<div class="empty">ستظهر مشاركات حارسات درع الوطن هنا ✦</div>';
-
-    return;
-
-  }
-
-  grid.innerHTML="";
-
-  posts.forEach(function(post){
-
-    grid.innerHTML+=`
-      <article class="post">
-        <small>حارسة درع الوطن</small>
-        <h4>${safe(post.name)}</h4>
-        <p>${safe(post.message)}</p>
-      </article>
-    `;
-
+  document.getElementById(
+    "home"
+  ).scrollIntoView({
+    behavior:"smooth"
   });
 
 }
 
-renderWall();
+
+/*
+  الضغط على Enter بعد كتابة الاسم
+  يطلع البطاقة مباشرة.
+*/
+
+document.getElementById(
+  "guardianName"
+).addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key==="Enter"){
+
+      createGuardianCard();
+
+    }
+
+  }
+);
 
 </script>
 
