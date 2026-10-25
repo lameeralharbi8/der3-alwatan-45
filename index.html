@@ -20,7 +20,6 @@
 }
 
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -32,12 +31,9 @@ body{
 }
 
 body.lock{overflow:hidden}
-
 button,input{font-family:inherit}
 
-/* =========================
-   شاشة البصمة
-========================= */
+/* البصمة */
 
 #gate{
   position:fixed;
@@ -116,15 +112,10 @@ button,input{font-family:inherit}
 }
 
 .shield-border{
-  background:
-    linear-gradient(
-      135deg,
-      #765019,
-      #ffe59a 20%,
-      #a87928 45%,
-      #fff0b0 65%,
-      #825516
-    );
+  background:linear-gradient(
+    135deg,#765019,#ffe59a 20%,
+    #a87928 45%,#fff0b0 65%,#825516
+  );
 }
 
 .shield-core{
@@ -155,8 +146,6 @@ button,input{font-family:inherit}
   text-shadow:0 8px 25px #000;
 }
 
-/* البصمة */
-
 .fingerprint{
   position:absolute;
   z-index:10;
@@ -172,8 +161,7 @@ button,input{font-family:inherit}
   touch-action:none;
   user-select:none;
   -webkit-user-select:none;
-  background:
-    radial-gradient(circle,#073d2b,#021a13 72%);
+  background:radial-gradient(circle,#073d2b,#021a13 72%);
   border:1px solid #e5c56a;
   box-shadow:
     0 0 0 11px rgba(230,195,96,.05),
@@ -210,13 +198,11 @@ button,input{font-family:inherit}
   right:15px;
   height:45px;
   top:calc(var(--scanY) - 22px);
-  background:
-    linear-gradient(
-      transparent,
-      rgba(74,255,182,.12),
-      transparent
-    );
-  transition:top .04s linear;
+  background:linear-gradient(
+    transparent,
+    rgba(74,255,182,.12),
+    transparent
+  );
 }
 
 .fingerprint.scanning{
@@ -236,9 +222,7 @@ button,input{font-family:inherit}
 }
 
 @keyframes successPulse{
-  50%{
-    transform:translateX(-50%) scale(1.08)
-  }
+  50%{transform:translateX(-50%) scale(1.08)}
 }
 
 .check{
@@ -284,8 +268,7 @@ button,input{font-family:inherit}
   display:block;
   height:100%;
   width:0;
-  background:
-    linear-gradient(90deg,#64ffc2,#ffe28a);
+  background:linear-gradient(90deg,#64ffc2,#ffe28a);
   box-shadow:0 0 10px #63ffc1;
 }
 
@@ -329,9 +312,7 @@ button,input{font-family:inherit}
   }
 }
 
-/* =========================
-   الموقع
-========================= */
+/* الموقع */
 
 #app{
   opacity:0;
@@ -373,9 +354,7 @@ nav{
   font-size:10px;
 }
 
-/* =========================
-   HERO
-========================= */
+/* الرئيسية */
 
 .hero{
   min-height:100svh;
@@ -394,13 +373,12 @@ nav{
   content:"";
   position:absolute;
   inset:0;
-  background:
-    linear-gradient(
-      115deg,
-      transparent 20%,
-      rgba(255,235,168,.05) 50%,
-      transparent 72%
-    );
+  background:linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255,235,168,.05) 50%,
+    transparent 72%
+  );
 }
 
 .hero-content{
@@ -431,8 +409,7 @@ nav{
   width:110px;
   height:2px;
   margin:25px 0;
-  background:
-    linear-gradient(90deg,transparent,#f2d478);
+  background:linear-gradient(90deg,transparent,#f2d478);
 }
 
 .hero p{
@@ -454,14 +431,10 @@ nav{
 }
 
 @keyframes down{
-  50%{
-    transform:translate(50%,8px)
-  }
+  50%{transform:translate(50%,8px)}
 }
 
-/* =========================
-   SCHOOL
-========================= */
+/* المدرسة */
 
 .section{
   padding:100px 0;
@@ -477,9 +450,7 @@ nav{
   margin-bottom:45px;
 }
 
-.heading small{
-  color:#c8a854;
-}
+.heading small{color:#c8a854}
 
 .heading h2{
   color:#f1d47a;
@@ -493,16 +464,13 @@ nav{
   line-height:2;
 }
 
-.about{
-  background:#021710;
-}
+.about{background:#021710}
 
 .school-card{
   border:1px solid #dfbd6033;
   border-radius:28px;
   padding:40px;
-  background:
-    linear-gradient(145deg,#073628,#021a13);
+  background:linear-gradient(145deg,#073628,#021a13);
   box-shadow:0 30px 80px #0005;
 }
 
@@ -553,9 +521,7 @@ nav{
   font-size:10px;
 }
 
-/* =========================
-   الاسم فقط
-========================= */
+/* الاسم */
 
 .guardian{
   min-height:100svh;
@@ -591,10 +557,11 @@ nav{
   width:90px;
   height:105px;
   margin:0 auto 20px;
-  clip-path:
-    polygon(50% 0,91% 14%,87% 65%,50% 100%,13% 65%,9% 14%);
-  background:
-    linear-gradient(135deg,#8a611d,#ffe496,#a97928);
+  clip-path:polygon(
+    50% 0,91% 14%,87% 65%,
+    50% 100%,13% 65%,9% 14%
+  );
+  background:linear-gradient(135deg,#8a611d,#ffe496,#a97928);
   padding:4px;
 }
 
@@ -645,7 +612,6 @@ nav{
 
 .name-box input:focus{
   border-color:#e1bd61;
-  box-shadow:0 0 0 3px #d7b55812;
 }
 
 .gold-btn{
@@ -657,14 +623,11 @@ nav{
   cursor:pointer;
   font-weight:800;
   color:#182117;
-  background:
-    linear-gradient(100deg,#a77524,#ffe99c,#bd8c32);
+  background:linear-gradient(100deg,#a77524,#ffe99c,#bd8c32);
   box-shadow:0 12px 35px #0005;
 }
 
-/* =========================
-   بطاقة حارسة الدرع
-========================= */
+/* بطاقة الدرع */
 
 #cardOverlay{
   position:fixed;
@@ -702,8 +665,7 @@ nav{
     0 0 0 7px #041c15,
     0 0 0 8px #b88a36,
     0 30px 100px #000c;
-  animation:
-    cardEnter 1s cubic-bezier(.2,.8,.2,1);
+  animation:cardEnter 1s cubic-bezier(.2,.8,.2,1);
 }
 
 @keyframes cardEnter{
@@ -729,29 +691,25 @@ nav{
 }
 
 .c1{
-  top:15px;
-  right:15px;
+  top:15px;right:15px;
   border-top:2px solid;
   border-right:2px solid;
 }
 
 .c2{
-  top:15px;
-  left:15px;
+  top:15px;left:15px;
   border-top:2px solid;
   border-left:2px solid;
 }
 
 .c3{
-  bottom:15px;
-  right:15px;
+  bottom:15px;right:15px;
   border-bottom:2px solid;
   border-right:2px solid;
 }
 
 .c4{
-  bottom:15px;
-  left:15px;
+  bottom:15px;left:15px;
   border-bottom:2px solid;
   border-left:2px solid;
 }
@@ -775,10 +733,12 @@ nav{
   height:165px;
   margin:25px auto;
   position:relative;
-  clip-path:
-    polygon(50% 0,91% 13%,88% 62%,77% 80%,50% 100%,23% 80%,12% 62%,9% 13%);
-  background:
-    linear-gradient(135deg,#805716,#ffe69c,#9b6c20);
+  clip-path:polygon(
+    50% 0,91% 13%,88% 62%,
+    77% 80%,50% 100%,
+    23% 80%,12% 62%,9% 13%
+  );
+  background:linear-gradient(135deg,#805716,#ffe69c,#9b6c20);
   padding:5px;
   filter:drop-shadow(0 15px 30px #0009);
   animation:shieldDrop 1s .3s both;
@@ -797,8 +757,7 @@ nav{
   clip-path:inherit;
   display:grid;
   place-items:center;
-  background:
-    radial-gradient(circle,#0b6848,#03281d);
+  background:radial-gradient(circle,#0b6848,#03281d);
 }
 
 .card-shield-inner span{
@@ -825,8 +784,7 @@ nav{
   width:90px;
   height:1px;
   margin:18px auto;
-  background:
-    linear-gradient(90deg,transparent,#e0bd61,transparent);
+  background:linear-gradient(90deg,transparent,#e0bd61,transparent);
 }
 
 .student-label{
@@ -839,15 +797,6 @@ nav{
   font-size:30px;
   font-weight:800;
   margin:7px 0;
-  animation:nameReveal 1s .7s both;
-}
-
-@keyframes nameReveal{
-  from{
-    opacity:0;
-    transform:translateY(15px);
-    letter-spacing:10px
-  }
 }
 
 #guardNumber{
@@ -878,9 +827,7 @@ nav{
   cursor:pointer;
 }
 
-/* =========================
-   AUDIO
-========================= */
+/* الصوت */
 
 #audioBtn{
   position:fixed;
@@ -896,12 +843,9 @@ nav{
   display:none;
   place-items:center;
   cursor:pointer;
-  box-shadow:0 12px 35px #0008;
 }
 
-#audioBtn.show{
-  display:grid;
-}
+#audioBtn.show{display:grid}
 
 .bars{
   display:flex;
@@ -939,7 +883,6 @@ nav{
   height:2px;
   opacity:.01;
   overflow:hidden;
-  pointer-events:none;
 }
 
 footer{
@@ -949,8 +892,6 @@ footer{
   color:#747970;
   font-size:10px;
 }
-
-/* ظهور */
 
 .reveal{
   opacity:0;
@@ -964,16 +905,13 @@ footer{
 }
 
 @media(max-width:700px){
-
   nav{
     height:60px;
     padding:0 14px;
   }
 
   .brand{font-size:10px}
-
   .links{gap:9px}
-
   .links a{font-size:8px}
 
   .hero{
@@ -981,27 +919,16 @@ footer{
     justify-content:center;
   }
 
-  .hero-line{
-    margin:22px auto;
-  }
-
-  .people{
-    grid-template-columns:1fr;
-  }
-
-  .school-card{
-    padding:24px 18px;
-  }
+  .hero-line{margin:22px auto}
+  .people{grid-template-columns:1fr}
+  .school-card{padding:24px 18px}
 
   .guard-card{
     min-height:660px;
     padding:42px 22px 35px;
   }
 
-  .card-title{
-    font-size:31px;
-  }
-
+  .card-title{font-size:31px}
 }
 
 </style>
@@ -1009,7 +936,7 @@ footer{
 
 <body class="lock">
 
-<!-- البصمة -->
+<!-- شاشة البصمة -->
 
 <section id="gate">
 
@@ -1079,9 +1006,7 @@ footer{
 
 <nav>
 
-<div class="brand">
-درع الوطن
-</div>
+<div class="brand">درع الوطن</div>
 
 <div class="links">
 <a href="#home">الرئيسية</a>
@@ -1091,8 +1016,6 @@ footer{
 
 </nav>
 
-
-<!-- الرئيسية -->
 
 <section class="hero" id="home">
 
@@ -1127,8 +1050,6 @@ footer{
 </section>
 
 
-<!-- المدرسة -->
-
 <section class="section about" id="school">
 
 <div class="container">
@@ -1136,9 +1057,7 @@ footer{
 <div class="heading reveal">
 <small>قيادة • تعليم • انتماء</small>
 <h2>مدرستنا</h2>
-<p>
-بالعلم نصنع المستقبل، وبالقيم والانتماء نحفظ الوطن.
-</p>
+<p>بالعلم نصنع المستقبل، وبالقيم والانتماء نحفظ الوطن.</p>
 </div>
 
 <div class="school-card reveal">
@@ -1152,9 +1071,7 @@ footer{
 <div class="person">
 <small>مديرة المدرسة</small>
 <h3>هبة فلمبان</h3>
-<p>
-بقيادة تصنع الإلهام، وبالعلم نبني مستقبل الوطن.
-</p>
+<p>بقيادة تصنع الإلهام، وبالعلم نبني مستقبل الوطن.</p>
 </div>
 
 <div class="person">
@@ -1168,8 +1085,7 @@ footer{
 </div>
 
 <p>
-بعطاء المعلمة تبدأ المعرفة،
-وبالمعرفة يزدهر الوطن.
+بعطاء المعلمة تبدأ المعرفة، وبالمعرفة يزدهر الوطن.
 </p>
 
 </div>
@@ -1255,11 +1171,9 @@ onclick="createGuardianCard()">
 </div>
 
 <div class="card-shield">
-
 <div class="card-shield-inner">
 <span>✦</span>
 </div>
-
 </div>
 
 <div class="quote-label">
@@ -1294,7 +1208,7 @@ onclick="closeCard()">
 </div>
 
 
-<!-- النشيد -->
+<!-- مشغل النشيد -->
 
 <button id="audioBtn" onclick="toggleAudio()" aria-label="الصوت">
 
@@ -1315,9 +1229,9 @@ onclick="closeCard()">
 
 <script>
 
-/* =========================
-   النشيد
-========================= */
+/* ==========================================
+   النشيد الوطني
+========================================== */
 
 let player=null;
 let playerReady=false;
@@ -1387,7 +1301,8 @@ function startAnthem(){
 
   startRequested=true;
 
-  document.getElementById("audioBtn")
+  document
+    .getElementById("audioBtn")
     .classList.add("show");
 
   if(playerReady && player){
@@ -1426,9 +1341,9 @@ function toggleAudio(){
 }
 
 
-/* =========================
+/* ==========================================
    البصمة
-========================= */
+========================================== */
 
 const fingerprint=
   document.getElementById("fingerprint");
@@ -1446,11 +1361,20 @@ let minY=9999;
 let maxY=-9999;
 
 
+/*
+   التعديل المهم هنا:
+   أول ما تلمس الطالبة البصمة
+   نحاول تشغيل النشيد فورًا.
+*/
+
 function startScan(y){
 
   if(verified){
     return;
   }
+
+  /* تشغيل النشيد من نفس لمسة المستخدم */
+  startAnthem();
 
   scanning=true;
 
@@ -1477,11 +1401,10 @@ function moveScan(y){
   let localY=
     y-rect.top;
 
-  localY=
-    Math.max(
-      10,
-      Math.min(rect.height-10,localY)
-    );
+  localY=Math.max(
+    10,
+    Math.min(rect.height-10,localY)
+  );
 
   const linePercent=
     (localY/rect.height)*100;
@@ -1554,8 +1477,7 @@ function scanSuccess(){
     "تم التحقق بنجاح ✓";
 
   /*
-    هنا نحاول تشغيل النشيد فورًا
-    من نفس تفاعل البصمة.
+    محاولة ثانية عند اكتمال البصمة.
   */
   startAnthem();
 
@@ -1577,9 +1499,11 @@ fingerprint.addEventListener(
     event.preventDefault();
 
     if(event.touches[0]){
+
       startScan(
         event.touches[0].clientY
       );
+
     }
 
   },
@@ -1594,9 +1518,11 @@ fingerprint.addEventListener(
     event.preventDefault();
 
     if(event.touches[0]){
+
       moveScan(
         event.touches[0].clientY
       );
+
     }
 
   },
@@ -1619,7 +1545,7 @@ fingerprint.addEventListener(
 );
 
 
-/* الماوس / المؤشر */
+/* الماوس */
 
 fingerprint.addEventListener(
   "pointerdown",
@@ -1632,9 +1558,11 @@ fingerprint.addEventListener(
     startScan(event.clientY);
 
     try{
+
       fingerprint.setPointerCapture(
         event.pointerId
       );
+
     }catch(error){}
 
   }
@@ -1673,9 +1601,9 @@ fingerprint.addEventListener(
 );
 
 
-/* =========================
-   فتح الموقع
-========================= */
+/* ==========================================
+   فتح الصفحة
+========================================== */
 
 function openSite(){
 
@@ -1714,9 +1642,9 @@ function openSite(){
 }
 
 
-/* =========================
-   ظهور العناصر
-========================= */
+/* ==========================================
+   الحركة
+========================================== */
 
 function activateReveal(){
 
@@ -1749,7 +1677,8 @@ function activateReveal(){
 
     );
 
-  document.querySelectorAll(".reveal")
+  document
+    .querySelectorAll(".reveal")
     .forEach(function(element){
 
       observer.observe(element);
@@ -1759,9 +1688,9 @@ function activateReveal(){
 }
 
 
-/* =========================
-   العبارات الوطنية
-========================= */
+/* ==========================================
+   عبارات الطالبات
+========================================== */
 
 const nationalQuotes=[
 
@@ -1798,10 +1727,6 @@ const nationalQuotes=[
 ];
 
 
-/* =========================
-   صناعة بطاقة الطالبة
-========================= */
-
 function nameHash(name){
 
   let hash=0;
@@ -1824,9 +1749,7 @@ function nameHash(name){
 function createGuardianCard(){
 
   const input=
-    document.getElementById(
-      "guardianName"
-    );
+    document.getElementById("guardianName");
 
   const name=
     input.value.trim();
@@ -1841,96 +1764,67 @@ function createGuardianCard(){
 
   }
 
-  const hash=
-    nameHash(name);
-
-  /*
-    كل اسم يحصل على عبارة
-    من العبارات الموجودة.
-  */
+  const hash=nameHash(name);
 
   const quote=
     nationalQuotes[
       hash % nationalQuotes.length
     ];
 
-  /*
-    رقم حارسة الدرع
-    من 101 إلى 999
-  */
-
   const number=
     101+(hash%899);
 
+  document
+    .getElementById("nationalQuote")
+    .textContent=quote;
 
-  document.getElementById(
-    "nationalQuote"
-  ).textContent=quote;
+  document
+    .getElementById("cardName")
+    .textContent=name;
 
-
-  document.getElementById(
-    "cardName"
-  ).textContent=name;
-
-
-  document.getElementById(
-    "guardNumber"
-  ).textContent=
+  document
+    .getElementById("guardNumber")
+    .textContent=
     "حارسة الدرع رقم "+number;
 
+  document
+    .getElementById("cardOverlay")
+    .classList.add("show");
 
-  document.getElementById(
-    "cardOverlay"
-  ).classList.add("show");
-
-
-  document.body.classList.add(
-    "lock"
-  );
+  document.body.classList.add("lock");
 
 }
 
 
 function closeCard(){
 
-  document.getElementById(
-    "cardOverlay"
-  ).classList.remove("show");
+  document
+    .getElementById("cardOverlay")
+    .classList.remove("show");
 
+  document.body.classList.remove("lock");
 
-  document.body.classList.remove(
-    "lock"
-  );
-
-
-  document.getElementById(
-    "home"
-  ).scrollIntoView({
-    behavior:"smooth"
-  });
+  document
+    .getElementById("home")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
 
 }
 
 
-/*
-  الضغط على Enter بعد كتابة الاسم
-  يطلع البطاقة مباشرة.
-*/
+document
+  .getElementById("guardianName")
+  .addEventListener(
+    "keydown",
+    function(event){
 
-document.getElementById(
-  "guardianName"
-).addEventListener(
-  "keydown",
-  function(event){
-
-    if(event.key==="Enter"){
-
-      createGuardianCard();
+      if(event.key==="Enter"){
+        createGuardianCard();
+      }
 
     }
-
-  }
-);
+  );
 
 </script>
 
