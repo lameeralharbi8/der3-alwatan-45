@@ -3,22 +3,818 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>درع الوطن</title>
+<title>درع الوطن | الابتدائية الخامسة والأربعون</title>
+
 <style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
 body{
 margin:0;
-background:#003d2b;
-color:#f5d77b;
-font-family:Arial,sans-serif;
-text-align:center;
-padding-top:100px;
+font-family:Arial,Tahoma,sans-serif;
+background:#031d15;
+color:white;
+overflow-x:hidden;
 }
-h1{font-size:60px}
-p{font-size:25px;color:white}
+
+#start{
+position:fixed;
+inset:0;
+z-index:100;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:
+radial-gradient(circle at center,#08764e 0%,#06452f 42%,#021d15 100%);
+transition:1s;
+}
+
+#start.hide{
+opacity:0;
+visibility:hidden;
+transform:scale(1.08);
+}
+
+.schoolTop{
+font-size:18px;
+margin-bottom:20px;
+color:#fff;
+}
+
+.shield{
+width:230px;
+height:270px;
+margin:auto;
+background:linear-gradient(135deg,#fff0a5,#b98b2c,#ffe996);
+clip-path:polygon(50% 0,93% 15%,89% 67%,73% 86%,50% 100%,27% 86%,11% 67%,7% 15%);
+padding:8px;
+filter:drop-shadow(0 0 25px #e8c96888);
+}
+
+.shieldInside{
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+clip-path:inherit;
+background:#07583c;
+}
+
+.fingerprint{
+width:125px;
+height:125px;
+border-radius:50%;
+border:3px solid #e9cb70;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:65px;
+cursor:pointer;
+background:#043b2b;
+box-shadow:0 0 25px #e9cb70;
+animation:pulse 1.7s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.08);
+box-shadow:0 0 45px #ffe17c;
+}
+}
+
+#start h1{
+font-size:50px;
+color:#ffe89a;
+margin:18px 0 4px;
+}
+
+.tap{
+animation:blink 1.2s infinite;
+}
+
+@keyframes blink{
+50%{opacity:.35}
+}
+
+.spark{
+position:fixed;
+z-index:50;
+pointer-events:none;
+color:#ffe27c;
+animation:rise linear infinite;
+}
+
+@keyframes rise{
+0%{transform:translateY(110vh) rotate(0);opacity:0}
+15%{opacity:1}
+100%{transform:translateY(-20vh) rotate(250deg);opacity:0}
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:60px 20px;
+background:
+radial-gradient(circle at center,#08734b 0%,#063a2a 40%,#021c15 80%);
+}
+
+.heroIcon{
+font-size:115px;
+filter:drop-shadow(0 0 25px #f5d878);
+}
+
+.hero h1{
+font-size:55px;
+color:#ffe695;
+margin:10px;
+}
+
+.hero p{
+font-size:20px;
+line-height:1.8;
+}
+
+.container{
+width:min(900px,92%);
+margin:auto;
+}
+
+.card{
+margin:25px 0;
+padding:25px;
+border-radius:25px;
+background:linear-gradient(145deg,#0d3024,#071e17);
+border:1px solid #416352;
+box-shadow:0 15px 40px #0004;
+}
+
+h2{
+color:#efd071;
+font-size:29px;
+margin-top:0;
+}
+
+.center{text-align:center}
+
+.names{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+}
+
+.nameCard{
+padding:15px 20px;
+border:1px solid #c7a951;
+border-radius:17px;
+background:#29291d;
+min-width:210px;
+}
+
+.nameCard small{
+display:block;
+opacity:.6;
+margin-bottom:5px;
+}
+
+input,textarea{
+width:100%;
+border:1px solid #426657;
+border-radius:14px;
+padding:15px;
+font-size:16px;
+background:#031b14;
+color:white;
+outline:none;
+}
+
+textarea{
+min-height:125px;
+resize:vertical;
+}
+
+button{
+width:100%;
+padding:16px;
+border:0;
+border-radius:15px;
+font-size:18px;
+font-weight:bold;
+margin-top:15px;
+cursor:pointer;
+color:#332608;
+background:linear-gradient(90deg,#ffe594,#c9a142);
+}
+
+.progress{
+display:grid;
+grid-template-columns:repeat(8,25px);
+gap:5px;
+justify-content:center;
+margin:25px auto;
+}
+
+.hex{
+width:25px;
+height:23px;
+background:#164d39;
+clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);
+}
+
+.hex.on{
+background:linear-gradient(145deg,#fff1a0,#c6962c);
+filter:drop-shadow(0 0 6px #ffe67b);
+}
+
+.options{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+}
+
+.option{
+padding:18px 7px;
+border:1px solid #416253;
+border-radius:17px;
+text-align:center;
+cursor:pointer;
+background:#061d16;
+}
+
+.option span{
+display:block;
+font-size:35px;
+margin-bottom:5px;
+}
+
+.option.active{
+border:2px solid #efd071;
+background:#392f1c;
+}
+
+.wall{
+display:flex;
+gap:9px;
+flex-wrap:wrap;
+}
+
+.person{
+padding:9px 14px;
+border:2px solid #d8b95d;
+border-radius:30px;
+color:#efd071;
+background:#352d1d;
+}
+
+.post{
+margin-top:12px;
+padding:13px;
+border-radius:12px;
+border-right:4px solid #e5c568;
+background:#061b15;
+}
+
+.post b{
+color:#e9cb70;
+}
+
+.dua{
+text-align:center;
+background:linear-gradient(145deg,#0a6946,#113b2c);
+}
+
+.duaIcon{font-size:65px}
+
+.end{
+text-align:center;
+padding:50px 20px;
+}
+
+.endIcon{font-size:90px}
+
+footer{
+text-align:center;
+padding:40px;
+opacity:.6;
+}
+
+@media(max-width:600px){
+#start h1{font-size:40px}
+.shield{width:190px;height:225px}
+.hero h1{font-size:40px}
+.options{grid-template-columns:1fr 1fr}
+.progress{grid-template-columns:repeat(8,20px)}
+.hex{width:20px;height:19px}
+}
 </style>
 </head>
+
 <body>
-<h1>🛡️ درع الوطن 🇸🇦</h1>
-<p>الابتدائية الخامسة والأربعون</p>
+
+<div id="start">
+<div>
+<div class="schoolTop">الابتدائية الخامسة والأربعون</div>
+
+<div class="shield">
+<div class="shieldInside">
+<div class="fingerprint" onclick="startSite()">☝️</div>
+</div>
+</div>
+
+<h1>درع الوطن</h1>
+<p>أنتم دروع الوطن 🇸🇦</p>
+<p class="tap">اضغطي على البصمة</p>
+</div>
+</div>
+
+<section class="hero">
+<div>
+<div class="heroIcon">🛡️🇸🇦</div>
+<h1>درع الوطن</h1>
+<p>
+حب الوطن يجمعنا<br>
+وفخرنا به يكبر بمشاركتكم
+</p>
+</div>
+</section>
+
+<main class="container">
+
+<section class="card center">
+<h2>الابتدائية الخامسة والأربعون</h2>
+
+<div class="names">
+
+<div class="nameCard">
+<small>مديرة المدرسة</small>
+<strong>هبة فلمبان</strong>
+</div>
+
+<div class="nameCard">
+<small>المعلمات</small>
+<strong>
+حصة الحربي<br>
+نبيهه عسيري<br>
+دارالهناء الحربي
+</strong>
+</div>
+
+</div>
+</section>
+
+<section class="card">
+<h2>✨ أهلًا بكِ</h2>
+
+<input id="studentName"
+placeholder="اكتبي اسمك هنا">
+
+<p style="opacity:.6">
+سيظهر اسمك في حائط درع الوطن.
+</p>
+</section>
+
+<section class="card center">
+
+<h2>🛡️ درع مدرستنا</h2>
+
+<p>
+كل مشاركة تضيء قطعة جديدة في الدرع
+</p>
+
+<div class="progress" id="progress"></div>
+
+<p>
+<span id="pieceCount">0</span>
+قطعة مضيئة ✨
+</p>
+
+</section>
+
+<section class="card dua">
+
+<div class="duaIcon">🤲🇸🇦</div>
+
+<h2>دعاء لحماة الوطن</h2>
+
+<p>
+اللهم احفظ وطننا وقيادتنا وجنودنا،
+وأدم علينا نعمة الأمن والأمان.
+</p>
+
+<button onclick="amen()">
+اللهم آمين 🤲
+</button>
+
+<p id="amenCount"></p>
+
+</section>
+
+<section class="card">
+
+<h2>✍️ شاركي في الدرع</h2>
+
+<p>
+اختاري طريقتك للتعبير عن حب الوطن
+</p>
+
+<div class="options">
+
+<div class="option active"
+onclick="selectType(this,'رسالة')">
+<span>💌</span>
+رسالة
+</div>
+
+<div class="option"
+onclick="selectType(this,'بطاقة')">
+<span>🛡️</span>
+بطاقة
+</div>
+
+<div class="option"
+onclick="selectType(this,'رسمة')">
+<span>🎨</span>
+رسمة
+</div>
+
+<div class="option"
+onclick="selectType(this,'صوت')">
+<span>🎙️</span>
+صوت
+</div>
+
+</div>
+
+<h3 id="typeTitle">رسالتك للوطن</h3>
+
+<textarea id="message"
+placeholder="وطني الغالي..."></textarea>
+
+<button onclick="sendPost()">
+إرسال المشاركة ✨
+</button>
+
+</section>
+
+<section class="card">
+
+<h2>🇸🇦 سؤال وطني</h2>
+
+<p><strong>
+الدفاع عن الوطن والمحافظة عليه مسؤولية:
+</strong></p>
+
+<p>
+<label>
+<input type="radio" name="quiz" value="wrong">
+الجنود فقط
+</label>
+</p>
+
+<p>
+<label>
+<input type="radio" name="quiz" value="correct">
+كل مواطن ومواطنة كلٌ بحسب دوره
+</label>
+</p>
+
+<p>
+<label>
+<input type="radio" name="quiz" value="wrong">
+الموظفين فقط
+</label>
+</p>
+
+<button onclick="checkQuiz()">
+تحقق من الإجابة
+</button>
+
+<p id="quizAnswer"></p>
+
+</section>
+
+<section class="card">
+
+<h2>💌 حائط الدرع</h2>
+
+<div class="wall" id="wall"></div>
+
+<div id="posts"></div>
+
+</section>
+
+<section class="card end">
+
+<div class="endIcon">🏅🇸🇦</div>
+
+<h2>أنتِ جزء من درع الوطن</h2>
+
+<p>
+بكِ وبزميلاتك يزداد وطننا
+فخرًا وعطاءً 💚
+</p>
+
+</section>
+
+</main>
+
+<footer>
+الابتدائية الخامسة والأربعون
+<br>
+درع الوطن 🇸🇦
+</footer>
+
+<script>
+
+let selectedType="رسالة";
+
+function startSite(){
+
+document.getElementById("start")
+.classList.add("hide");
+
+window.scrollTo(0,0);
+
+/*
+سنضيف النشيد هنا في الخطوة التالية
+*/
+}
+
+function createSparkles(){
+
+for(let i=0;i<35;i++){
+
+let star=document.createElement("div");
+
+star.className="spark";
+star.innerHTML=Math.random()>.5?"✦":"✧";
+
+star.style.left=
+Math.random()*100+"%";
+
+star.style.fontSize=
+(10+Math.random()*18)+"px";
+
+star.style.animationDuration=
+(5+Math.random()*7)+"s";
+
+star.style.animationDelay=
+(-Math.random()*8)+"s";
+
+document.body.appendChild(star);
+
+}
+
+}
+
+createSparkles();
+
+function getPosts(){
+
+try{
+
+return JSON.parse(
+localStorage.getItem("watanPosts")
+||"[]"
+);
+
+}catch(e){
+
+return [];
+
+}
+
+}
+
+function safe(text){
+
+return String(text)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;");
+
+}
+
+function selectType(element,type){
+
+document.querySelectorAll(".option")
+.forEach(x=>x.classList.remove("active"));
+
+element.classList.add("active");
+
+selectedType=type;
+
+let title=document.getElementById("typeTitle");
+
+if(type==="رسالة")
+title.innerText="رسالتك للوطن";
+
+if(type==="بطاقة")
+title.innerText="اكتبي عبارتك الوطنية";
+
+if(type==="رسمة")
+title.innerText="صفي رسمة تعبّر عن الوطن";
+
+if(type==="صوت")
+title.innerText="اكتبي رسالتك الصوتية مؤقتًا";
+
+}
+
+function sendPost(){
+
+let name=
+document.getElementById("studentName")
+.value.trim();
+
+let message=
+document.getElementById("message")
+.value.trim();
+
+if(!name || !message){
+
+alert(
+"اكتبي اسمك ومشاركتك أولًا 💚"
+);
+
+return;
+
+}
+
+let posts=getPosts();
+
+posts.push({
+name:name,
+message:message,
+type:selectedType
+});
+
+localStorage.setItem(
+"watanPosts",
+JSON.stringify(posts)
+);
+
+document.getElementById("message")
+.value="";
+
+render();
+
+alert(
+"تمت مشاركتك ✨\nأضأتِ قطعة جديدة في درع الوطن 🇸🇦"
+);
+
+}
+
+function render(){
+
+let posts=getPosts();
+
+let wall=document.getElementById("wall");
+
+let postArea=
+document.getElementById("posts");
+
+wall.innerHTML="";
+
+postArea.innerHTML="";
+
+posts.slice().reverse()
+.forEach((post,index)=>{
+
+if(index<30){
+
+wall.innerHTML+=
+'<span class="person">💌 '
++safe(post.name)
++'</span>';
+
+}
+
+if(index<10){
+
+postArea.innerHTML+=
+'<div class="post">'
++'<b>'
++safe(post.name)
++' • '
++safe(post.type)
++'</b>'
++'<div>'
++safe(post.message)
++'</div>'
++'</div>';
+
+}
+
+});
+
+let progress=
+document.getElementById("progress");
+
+progress.innerHTML="";
+
+for(let i=0;i<48;i++){
+
+let h=document.createElement("div");
+
+h.className=
+"hex "+(i<posts.length?"on":"");
+
+progress.appendChild(h);
+
+}
+
+document.getElementById("pieceCount")
+.innerText=
+Math.min(posts.length,48);
+
+}
+
+function amen(){
+
+let count=
+Number(
+localStorage.getItem("amen")
+||0
+)+1;
+
+localStorage.setItem(
+"amen",
+count
+);
+
+document.getElementById("amenCount")
+.innerText=
+"آمين 🤲 • "+count;
+
+}
+
+function checkQuiz(){
+
+let answer=
+document.querySelector(
+'input[name="quiz"]:checked'
+);
+
+if(!answer){
+
+document.getElementById("quizAnswer")
+.innerText=
+"اختاري إجابة أولًا 💚";
+
+return;
+
+}
+
+if(answer.value==="correct"){
+
+document.getElementById("quizAnswer")
+.innerText=
+"إجابة صحيحة 👏🇸🇦";
+
+}else{
+
+document.getElementById("quizAnswer")
+.innerText=
+"حاولي مرة أخرى 💚";
+
+}
+
+}
+
+document.getElementById("studentName")
+.value=
+localStorage.getItem("studentName")
+||"";
+
+document.getElementById("studentName")
+.addEventListener("input",function(){
+
+localStorage.setItem(
+"studentName",
+this.value
+);
+
+});
+
+let savedAmen=
+localStorage.getItem("amen");
+
+if(savedAmen){
+
+document.getElementById("amenCount")
+.innerText=
+"آمين 🤲 • "+savedAmen;
+
+}
+
+render();
+
+</script>
+
 </body>
 </html>
