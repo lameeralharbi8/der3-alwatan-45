@@ -35,9 +35,7 @@ body.lock{overflow:hidden}
 
 button,input{font-family:inherit}
 
-/* =========================
-   النجوم
-========================= */
+/* النجوم */
 
 #sparkles{
   position:fixed;
@@ -51,27 +49,17 @@ button,input{font-family:inherit}
   position:absolute;
   color:#ffe79b;
   opacity:.25;
-  text-shadow:
-    0 0 7px #fff,
-    0 0 15px #ffd35f;
+  text-shadow:0 0 7px #fff,0 0 15px #ffd35f;
   animation:twinkle var(--d) ease-in-out infinite;
   animation-delay:var(--delay);
 }
 
 @keyframes twinkle{
-  0%,100%{
-    opacity:.08;
-    transform:scale(.5) rotate(0);
-  }
-  50%{
-    opacity:.9;
-    transform:scale(1.3) rotate(90deg);
-  }
+  0%,100%{opacity:.08;transform:scale(.5) rotate(0)}
+  50%{opacity:.9;transform:scale(1.3) rotate(90deg)}
 }
 
-/* =========================
-   شاشة البصمة
-========================= */
+/* شاشة البداية */
 
 #gate{
   position:fixed;
@@ -81,31 +69,22 @@ button,input{font-family:inherit}
   display:grid;
   place-items:center;
   overflow:hidden;
-
   background:
-  radial-gradient(circle at 50% 35%,
-  rgba(12,128,84,.46),
-  transparent 28%),
-
-  radial-gradient(circle at 50% 110%,
-  #0a5a3d,
-  #03281c 43%,
-  #010b08 80%);
+    radial-gradient(circle at 50% 35%,rgba(12,128,84,.46),transparent 28%),
+    radial-gradient(circle at 50% 110%,#0a5a3d,#03281c 43%,#010b08 80%);
 }
 
 #gate:before{
   content:"";
   position:absolute;
   inset:-35%;
-
   background:
-  repeating-radial-gradient(
-    circle,
-    transparent 0 70px,
-    rgba(255,224,140,.04) 71px 72px,
-    transparent 73px 140px
-  );
-
+    repeating-radial-gradient(
+      circle,
+      transparent 0 70px,
+      rgba(255,224,140,.04) 71px 72px,
+      transparent 73px 140px
+    );
   animation:rotate 30s linear infinite;
 }
 
@@ -138,7 +117,6 @@ button,input{font-family:inherit}
 .shield-core{
   position:absolute;
   inset:0;
-
   clip-path:polygon(
     50% 0,
     91% 13%,
@@ -152,8 +130,7 @@ button,input{font-family:inherit}
 }
 
 .shield-border{
-  background:
-  linear-gradient(
+  background:linear-gradient(
     135deg,
     #765019,
     #ffe59a 20%,
@@ -165,15 +142,7 @@ button,input{font-family:inherit}
 
 .shield-core{
   inset:6px;
-
-  background:
-  radial-gradient(
-    circle at 50% 35%,
-    #0c7752,
-    #074632 47%,
-    #021c14
-  );
-
+  background:radial-gradient(circle at 50% 35%,#0c7752,#074632 47%,#021c14);
   transition:1s;
 }
 
@@ -184,124 +153,91 @@ button,input{font-family:inherit}
 @keyframes shieldPulse{
   50%{
     transform:scale(1.05);
-    filter:
-      drop-shadow(0 0 35px #ffe481)
-      drop-shadow(0 0 80px #c68b24);
+    filter:drop-shadow(0 0 35px #ffe481) drop-shadow(0 0 80px #c68b24);
   }
-
   100%{
     transform:scale(1.03);
-    filter:
-      drop-shadow(0 0 40px #ffe481)
-      drop-shadow(0 0 100px #c68b24);
+    filter:drop-shadow(0 0 40px #ffe481) drop-shadow(0 0 100px #c68b24);
   }
 }
 
 .shield.activated .shield-core{
-  background:
-  radial-gradient(
-    circle,
-    #d8aa40,
-    #93631b 48%,
-    #352206
-  );
+  background:radial-gradient(circle,#d8aa40,#93631b 48%,#352206);
 }
+
+/* تم تعديل العنوان ليظهر كامل فوق البصمة */
 
 .gate-title{
   position:absolute;
-  top:52px;
+  top:55px;
+  left:0;
   width:100%;
-  z-index:5;
+  z-index:15;
   color:#ffe79b;
-  font-size:46px;
+  font-size:38px;
   font-weight:800;
-  text-shadow:0 8px 25px #000;
+  line-height:1.35;
+  text-align:center;
+  white-space:nowrap;
+  text-shadow:
+    0 4px 5px rgba(0,0,0,.85),
+    0 0 18px rgba(255,220,120,.6);
 }
 
 .fingerprint{
   appearance:none;
   -webkit-appearance:none;
-
   position:absolute;
   z-index:10;
-
-  top:158px;
+  top:175px;
   left:50%;
   transform:translateX(-50%);
-
-  width:165px;
-  height:165px;
-
+  width:150px;
+  height:150px;
   border-radius:50%;
   display:grid;
   place-items:center;
-
   cursor:pointer;
-
-  background:
-  radial-gradient(circle,#073d2b,#021a13 72%);
-
+  background:radial-gradient(circle,#073d2b,#021a13 72%);
   border:1px solid #e5c56a;
-
   box-shadow:
-  0 0 0 11px rgba(230,195,96,.05),
-  0 0 45px rgba(255,224,130,.25);
+    0 0 0 11px rgba(230,195,96,.05),
+    0 0 45px rgba(255,224,130,.25);
 }
 
 .fingerprint svg{
-  width:110px;
-  height:110px;
+  width:100px;
+  height:100px;
   fill:none;
   stroke:#f8df8b;
   stroke-width:2.5;
   stroke-linecap:round;
-
   filter:drop-shadow(0 0 6px #d9b74f);
 }
 
 .check{
   position:absolute;
   inset:0;
-
   display:grid;
   place-items:center;
-
   color:#fff8d4;
   font-size:65px;
   font-weight:800;
-
   opacity:0;
-
-  text-shadow:
-  0 0 15px #fff,
-  0 0 35px #ffd76b;
+  text-shadow:0 0 15px #fff,0 0 35px #ffd76b;
 }
 
 .fingerprint.verified{
-  background:
-  radial-gradient(
-    circle,
-    #ffe9a2,
-    #c58a28 48%,
-    #5d3c0b
-  );
-
-  box-shadow:
-  0 0 40px #ffe184,
-  0 0 100px rgba(255,191,48,.55);
+  background:radial-gradient(circle,#ffe9a2,#c58a28 48%,#5d3c0b);
+  box-shadow:0 0 40px #ffe184,0 0 100px rgba(255,191,48,.55);
 }
 
-.fingerprint.verified svg{
-  opacity:.15;
-}
-
-.fingerprint.verified .check{
-  opacity:1;
-}
+.fingerprint.verified svg{opacity:.15}
+.fingerprint.verified .check{opacity:1}
 
 .instruction{
   position:absolute;
-  top:342px;
+  top:345px;
   width:100%;
   color:#ead9a5;
   font-size:12px;
@@ -323,15 +259,10 @@ button,input{font-family:inherit}
 }
 
 @keyframes gateLeave{
-  to{
-    opacity:0;
-    visibility:hidden;
-  }
+  to{opacity:0;visibility:hidden}
 }
 
-/* =========================
-   الموقع
-========================= */
+/* الموقع */
 
 #app{
   opacity:0;
@@ -346,18 +277,13 @@ nav{
   top:0;
   right:0;
   left:0;
-
   height:65px;
   padding:0 6%;
-
   display:flex;
   justify-content:space-between;
   align-items:center;
-
   background:#01140fca;
-
   backdrop-filter:blur(15px);
-
   border-bottom:1px solid #d8b65c25;
 }
 
@@ -372,40 +298,18 @@ nav a{
   font-size:10px;
 }
 
-/* =========================
-   الرئيسية
-========================= */
+/* الرئيسية */
 
 .hero{
   min-height:100svh;
-
   position:relative;
-
   display:flex;
   align-items:center;
-
   padding:110px 7% 80px;
-
   background:
-
-  radial-gradient(
-    circle at 80% 30%,
-    rgba(13,126,82,.55),
-    transparent 31%
-  ),
-
-  radial-gradient(
-    circle at 10% 90%,
-    rgba(222,183,80,.1),
-    transparent 25%
-  ),
-
-  linear-gradient(
-    125deg,
-    #010d09,
-    #03281d 55%,
-    #075038
-  );
+    radial-gradient(circle at 80% 30%,rgba(13,126,82,.55),transparent 31%),
+    radial-gradient(circle at 10% 90%,rgba(222,183,80,.1),transparent 25%),
+    linear-gradient(125deg,#010d09,#03281d 55%,#075038);
 }
 
 .hero-content{
@@ -422,13 +326,9 @@ nav a{
 
 .hero h1{
   margin:5px 0;
-
   color:#f2d477;
-
   font-size:clamp(58px,11vw,110px);
-
   line-height:1.2;
-
   text-shadow:0 12px 40px #0008;
 }
 
@@ -440,28 +340,19 @@ nav a{
   width:110px;
   height:2px;
   margin:25px 0;
-
-  background:
-  linear-gradient(90deg,transparent,#f2d478);
+  background:linear-gradient(90deg,transparent,#f2d478);
 }
 
 .hero p{
   max-width:650px;
-
   color:#d0cdbf;
-
   line-height:2.2;
-
   font-size:12px;
 }
 
-/* =========================
-   الأقسام
-========================= */
+/* الأقسام */
 
-.section{
-  padding:95px 0;
-}
+.section{padding:95px 0}
 
 .container{
   width:min(1100px,90%);
@@ -473,15 +364,11 @@ nav a{
   margin-bottom:45px;
 }
 
-.heading small{
-  color:#c8a854;
-}
+.heading small{color:#c8a854}
 
 .heading h2{
   color:#f1d47a;
-
   font-size:clamp(28px,5vw,43px);
-
   margin:7px 0;
 }
 
@@ -491,21 +378,13 @@ nav a{
   line-height:2;
 }
 
-/* =========================
-   القيادة
-========================= */
+/* القيادة */
 
 .royal-section{
   position:relative;
-
   background:
-  radial-gradient(
-    circle at 50% 0,
-    rgba(213,173,82,.13),
-    transparent 40%
-  ),
-  #031b13;
-
+    radial-gradient(circle at 50% 0,rgba(213,173,82,.13),transparent 40%),
+    #031b13;
   overflow:hidden;
 }
 
@@ -513,48 +392,26 @@ nav a{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:20px;
-
   max-width:780px;
   margin:auto;
 }
 
 .royal-card{
   position:relative;
-
   text-align:center;
-
   padding:20px 15px 25px;
-
   border-radius:28px;
-
   border:1px solid rgba(224,189,94,.3);
-
-  background:
-  linear-gradient(
-    145deg,
-    rgba(9,71,50,.8),
-    rgba(2,27,20,.95)
-  );
-
-  box-shadow:
-  0 25px 70px rgba(0,0,0,.4);
+  background:linear-gradient(145deg,rgba(9,71,50,.8),rgba(2,27,20,.95));
+  box-shadow:0 25px 70px rgba(0,0,0,.4);
 }
 
 .royal-photo{
   width:100%;
   aspect-ratio:4/5;
-
   overflow:hidden;
-
   border-radius:22px;
-
-  background:
-  linear-gradient(
-    145deg,
-    #0c6043,
-    #021a13
-  );
-
+  background:linear-gradient(145deg,#0c6043,#021a13);
   border:1px solid #d4af563d;
 }
 
@@ -563,6 +420,8 @@ nav a{
   height:100%;
   object-fit:cover;
   object-position:center top;
+  display:block;
+  filter:contrast(1.04) saturate(1.03);
 }
 
 .royal-card h3{
@@ -584,28 +443,15 @@ nav a{
   font-size:16px;
 }
 
-/* =========================
-   المدرسة
-========================= */
+/* المدرسة */
 
-.about{
-  background:#021710;
-}
+.about{background:#021710}
 
 .school-card{
   border:1px solid #dfbd6033;
-
   border-radius:28px;
-
   padding:40px;
-
-  background:
-  linear-gradient(
-    145deg,
-    #073628,
-    #021a13
-  );
-
+  background:linear-gradient(145deg,#073628,#021a13);
   box-shadow:0 30px 80px #0005;
 }
 
@@ -624,17 +470,12 @@ nav a{
 
 .person{
   padding:25px;
-
   border-radius:20px;
-
   border:1px solid #ffffff12;
-
   background:#ffffff05;
 }
 
-.person small{
-  color:#b89d55;
-}
+.person small{color:#b89d55}
 
 .person h3{
   color:#f3dfa0;
@@ -656,94 +497,53 @@ nav a{
 
 .teacher-tags span{
   padding:8px 13px;
-
   border:1px solid #d9b85c40;
-
   border-radius:30px;
-
   font-size:10px;
 }
 
-/* =========================
-   استلام الدرع
-========================= */
+/* استلام الدرع */
 
 .guardian{
   min-height:100svh;
-
   display:grid;
   place-items:center;
-
   position:relative;
-
   padding:100px 20px;
-
   background:
-  radial-gradient(
-    circle at 50% 40%,
-    #0b6042,
-    #03271c 40%,
-    #010e0a 80%
-  );
+    radial-gradient(circle at 50% 40%,#0b6042,#03271c 40%,#010e0a 80%);
 }
 
 .name-stage{
   position:relative;
   z-index:3;
-
   width:min(620px,100%);
-
   text-align:center;
 }
 
 .mini-shield{
   width:90px;
   height:105px;
-
   margin:0 auto 20px;
-
-  clip-path:
-  polygon(
-    50% 0,
-    91% 14%,
-    87% 65%,
-    50% 100%,
-    13% 65%,
-    9% 14%
-  );
-
-  background:
-  linear-gradient(
-    135deg,
-    #8a611d,
-    #ffe496,
-    #a97928
-  );
-
+  clip-path:polygon(50% 0,91% 14%,87% 65%,50% 100%,13% 65%,9% 14%);
+  background:linear-gradient(135deg,#8a611d,#ffe496,#a97928);
   padding:4px;
 }
 
 .mini-shield div{
   width:100%;
   height:100%;
-
   clip-path:inherit;
-
   display:grid;
   place-items:center;
-
   background:#073b2a;
-
   color:#f6d97d;
-
   font-size:35px;
 }
 
 .name-stage h2{
   color:#f4d77e;
-
   font-size:clamp(30px,7vw,53px);
-
   margin:8px 0;
 }
 
@@ -755,35 +555,22 @@ nav a{
 
 .name-box{
   margin:30px auto 0;
-
   max-width:480px;
-
   padding:25px;
-
   border-radius:25px;
-
   border:1px solid #e2be5d42;
-
   background:#021c15e8;
 }
 
 .name-box input{
   width:100%;
-
   border:1px solid #49675d;
-
   background:#01150f;
-
   color:white;
-
   padding:17px;
-
   border-radius:15px;
-
   outline:none;
-
   text-align:center;
-
   font-size:15px;
 }
 
@@ -793,83 +580,42 @@ nav a{
 
 .gold-btn{
   width:100%;
-
   margin-top:14px;
-
   border:1px solid #ffe39a;
-
   border-radius:40px;
-
   padding:14px 27px;
-
   cursor:pointer;
-
   font-weight:800;
-
   color:#182117;
-
-  background:
-  linear-gradient(
-    100deg,
-    #a77524,
-    #ffe99c,
-    #bd8c32
-  );
-
+  background:linear-gradient(100deg,#a77524,#ffe99c,#bd8c32);
   box-shadow:0 12px 35px #0005;
 }
 
-/* =========================
-   حائط الأسماء
-========================= */
+/* حائط الأسماء */
 
 .wall-section{
   position:relative;
-
   padding:100px 5%;
-
   background:
-
-  radial-gradient(
-    circle at 50% 20%,
-    rgba(20,123,84,.28),
-    transparent 35%
-  ),
-
-  #010e0a;
+    radial-gradient(circle at 50% 20%,rgba(20,123,84,.28),transparent 35%),
+    #010e0a;
 }
 
 .wall-box{
   width:min(1050px,100%);
-
   margin:auto;
-
   padding:35px 25px;
-
   border:1px solid rgba(220,183,83,.25);
-
   border-radius:30px;
-
-  background:
-  linear-gradient(
-    145deg,
-    rgba(5,54,39,.82),
-    rgba(1,20,15,.95)
-  );
-
-  box-shadow:
-  0 30px 90px #0008;
+  background:linear-gradient(145deg,rgba(5,54,39,.82),rgba(1,20,15,.95));
+  box-shadow:0 30px 90px #0008;
 }
 
-.wall-head{
-  text-align:center;
-}
+.wall-head{text-align:center}
 
 .wall-head h2{
   color:#f4d77e;
-
   font-size:clamp(28px,6vw,45px);
-
   margin:0;
 }
 
@@ -882,45 +628,21 @@ nav a{
 .progress-shield{
   width:85px;
   height:100px;
-
   margin:30px auto 10px;
-
   padding:4px;
-
-  clip-path:
-  polygon(
-    50% 0,
-    91% 14%,
-    87% 65%,
-    50% 100%,
-    13% 65%,
-    9% 14%
-  );
-
-  background:
-  linear-gradient(
-    135deg,
-    #8a611d,
-    #ffe496,
-    #a97928
-  );
+  clip-path:polygon(50% 0,91% 14%,87% 65%,50% 100%,13% 65%,9% 14%);
+  background:linear-gradient(135deg,#8a611d,#ffe496,#a97928);
 }
 
 .progress-core{
   width:100%;
   height:100%;
-
   clip-path:inherit;
-
   display:grid;
   place-items:center;
-
   color:#ffe79b;
-
   font-size:32px;
-
-  background:
-  linear-gradient(
+  background:linear-gradient(
     0deg,
     #b78427 0 var(--fill,0%),
     #073b2a var(--fill,0%) 100%
@@ -948,24 +670,12 @@ nav a{
 
 .wall-name{
   padding:10px 17px;
-
   border-radius:50px;
-
   border:1px solid rgba(224,190,94,.28);
-
-  background:
-  linear-gradient(
-    135deg,
-    rgba(15,93,65,.55),
-    rgba(3,41,30,.75)
-  );
-
+  background:linear-gradient(135deg,rgba(15,93,65,.55),rgba(3,41,30,.75));
   color:#f3e5b7;
-
   font-size:11px;
-
-  box-shadow:
-  0 7px 25px rgba(0,0,0,.25);
+  box-shadow:0 7px 25px rgba(0,0,0,.25);
 }
 
 .wall-empty,
@@ -977,61 +687,32 @@ nav a{
   padding:30px;
 }
 
-/* =========================
-   البطاقة
-========================= */
+/* البطاقة */
 
 #cardOverlay{
   position:fixed;
   inset:0;
-
   z-index:5000;
-
   display:none;
   place-items:center;
-
   overflow:auto;
-
   padding:25px 12px;
-
-  background:
-  rgba(0,10,7,.94);
+  background:rgba(0,10,7,.94);
 }
 
-#cardOverlay.show{
-  display:grid;
-}
+#cardOverlay.show{display:grid}
 
 .guard-card{
   position:relative;
-
   width:min(450px,95vw);
-
   padding:38px 25px;
-
   text-align:center;
-
   border-radius:30px;
-
   border:2px solid #d8b354;
-
   background:
-
-  radial-gradient(
-    circle at 50% 15%,
-    rgba(26,132,88,.42),
-    transparent 30%
-  ),
-
-  linear-gradient(
-    160deg,
-    #063d2c,
-    #01150f 70%
-  );
-
-  box-shadow:
-  0 0 0 6px #05281e,
-  0 30px 100px #000;
+    radial-gradient(circle at 50% 15%,rgba(26,132,88,.42),transparent 30%),
+    linear-gradient(160deg,#063d2c,#01150f 70%);
+  box-shadow:0 0 0 6px #05281e,0 30px 100px #000;
 }
 
 .card-school{
@@ -1041,54 +722,28 @@ nav a{
 
 .card-title{
   color:#ffe38c;
-
   font-size:40px;
-
   font-weight:800;
-
   margin:5px 0 20px;
 }
 
 .card-shield{
   width:105px;
   height:125px;
-
   margin:0 auto 20px;
-
   padding:4px;
-
-  clip-path:
-  polygon(
-    50% 0,
-    91% 14%,
-    87% 65%,
-    50% 100%,
-    13% 65%,
-    9% 14%
-  );
-
-  background:
-  linear-gradient(
-    135deg,
-    #fff0a7,
-    #9b681b,
-    #ffe397
-  );
+  clip-path:polygon(50% 0,91% 14%,87% 65%,50% 100%,13% 65%,9% 14%);
+  background:linear-gradient(135deg,#fff0a7,#9b681b,#ffe397);
 }
 
 .card-shield-inner{
   width:100%;
   height:100%;
-
   clip-path:inherit;
-
   display:grid;
   place-items:center;
-
   background:#06422f;
-
   color:#ffe393;
-
   font-size:40px;
 }
 
@@ -1106,16 +761,8 @@ nav a{
 .card-divider{
   width:90px;
   height:1px;
-
   margin:18px auto;
-
-  background:
-  linear-gradient(
-    90deg,
-    transparent,
-    #dcb75c,
-    transparent
-  );
+  background:linear-gradient(90deg,transparent,#dcb75c,transparent);
 }
 
 .student-label{
@@ -1125,11 +772,8 @@ nav a{
 
 #cardName{
   color:#ffe18b;
-
   font-size:25px;
-
   font-weight:800;
-
   margin:7px 0;
 }
 
@@ -1140,59 +784,38 @@ nav a{
 
 .success-text{
   color:#b8b8ac;
-
   font-size:10px;
-
   line-height:2;
-
   margin:18px 0;
 }
 
 .card-action{
   border:1px solid #dcb75c;
-
   background:#082f23;
-
   color:#ffe298;
-
   padding:12px 25px;
-
   border-radius:40px;
-
   cursor:pointer;
 }
 
-/* =========================
-   زر الصوت
-========================= */
+/* الصوت */
 
 #audioBtn{
   position:fixed;
-
   z-index:800;
-
   left:18px;
   bottom:18px;
-
   width:48px;
   height:48px;
-
   border-radius:50%;
-
   border:1px solid #d8b65c;
-
   background:#063629;
-
   color:#ffe18b;
-
   display:none;
-
   cursor:pointer;
 }
 
-#audioBtn.show{
-  display:block;
-}
+#audioBtn.show{display:block}
 
 .bars{
   display:flex;
@@ -1204,9 +827,7 @@ nav a{
 .bars i{
   width:3px;
   height:16px;
-
   background:#ffe18b;
-
   animation:music .7s infinite alternate;
 }
 
@@ -1215,9 +836,7 @@ nav a{
   height:23px;
 }
 
-.bars i:nth-child(3){
-  animation-delay:.4s;
-}
+.bars i:nth-child(3){animation-delay:.4s}
 
 .bars i:nth-child(4){
   animation-delay:.1s;
@@ -1233,19 +852,11 @@ nav a{
   height:8px;
 }
 
-/* =========================
-   Footer
-========================= */
-
 footer{
   text-align:center;
-
   padding:55px 20px;
-
   color:#797e76;
-
   font-size:9px;
-
   background:#010b08;
 }
 
@@ -1261,55 +872,46 @@ footer{
 }
 
 @media(max-width:700px){
-
-  .royal-grid{
-    gap:10px;
-  }
+  .royal-grid{gap:10px}
 
   .royal-card{
     padding:10px 8px 18px;
     border-radius:20px;
   }
 
-  .royal-photo{
-    border-radius:15px;
+  .royal-photo{border-radius:15px}
+
+  .royal-card h3{font-size:10px}
+
+  .people{grid-template-columns:1fr}
+
+  .school-card{padding:25px 18px}
+
+  nav a{display:none}
+
+  .gate-title{
+    top:58px;
+    font-size:32px;
   }
 
-  .royal-card h3{
-    font-size:10px;
-  }
-
-  .people{
-    grid-template-columns:1fr;
-  }
-
-  .school-card{
-    padding:25px 18px;
-  }
-
-  nav a{
-    display:none;
+  .fingerprint{
+    top:170px;
+    width:145px;
+    height:145px;
   }
 }
-
 </style>
 </head>
 
 <body class="lock">
 
-<audio
-  id="anthemAudio"
-  preload="auto"
-  playsinline
-  src="./anthem.mp3">
-</audio>
+<audio id="anthemAudio" preload="auto" playsinline src="./anthem.mp3"></audio>
 
 <div id="sparkles"></div>
 
 <!-- شاشة البداية -->
 
 <div id="gate">
-
   <div class="gate-content">
 
     <div class="school-top">
@@ -1322,7 +924,7 @@ footer{
       <div class="shield-core"></div>
 
       <div class="gate-title">
-        درع<br>الوطن
+        درع الوطن
       </div>
 
       <button
@@ -1332,7 +934,6 @@ footer{
         aria-label="اضغطي للدخول">
 
         <svg viewBox="0 0 100 100">
-
           <path d="M50 12c-20 0-36 15-36 34"/>
           <path d="M86 46c0-20-16-34-36-34"/>
           <path d="M22 53c0-16 12-28 28-28s28 12 28 28"/>
@@ -1345,11 +946,9 @@ footer{
           <path d="M67 70c2 8 6 13 10 17"/>
           <path d="M49 76c-1 8-3 13-6 17"/>
           <path d="M55 78c1 6 3 11 6 15"/>
-
         </svg>
 
         <span class="check">✓</span>
-
       </button>
 
       <div class="instruction" id="instruction">
@@ -1363,7 +962,6 @@ footer{
     </div>
 
   </div>
-
 </div>
 
 <!-- الموقع -->
@@ -1371,28 +969,18 @@ footer{
 <div id="app">
 
 <nav>
-
-  <div class="brand">
-    درع الوطن
-  </div>
-
-  <a href="#guardian">
-    استلمي درعك
-  </a>
-
+  <div class="brand">درع الوطن</div>
+  <a href="#guardian">استلمي درعك</a>
 </nav>
 
 <section class="hero" id="home">
-
   <div class="hero-content">
 
     <div class="kicker">
       المملكة العربية السعودية
     </div>
 
-    <h1>
-      درع الوطن
-    </h1>
+    <h1>درع الوطن</h1>
 
     <h2>
       وطنٌ نحبه، وعلمٌ نبني به مستقبله.
@@ -1406,7 +994,6 @@ footer{
     </p>
 
   </div>
-
 </section>
 
 <!-- القيادة -->
@@ -1417,13 +1004,9 @@ footer{
 
   <div class="heading reveal">
 
-    <small>
-      قيادة • عز • طموح
-    </small>
+    <small>قيادة • عز • طموح</small>
 
-    <h2>
-      وطنٌ نفخر بقيادته
-    </h2>
+    <h2>وطنٌ نفخر بقيادته</h2>
 
     <p>
       حفظ الله خادم الحرمين الشريفين وسمو ولي عهده،
@@ -1434,21 +1017,14 @@ footer{
 
   <div class="royal-grid reveal">
 
+    <!-- الملك سلمان -->
+
     <div class="royal-card">
 
       <div class="royal-photo">
-
-        <!--
-        ارفعي صورة الملك في GitHub باسم:
-        king-salman.png
-        -->
-
         <img
-          src="king-salman.png"
-          alt="خادم الحرمين الشريفين الملك سلمان بن عبدالعزيز"
-          onerror="this.style.display='none';this.parentElement.innerHTML='<div style=&quot;height:100%;display:grid;place-items:center;color:#d8bd72;padding:20px;font-size:11px&quot;>صورة خادم الحرمين الشريفين<br>king-salman.png</div>'"
-        >
-
+          src="./king-salman.png"
+          alt="خادم الحرمين الشريفين الملك سلمان بن عبدالعزيز آل سعود">
       </div>
 
       <h3>
@@ -1462,21 +1038,14 @@ footer{
 
     </div>
 
+    <!-- ولي العهد -->
+
     <div class="royal-card">
 
       <div class="royal-photo">
-
-        <!--
-        ارفعي صورة ولي العهد في GitHub باسم:
-        crown-prince.png
-        -->
-
         <img
-          src="crown-prince.png"
-          alt="صاحب السمو الملكي الأمير محمد بن سلمان"
-          onerror="this.style.display='none';this.parentElement.innerHTML='<div style=&quot;height:100%;display:grid;place-items:center;color:#d8bd72;padding:20px;font-size:11px&quot;>صورة سمو ولي العهد<br>crown-prince.png</div>'"
-        >
-
+          src="./crown-prince.png"
+          alt="صاحب السمو الملكي الأمير محمد بن سلمان بن عبدالعزيز آل سعود">
       </div>
 
       <h3>
@@ -1508,13 +1077,9 @@ footer{
 
   <div class="heading reveal">
 
-    <small>
-      قيادة • تعليم • انتماء
-    </small>
+    <small>قيادة • تعليم • انتماء</small>
 
-    <h2>
-      مدرستنا
-    </h2>
+    <h2>مدرستنا</h2>
 
     <p>
       بالعلم نصنع المستقبل، وبالقيم والانتماء نحفظ الوطن.
@@ -1532,13 +1097,9 @@ footer{
 
       <div class="person">
 
-        <small>
-          مديرة المدرسة
-        </small>
+        <small>مديرة المدرسة</small>
 
-        <h3>
-          هبة فلمبان
-        </h3>
+        <h3>هبة فلمبان</h3>
 
         <p>
           بقيادة تصنع الإلهام،
@@ -1549,16 +1110,12 @@ footer{
 
       <div class="person">
 
-        <small>
-          المعلمات
-        </small>
+        <small>المعلمات</small>
 
         <div class="teacher-tags">
-
-          <span>حصة الحربي</span>
-          <span>نبيهه عسيري</span>
           <span>دارالهناء الحربي</span>
-
+          <span>حصة الحربي</span>
+          <span>نبيهة عسيري</span>
         </div>
 
         <p>
@@ -1606,17 +1163,14 @@ footer{
       type="text"
       maxlength="30"
       autocomplete="off"
-      placeholder="اكتبي اسمك هنا"
-    >
+      placeholder="اكتبي اسمك هنا">
 
     <button
       class="gold-btn"
       id="claimBtn"
       type="button"
       onclick="createGuardianCard()">
-
       استلمي درعك
-
     </button>
 
   </div>
@@ -1633,9 +1187,7 @@ footer{
 
   <div class="wall-head">
 
-    <h2>
-      💌 حائط حارسات الدرع
-    </h2>
+    <h2>💌 حائط حارسات الدرع</h2>
 
     <p>
       كل اسم يشارك في رحلة درع الوطن
@@ -1645,35 +1197,20 @@ footer{
   </div>
 
   <div class="progress-shield">
-
-    <div
-      class="progress-core"
-      id="progressCore">
-
+    <div class="progress-core" id="progressCore">
       ✦
-
     </div>
-
   </div>
 
   <div class="wall-count">
-
-    <b id="wallCount">
-      0
-    </b>
-
+    <b id="wallCount">0</b>
     حارسة للدرع
-
   </div>
 
-  <div
-    class="wall-names"
-    id="wallNames">
-
+  <div class="wall-names" id="wallNames">
     <div class="wall-empty">
       بانتظار أول اسم يضيء الحائط ✨
     </div>
-
   </div>
 
 </div>
@@ -1681,18 +1218,14 @@ footer{
 </section>
 
 <footer>
-
   الابتدائية الخامسة والأربعون
-
   <br><br>
-
   درع الوطن • المملكة العربية السعودية 🇸🇦
-
 </footer>
 
 </div>
 
-<!-- البطاقة -->
+<!-- بطاقة الطالبة -->
 
 <div id="cardOverlay">
 
@@ -1707,18 +1240,14 @@ footer{
   </div>
 
   <div class="card-shield">
-
     <div class="card-shield-inner">
       ✦
     </div>
-
   </div>
 
   <div id="nationalQuote"></div>
 
-  <div class="saudi-flag">
-    🇸🇦
-  </div>
+  <div class="saudi-flag">🇸🇦</div>
 
   <div class="card-divider"></div>
 
@@ -1731,81 +1260,58 @@ footer{
   <div id="guardNumber"></div>
 
   <div class="success-text">
-
     ببصمتك واسمك أصبحتِ واحدةً من حارسات درع الوطن،
     فليكن علمك وعطاؤك أثرًا يليق بوطنك.
-
   </div>
 
   <button
     class="card-action"
     type="button"
     onclick="closeCard()">
-
     العودة للرئيسية
-
   </button>
 
 </div>
 
 </div>
 
-<button
-  id="audioBtn"
-  type="button"
-  onclick="toggleAudio()">
+<!-- زر الصوت -->
 
+<button id="audioBtn" type="button" onclick="toggleAudio()">
   <span class="bars">
     <i></i>
     <i></i>
     <i></i>
     <i></i>
   </span>
-
 </button>
 
 <script>
 
-/* =========================
-   البصمة والنشيد
-========================= */
+/* البصمة والنشيد */
 
-const anthemAudio =
-document.getElementById("anthemAudio");
+const anthemAudio = document.getElementById("anthemAudio");
+const audioBtn = document.getElementById("audioBtn");
+const fingerprint = document.getElementById("fingerprint");
+const mainShield = document.getElementById("mainShield");
+const instruction = document.getElementById("instruction");
+const gate = document.getElementById("gate");
+const app = document.getElementById("app");
 
-const audioBtn =
-document.getElementById("audioBtn");
+let opened = false;
+let creatingCard = false;
 
-const fingerprint =
-document.getElementById("fingerprint");
+fingerprint.onclick = function(){
 
-const mainShield =
-document.getElementById("mainShield");
+  if(opened) return;
 
-const instruction =
-document.getElementById("instruction");
+  opened = true;
 
-const gate =
-document.getElementById("gate");
+  anthemAudio.muted = false;
+  anthemAudio.volume = 1;
+  anthemAudio.currentTime = 0;
 
-const app =
-document.getElementById("app");
-
-let opened=false;
-let creatingCard=false;
-
-fingerprint.onclick=function(){
-
-  if(opened)return;
-
-  opened=true;
-
-  anthemAudio.muted=false;
-  anthemAudio.volume=1;
-  anthemAudio.currentTime=0;
-
-  anthemAudio
-  .play()
+  anthemAudio.play()
   .then(()=>{
     audioBtn.classList.add("show");
     audioBtn.classList.remove("paused");
@@ -1815,54 +1321,40 @@ fingerprint.onclick=function(){
   });
 
   mainShield.classList.add("activated");
-
   fingerprint.classList.add("verified");
 
-  instruction.textContent=
-  "تم التحقق بنجاح ✓";
-
+  instruction.textContent = "تم التحقق بنجاح ✓";
   instruction.classList.add("success");
 
-  if(navigator.vibrate)
-  navigator.vibrate(70);
+  if(navigator.vibrate){
+    navigator.vibrate(70);
+  }
 
   setTimeout(()=>{
-
     app.classList.add("visible");
-
     document.body.classList.remove("lock");
-
   },1200);
 
   setTimeout(()=>{
-
     gate.classList.add("leave");
-
   },1500);
 
   setTimeout(()=>{
-
     gate.style.display="none";
-
     window.scrollTo(0,0);
-
     activateReveal();
-
   },2300);
 
 };
 
 
-/* =========================
-   الصوت
-========================= */
+/* الصوت */
 
 function toggleAudio(){
 
   if(anthemAudio.paused){
 
-    anthemAudio
-    .play()
+    anthemAudio.play()
     .then(()=>{
       audioBtn.classList.remove("paused");
     });
@@ -1870,7 +1362,6 @@ function toggleAudio(){
   }else{
 
     anthemAudio.pause();
-
     audioBtn.classList.add("paused");
 
   }
@@ -1878,80 +1369,66 @@ function toggleAudio(){
 }
 
 
-/* =========================
-   ظهور الأقسام
-========================= */
+/* ظهور الأقسام */
 
 function activateReveal(){
 
-  const observer=
-  new IntersectionObserver(
-
-    entries=>
-
-    entries.forEach(entry=>{
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(entry=>{
 
       if(entry.isIntersecting){
-
         entry.target.classList.add("visible");
-
         observer.unobserve(entry.target);
-
       }
 
     }),
-
     {threshold:.1}
-
   );
 
-  document
-  .querySelectorAll(".reveal")
+  document.querySelectorAll(".reveal")
   .forEach(el=>observer.observe(el));
 
 }
 
 
-/* =========================
-   العبارات الوطنية
-========================= */
+/* العبارات الوطنية */
 
-const nationalQuotes=[
+const nationalQuotes = [
 
-"وطني عزٌ نسكنه، وفخرٌ يسكن فينا.",
+  "وطني عزٌ نسكنه، وفخرٌ يسكن فينا.",
 
-"السعودية وطن المجد، ومستقبل نصنعه بالعلم والطموح.",
+  "السعودية وطن المجد، ومستقبل نصنعه بالعلم والطموح.",
 
-"حب الوطن عملٌ وعطاءٌ ومسؤولية.",
+  "حب الوطن عملٌ وعطاءٌ ومسؤولية.",
 
-"في وطننا نكبر بالأمل، ونبني بالعلم، ونحفظ العهد.",
+  "في وطننا نكبر بالأمل، ونبني بالعلم، ونحفظ العهد.",
 
-"وطني قصة فخر أرويها، وأمانة أحملها.",
+  "وطني قصة فخر أرويها، وأمانة أحملها.",
 
-"السعودية دار العز، وفي القلب لها عهدٌ لا يتغير.",
+  "السعودية دار العز، وفي القلب لها عهدٌ لا يتغير.",
 
-"بعلمي وأخلاقي وعطائي أشارك في بناء وطني.",
+  "بعلمي وأخلاقي وعطائي أشارك في بناء وطني.",
 
-"وطنٌ شامخ، وطموحٌ يعانق السماء.",
+  "وطنٌ شامخ، وطموحٌ يعانق السماء.",
 
-"هنا وطننا، وهنا جذورنا، وهنا مستقبلنا.",
+  "هنا وطننا، وهنا جذورنا، وهنا مستقبلنا.",
 
-"أحمل وطني في قلبي، وأخدمه بعلمي وعملي."
+  "أحمل وطني في قلبي، وأخدمه بعلمي وعملي."
 
 ];
 
 
 function nameHash(name){
 
-  let hash=0;
+  let hash = 0;
 
   for(let i=0;i<name.length;i++){
 
-    hash=
-    ((hash<<5)-hash)
-    +name.charCodeAt(i);
+    hash =
+      ((hash<<5)-hash)
+      + name.charCodeAt(i);
 
-    hash|=0;
+    hash |= 0;
 
   }
 
@@ -1960,82 +1437,64 @@ function nameHash(name){
 }
 
 
-/* =========================
-   Firebase
-========================= */
+/* Firebase */
 
-const DB_ROOT=
+const DB_ROOT =
 "https://der3-alwatan-45-default-rtdb.firebaseio.com";
 
-const COUNTER_URL=
-DB_ROOT+"/guardianCounter.json";
+const COUNTER_URL =
+DB_ROOT + "/guardianCounter.json";
 
-const WALL_URL=
-DB_ROOT+"/guardianWall.json";
+const WALL_URL =
+DB_ROOT + "/guardianWall.json";
 
 
-/* رقم حارسة الدرع */
+/* الرقم المتسلسل */
 
 async function getNextGuardianNumber(){
 
-  for(
-    let attempt=0;
-    attempt<8;
-    attempt++
-  ){
+  for(let attempt=0; attempt<8; attempt++){
 
-    const read=
-    await fetch(
-
+    const read = await fetch(
       COUNTER_URL,
-
       {
         method:"GET",
-
         headers:{
           "X-Firebase-ETag":"true",
           "Cache-Control":"no-cache"
         }
       }
-
     );
 
-    if(!read.ok)
-    throw new Error("counter-read");
+    if(!read.ok){
+      throw new Error("counter-read");
+    }
 
-    const etag=
-    read.headers.get("ETag");
+    const etag = read.headers.get("ETag");
+    const current = await read.json();
 
-    const current=
-    await read.json();
+    const next =
+      (typeof current === "number" ? current : 0) + 1;
 
-    const next=
-    (typeof current==="number"
-    ?current:0)+1;
-
-    const write=
-    await fetch(
-
+    const write = await fetch(
       COUNTER_URL,
-
       {
         method:"PUT",
-
         headers:{
           "Content-Type":"application/json",
           "if-match":etag
         },
-
         body:JSON.stringify(next)
       }
-
     );
 
-    if(write.ok)
-    return await write.json();
+    if(write.ok){
+      return await write.json();
+    }
 
-    if(write.status!==412)
-    throw new Error("counter-write");
+    if(write.status !== 412){
+      throw new Error("counter-write");
+    }
 
   }
 
@@ -2046,145 +1505,107 @@ async function getNextGuardianNumber(){
 
 /* إضافة الاسم للحائط */
 
-async function addNameToWall(
-  name,
-  number
-){
+async function addNameToWall(name,number){
 
-  const response=
-  await fetch(
-
+  const response = await fetch(
     WALL_URL,
-
     {
       method:"POST",
-
       headers:{
-        "Content-Type":
-        "application/json"
+        "Content-Type":"application/json"
       },
-
       body:JSON.stringify({
-
         name:name,
-
         number:number,
-
         createdAt:Date.now()
-
       })
     }
-
   );
 
-  if(!response.ok)
-  throw new Error("wall-write");
+  if(!response.ok){
+    throw new Error("wall-write");
+  }
 
 }
 
 
-/* عرض الحائط */
+/* عرض حائط الأسماء */
 
 function renderWall(data){
 
-  const box=
-  document.getElementById(
-    "wallNames"
-  );
+  const box = document.getElementById("wallNames");
 
-  const items=
-  data
-  ?Object.values(data)
-  :[];
+  const items = data ? Object.values(data) : [];
 
   items.sort(
-    (a,b)=>
-    (a.number||0)
-    -(b.number||0)
+    (a,b)=>(a.number||0)-(b.number||0)
   );
 
   box.innerHTML="";
 
   if(!items.length){
 
-    box.innerHTML=
+    box.innerHTML =
     '<div class="wall-empty">بانتظار أول اسم يضيء الحائط ✨</div>';
 
-    document
-    .getElementById("wallCount")
-    .textContent="0";
+    document.getElementById("wallCount").textContent="0";
+
+    document.getElementById("progressCore")
+    .style.setProperty("--fill","0%");
 
     return;
-
   }
 
   items.forEach(item=>{
 
-    if(!item || !item.name)
-    return;
+    if(!item || !item.name) return;
 
-    const el=
-    document.createElement("div");
+    const el = document.createElement("div");
 
-    el.className="wall-name";
+    el.className = "wall-name";
 
-    /* الاسم فقط بدون الرقم */
-
-    el.textContent=
-    "💌 "+item.name;
+    /* يظهر الاسم الذي كتبته الطالبة فقط */
+    el.textContent = "💌 " + item.name;
 
     box.appendChild(el);
 
   });
 
-  const count=items.length;
+  const count = items.length;
 
-  document
-  .getElementById("wallCount")
-  .textContent=count;
+  document.getElementById("wallCount").textContent = count;
 
-  document
-  .getElementById("progressCore")
-  .style
-  .setProperty(
+  document.getElementById("progressCore")
+  .style.setProperty(
     "--fill",
-    Math.min(100,count)+"%"
+    Math.min(100,count) + "%"
   );
 
 }
 
 
-/* تحميل الحائط */
+/* تحميل حائط الأسماء */
 
 async function loadWall(){
 
   try{
 
-    const r=
-    await fetch(
-
+    const response = await fetch(
       WALL_URL,
-
       {cache:"no-store"}
-
     );
 
-    if(!r.ok)
-    throw new Error();
+    if(!response.ok){
+      throw new Error("wall-read");
+    }
 
-    const data=
-    await r.json();
+    const data = await response.json();
 
     renderWall(data);
 
-  }
+  }catch(error){
 
-  catch(e){
-
-    document
-    .getElementById("wallNames")
-    .innerHTML=
-
+    document.getElementById("wallNames").innerHTML =
     '<div class="wall-error">سيظهر حائط الأسماء بعد تفعيل Firebase ✨</div>';
 
   }
@@ -2192,116 +1613,75 @@ async function loadWall(){
 }
 
 
-/* =========================
-   إصدار الدرع
-========================= */
+/* إصدار بطاقة الطالبة */
 
 async function createGuardianCard(){
 
-  if(creatingCard)
-  return;
+  if(creatingCard) return;
 
-  const input=
-  document.getElementById(
-    "guardianName"
-  );
+  const input = document.getElementById("guardianName");
+  const name = input.value.trim();
+  const btn = document.getElementById("claimBtn");
 
-  const name=
-  input.value.trim();
+  if(name.length < 2){
 
-  const btn=
-  document.getElementById(
-    "claimBtn"
-  );
-
-  if(name.length<2){
-
-    alert(
-      "اكتبي اسمك أولًا ✨"
-    );
-
+    alert("اكتبي اسمك أولًا ✨");
     input.focus();
 
     return;
-
   }
 
-  creatingCard=true;
+  creatingCard = true;
 
-  btn.disabled=true;
+  btn.disabled = true;
+  btn.textContent = "جارٍ تجهيز درعك...";
 
-  btn.textContent=
-  "جارٍ تجهيز درعك...";
+  const hash = nameHash(name);
 
-  const hash=
-  nameHash(name);
-
-  const quote=
-  nationalQuotes[
-    hash %
-    nationalQuotes.length
-  ];
+  const quote =
+    nationalQuotes[
+      hash % nationalQuotes.length
+    ];
 
   try{
 
-    const number=
-    await getNextGuardianNumber();
+    const number =
+      await getNextGuardianNumber();
 
-    await addNameToWall(
-      name,
-      number
-    );
+    await addNameToWall(name,number);
 
-    document
-    .getElementById(
-      "nationalQuote"
-    )
-    .textContent=quote;
+    document.getElementById("nationalQuote")
+    .textContent = quote;
 
-    document
-    .getElementById(
-      "cardName"
-    )
-    .textContent=name;
+    document.getElementById("cardName")
+    .textContent = name;
 
-    document
-    .getElementById(
-      "guardNumber"
-    )
-    .textContent=
-    "حارسة الدرع رقم "+number;
+    document.getElementById("guardNumber")
+    .textContent =
+      "حارسة الدرع رقم " + number;
 
-    document
-    .getElementById(
-      "cardOverlay"
-    )
+    document.getElementById("cardOverlay")
     .classList.add("show");
 
-    document.body
-    .classList.add("lock");
+    document.body.classList.add("lock");
 
     loadWall();
 
-  }
-
-  catch(error){
+  }catch(error){
 
     console.error(error);
 
     alert(
-      "تعذر إصدار الدرع الآن. نحتاج فقط تفعيل قاعدة حائط الأسماء في Firebase."
+      "تعذر إصدار الدرع الآن. نحتاج فقط تفعيل حائط الأسماء في Firebase."
     );
 
-  }
+  }finally{
 
-  finally{
+    creatingCard = false;
 
-    creatingCard=false;
+    btn.disabled = false;
 
-    btn.disabled=false;
-
-    btn.textContent=
-    "استلمي درعك";
+    btn.textContent = "استلمي درعك";
 
   }
 
@@ -2312,17 +1692,12 @@ async function createGuardianCard(){
 
 function closeCard(){
 
-  document
-  .getElementById(
-    "cardOverlay"
-  )
+  document.getElementById("cardOverlay")
   .classList.remove("show");
 
-  document.body
-  .classList.remove("lock");
+  document.body.classList.remove("lock");
 
-  document
-  .getElementById("home")
+  document.getElementById("home")
   .scrollIntoView({
     behavior:"smooth"
   });
@@ -2332,58 +1707,36 @@ function closeCard(){
 
 /* Enter */
 
-document
-.getElementById(
-  "guardianName"
-)
-.addEventListener(
+document.getElementById("guardianName")
+.addEventListener("keydown",event=>{
 
-  "keydown",
-
-  event=>{
-
-    if(event.key==="Enter")
+  if(event.key === "Enter"){
     createGuardianCard();
-
   }
 
-);
+});
 
 
-/* =========================
-   النجوم المتحركة
-========================= */
+/* النجوم */
 
 function makeSparkles(){
 
-  const host=
-  document.getElementById(
-    "sparkles"
-  );
+  const host = document.getElementById("sparkles");
 
-  for(
-    let i=0;
-    i<30;
-    i++
-  ){
+  for(let i=0;i<30;i++){
 
-    const star=
-    document.createElement(
-      "span"
-    );
+    const star = document.createElement("span");
 
-    star.className="spark";
+    star.className = "spark";
 
-    star.textContent=
-    i%3===0
-    ?"✦"
-    :"✧";
+    star.textContent =
+      i%3===0 ? "✦" : "✧";
 
-    star.style.left=
-    Math.random()*100+"%";
+    star.style.left =
+      Math.random()*100 + "%";
 
-    star.style.top=
-    Math.random()*100+"%";
+    star.style.top =
+      Math.random()*100 + "%";
 
     star.style.setProperty(
       "--d",
@@ -2395,9 +1748,8 @@ function makeSparkles(){
       (-Math.random()*7)+"s"
     );
 
-    star.style.fontSize=
-    (9+Math.random()*17)
-    +"px";
+    star.style.fontSize =
+      (9+Math.random()*17)+"px";
 
     host.appendChild(star);
 
@@ -2405,15 +1757,10 @@ function makeSparkles(){
 
 }
 
-
 makeSparkles();
-
 loadWall();
 
-setInterval(
-  loadWall,
-  12000
-);
+setInterval(loadWall,12000);
 
 </script>
 
