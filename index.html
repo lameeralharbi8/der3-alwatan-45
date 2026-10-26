@@ -35,7 +35,9 @@ body.lock{overflow:hidden}
 
 button,input{font-family:inherit}
 
-/* النجوم */
+/* =========================
+   النجوم
+========================= */
 
 #sparkles{
   position:fixed;
@@ -49,17 +51,28 @@ button,input{font-family:inherit}
   position:absolute;
   color:#ffe79b;
   opacity:.25;
-  text-shadow:0 0 7px #fff,0 0 15px #ffd35f;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 15px #ffd35f;
   animation:twinkle var(--d) ease-in-out infinite;
   animation-delay:var(--delay);
 }
 
 @keyframes twinkle{
-  0%,100%{opacity:.08;transform:scale(.5) rotate(0)}
-  50%{opacity:.9;transform:scale(1.3) rotate(90deg)}
+  0%,100%{
+    opacity:.08;
+    transform:scale(.5) rotate(0)
+  }
+
+  50%{
+    opacity:.9;
+    transform:scale(1.3) rotate(90deg)
+  }
 }
 
-/* شاشة البداية */
+/* =========================
+   شاشة البداية
+========================= */
 
 #gate{
   position:fixed;
@@ -69,6 +82,7 @@ button,input{font-family:inherit}
   display:grid;
   place-items:center;
   overflow:hidden;
+
   background:
     radial-gradient(circle at 50% 35%,rgba(12,128,84,.48),transparent 28%),
     radial-gradient(circle at 50% 110%,#0a5a3d,#03281c 43%,#010b08 80%);
@@ -78,6 +92,7 @@ button,input{font-family:inherit}
   content:"";
   position:absolute;
   inset:-35%;
+
   background:
     repeating-radial-gradient(
       circle,
@@ -85,6 +100,7 @@ button,input{font-family:inherit}
       rgba(255,224,140,.04) 71px 72px,
       transparent 73px 140px
     );
+
   animation:rotate 30s linear infinite;
 }
 
@@ -117,6 +133,7 @@ button,input{font-family:inherit}
 .shield-core{
   position:absolute;
   inset:0;
+
   clip-path:polygon(
     50% 0,
     91% 13%,
@@ -130,20 +147,28 @@ button,input{font-family:inherit}
 }
 
 .shield-border{
-  background:linear-gradient(
-    135deg,
-    #765019,
-    #ffe59a 20%,
-    #a87928 45%,
-    #fff0b0 65%,
-    #825516
-  );
+  background:
+    linear-gradient(
+      135deg,
+      #765019,
+      #ffe59a 20%,
+      #a87928 45%,
+      #fff0b0 65%,
+      #825516
+    );
 }
 
 .shield-core{
   inset:6px;
+
   background:
-    radial-gradient(circle at 50% 34%,#0e8259,#074632 48%,#021c14);
+    radial-gradient(
+      circle at 50% 34%,
+      #0e8259,
+      #074632 48%,
+      #021c14
+    );
+
   transition:1s;
 }
 
@@ -154,19 +179,30 @@ button,input{font-family:inherit}
 @keyframes shieldPulse{
   50%{
     transform:scale(1.05);
-    filter:drop-shadow(0 0 35px #ffe481) drop-shadow(0 0 80px #c68b24);
+
+    filter:
+      drop-shadow(0 0 35px #ffe481)
+      drop-shadow(0 0 80px #c68b24);
   }
+
   100%{
     transform:scale(1.03);
-    filter:drop-shadow(0 0 40px #ffe481) drop-shadow(0 0 100px #c68b24);
+
+    filter:
+      drop-shadow(0 0 40px #ffe481)
+      drop-shadow(0 0 100px #c68b24);
   }
 }
 
 .shield.activated .shield-core{
-  background:radial-gradient(circle,#d8aa40,#93631b 48%,#352206);
+  background:
+    radial-gradient(
+      circle,
+      #d8aa40,
+      #93631b 48%,
+      #352206
+    );
 }
-
-/* عنوان الدرع واضح فوق البصمة */
 
 .gate-title{
   position:absolute;
@@ -174,12 +210,16 @@ button,input{font-family:inherit}
   left:0;
   width:100%;
   z-index:30;
+
   color:#ffe69a;
+
   font-size:38px;
   font-weight:800;
   line-height:1.2;
+
   text-align:center;
   white-space:nowrap;
+
   text-shadow:
     0 4px 8px rgba(0,0,0,.9),
     0 0 22px rgba(255,218,111,.55);
@@ -188,20 +228,34 @@ button,input{font-family:inherit}
 .fingerprint{
   appearance:none;
   -webkit-appearance:none;
+
   position:absolute;
   z-index:25;
+
   top:165px;
   left:50%;
+
   transform:translateX(-50%);
+
   width:145px;
   height:145px;
+
   border-radius:50%;
+
   display:grid;
   place-items:center;
+
   cursor:pointer;
+
   background:
-    radial-gradient(circle at 50% 45%,#074934,#011b13 72%);
+    radial-gradient(
+      circle at 50% 45%,
+      #074934,
+      #011b13 72%
+    );
+
   border:1px solid #f0cf72;
+
   box-shadow:
     0 0 0 11px rgba(230,195,96,.05),
     0 0 35px rgba(255,224,130,.25),
@@ -211,42 +265,71 @@ button,input{font-family:inherit}
 .fingerprint svg{
   width:98px;
   height:98px;
+
   fill:none;
   stroke:#ffe18a;
   stroke-width:2.5;
   stroke-linecap:round;
+
   filter:drop-shadow(0 0 7px #d9b74f);
 }
 
 .check{
   position:absolute;
   inset:0;
+
   display:grid;
   place-items:center;
+
   color:#fff8d4;
+
   font-size:65px;
   font-weight:800;
+
   opacity:0;
-  text-shadow:0 0 15px #fff,0 0 35px #ffd76b;
+
+  text-shadow:
+    0 0 15px #fff,
+    0 0 35px #ffd76b;
 }
 
 .fingerprint.verified{
-  background:radial-gradient(circle,#ffe9a2,#c58a28 48%,#5d3c0b);
-  box-shadow:0 0 40px #ffe184,0 0 100px rgba(255,191,48,.55);
+  background:
+    radial-gradient(
+      circle,
+      #ffe9a2,
+      #c58a28 48%,
+      #5d3c0b
+    );
+
+  box-shadow:
+    0 0 40px #ffe184,
+    0 0 100px rgba(255,191,48,.55);
 }
 
-.fingerprint.verified svg{opacity:.15}
-.fingerprint.verified .check{opacity:1}
+.fingerprint.verified svg{
+  opacity:.15;
+}
+
+.fingerprint.verified .check{
+  opacity:1;
+}
 
 .instruction{
   position:absolute;
+
   top:330px;
   left:0;
+
   width:100%;
+
   color:#f3e2ad;
+
   font-size:11px;
   font-weight:500;
+
   text-align:center;
+
   text-shadow:0 2px 8px #000;
 }
 
@@ -266,31 +349,45 @@ button,input{font-family:inherit}
 }
 
 @keyframes gateLeave{
-  to{opacity:0;visibility:hidden}
+  to{
+    opacity:0;
+    visibility:hidden
+  }
 }
 
-/* الموقع */
+/* =========================
+   الموقع
+========================= */
 
 #app{
   opacity:0;
   transition:1s;
 }
 
-#app.visible{opacity:1}
+#app.visible{
+  opacity:1;
+}
 
 nav{
   position:fixed;
   z-index:700;
+
   top:0;
   right:0;
   left:0;
+
   height:65px;
+
   padding:0 6%;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
+
   background:#01140fca;
+
   backdrop-filter:blur(15px);
+
   border-bottom:1px solid #d8b65c25;
 }
 
@@ -305,38 +402,247 @@ nav a{
   font-size:10px;
 }
 
-/* الرئيسية */
+/* =========================
+   الرئيسية + النخيل
+========================= */
 
 .hero{
   min-height:100svh;
+
   position:relative;
+
   display:flex;
   align-items:center;
-  padding:110px 7% 80px;
+
+  padding:110px 7% 100px;
+
+  overflow:hidden;
+
   background:
-    radial-gradient(circle at 80% 30%,rgba(13,126,82,.55),transparent 31%),
-    radial-gradient(circle at 10% 90%,rgba(222,183,80,.1),transparent 25%),
-    linear-gradient(125deg,#010d09,#03281d 55%,#075038);
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(13,126,82,.58),
+      transparent 31%
+    ),
+
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(222,183,80,.11),
+      transparent 25%
+    ),
+
+    linear-gradient(
+      125deg,
+      #010d09,
+      #03281d 55%,
+      #075038
+    );
+}
+
+/* وهج خلفي */
+
+.hero:before{
+  content:"";
+
+  position:absolute;
+
+  width:650px;
+  height:650px;
+
+  right:-200px;
+  top:-160px;
+
+  border-radius:50%;
+
+  border:1px solid rgba(255,220,126,.08);
+
+  box-shadow:
+    0 0 0 80px rgba(255,220,126,.018),
+    0 0 0 160px rgba(255,220,126,.012);
+
+  pointer-events:none;
+}
+
+/* أرضية رملية خفيفة */
+
+.hero:after{
+  content:"";
+
+  position:absolute;
+
+  left:-5%;
+  right:-5%;
+  bottom:-100px;
+
+  height:240px;
+
+  border-radius:50% 50% 0 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(13,88,60,.15),
+      rgba(1,15,10,.8)
+    );
+
+  transform:rotate(-2deg);
+
+  pointer-events:none;
+}
+
+/* النخيل */
+
+.palm-scene{
+  position:absolute;
+  z-index:1;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  height:75%;
+
+  pointer-events:none;
+
+  opacity:.38;
+}
+
+.palm{
+  position:absolute;
+  bottom:0;
+
+  width:170px;
+  height:390px;
+
+  transform-origin:bottom center;
+
+  filter:
+    drop-shadow(0 0 20px rgba(214,173,79,.07));
+}
+
+.palm-left{
+  left:4%;
+  transform:scale(.9);
+}
+
+.palm-left-2{
+  left:19%;
+  transform:scale(.58);
+  opacity:.55;
+}
+
+.palm-right{
+  right:3%;
+  transform:scale(.78) scaleX(-1);
+  opacity:.52;
+}
+
+.trunk{
+  position:absolute;
+
+  width:24px;
+  height:245px;
+
+  bottom:-15px;
+  left:73px;
+
+  border-radius:60% 35% 15% 15%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #09291d,
+      #0d4b35,
+      #08281c
+    );
+
+  transform:rotate(4deg);
+}
+
+.leaf{
+  position:absolute;
+
+  width:120px;
+  height:28px;
+
+  left:74px;
+  top:112px;
+
+  transform-origin:left center;
+
+  border-radius:100% 10% 100% 10%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #0b4934,
+      #0c6748,
+      #062b1f
+    );
+}
+
+.leaf:nth-child(2){
+  transform:rotate(-8deg);
+}
+
+.leaf:nth-child(3){
+  transform:rotate(28deg);
+}
+
+.leaf:nth-child(4){
+  transform:rotate(63deg);
+}
+
+.leaf:nth-child(5){
+  transform:rotate(100deg);
+}
+
+.leaf:nth-child(6){
+  transform:rotate(137deg);
+}
+
+.leaf:nth-child(7){
+  transform:rotate(174deg);
+}
+
+.leaf:nth-child(8){
+  transform:rotate(210deg);
+}
+
+.leaf:nth-child(9){
+  transform:rotate(246deg);
+}
+
+.leaf:nth-child(10){
+  transform:rotate(283deg);
 }
 
 .hero-content{
   position:relative;
-  z-index:3;
+  z-index:5;
+
   max-width:800px;
 }
 
 .kicker{
   color:#d2b35a;
+
   font-size:11px;
+
   letter-spacing:2px;
 }
 
 .hero h1{
   margin:5px 0;
+
   color:#f2d477;
+
   font-size:clamp(58px,11vw,110px);
+
   line-height:1.2;
-  text-shadow:0 12px 40px #0008;
+
+  text-shadow:
+    0 12px 40px #0008;
 }
 
 .hero h2{
@@ -346,20 +652,34 @@ nav a{
 .hero-line{
   width:110px;
   height:2px;
+
   margin:25px 0;
-  background:linear-gradient(90deg,transparent,#f2d478);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #f2d478
+    );
 }
 
 .hero p{
   max-width:650px;
+
   color:#d0cdbf;
+
   line-height:2.2;
+
   font-size:12px;
 }
 
-/* الأقسام */
+/* =========================
+   الأقسام
+========================= */
 
-.section{padding:95px 0}
+.section{
+  padding:95px 0;
+}
 
 .container{
   width:min(1100px,90%);
@@ -377,59 +697,106 @@ nav a{
 
 .heading h2{
   color:#f1d47a;
+
   font-size:clamp(28px,5vw,43px);
+
   margin:7px 0;
 }
 
 .heading p{
   color:#a8aa9e;
+
   font-size:11px;
+
   line-height:2;
 }
 
-/* قسم القيادة الجديد */
+/* =========================
+   القيادة
+========================= */
 
 .royal-section{
   position:relative;
   overflow:hidden;
+
   background:
-    radial-gradient(circle at 50% 0,rgba(222,181,74,.16),transparent 38%),
-    radial-gradient(circle at 15% 60%,rgba(8,110,75,.24),transparent 35%),
+    radial-gradient(
+      circle at 50% 0,
+      rgba(222,181,74,.16),
+      transparent 38%
+    ),
+
+    radial-gradient(
+      circle at 15% 60%,
+      rgba(8,110,75,.24),
+      transparent 35%
+    ),
+
     #021710;
 }
 
 .royal-section:before{
   content:"";
+
   position:absolute;
+
   width:500px;
   height:500px;
+
   border:1px solid rgba(229,195,101,.08);
+
   border-radius:50%;
+
   top:-250px;
   left:50%;
+
   transform:translateX(-50%);
 }
 
 .royal-grid{
   position:relative;
   z-index:2;
+
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(2,1fr);
+
   gap:28px;
+
   max-width:850px;
+
   margin:auto;
 }
 
 .royal-card{
   position:relative;
+
   text-align:center;
+
   padding:10px 10px 25px;
+
   overflow:hidden;
+
   border-radius:30px;
+
   background:
-    radial-gradient(circle at 50% 20%,rgba(28,126,86,.28),transparent 42%),
-    linear-gradient(160deg,#063c2c,#01150f);
-  border:1px solid rgba(246,211,116,.42);
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(28,126,86,.28),
+      transparent 42%
+    ),
+
+    linear-gradient(
+      160deg,
+      #063c2c,
+      #01150f
+    );
+
+  border:
+    1px solid
+    rgba(246,211,116,.42);
+
   box-shadow:
     0 25px 70px rgba(0,0,0,.55),
     inset 0 0 35px rgba(214,173,79,.05);
@@ -437,32 +804,56 @@ nav a{
 
 .royal-card:before{
   content:"✦";
+
   position:absolute;
+
   z-index:4;
+
   top:18px;
   right:20px;
+
   color:#ffe69b;
+
   font-size:20px;
+
   opacity:.75;
-  text-shadow:0 0 15px #ffd96b;
+
+  text-shadow:
+    0 0 15px #ffd96b;
 }
 
 .royal-photo{
   position:relative;
+
   width:100%;
+
   aspect-ratio:4/5;
+
   border-radius:23px;
+
   overflow:hidden;
-  border:1px solid rgba(255,225,139,.32);
+
+  border:
+    1px solid
+    rgba(255,225,139,.32);
+
   background:
-    radial-gradient(circle at 50% 30%,#0c6748,#021b14 70%);
+    radial-gradient(
+      circle at 50% 30%,
+      #0c6748,
+      #021b14 70%
+    );
 }
 
 .royal-photo:after{
   content:"";
+
   position:absolute;
+
   inset:0;
+
   pointer-events:none;
+
   background:
     linear-gradient(
       to top,
@@ -474,54 +865,84 @@ nav a{
 .royal-photo img{
   width:100%;
   height:100%;
+
   object-fit:cover;
   object-position:center top;
+
   display:block;
-  filter:contrast(1.04) saturate(1.03);
 }
 
 .royal-card h3{
   position:relative;
   z-index:3;
+
   margin:20px 5px 2px;
+
   color:#ffe397;
+
   font-size:15px;
   font-weight:700;
+
   line-height:2;
-  text-shadow:0 3px 12px rgba(0,0,0,.7);
+
+  text-shadow:
+    0 3px 12px rgba(0,0,0,.7);
 }
 
-/* المدرسة */
+/* =========================
+   المدرسة
+========================= */
 
 .about{
   background:#021710;
 }
 
 .school-card{
-  border:1px solid #dfbd6033;
+  border:
+    1px solid #dfbd6033;
+
   border-radius:28px;
+
   padding:40px;
-  background:linear-gradient(145deg,#073628,#021a13);
-  box-shadow:0 30px 80px #0005;
+
+  background:
+    linear-gradient(
+      145deg,
+      #073628,
+      #021a13
+    );
+
+  box-shadow:
+    0 30px 80px #0005;
 }
 
 .school-name{
   text-align:center;
+
   color:#f4da8a;
+
   font-size:23px;
+
   margin-bottom:30px;
 }
 
 .people{
   display:grid;
-  grid-template-columns:1fr 2fr;
+
+  grid-template-columns:
+    1fr 2fr;
+
   gap:15px;
 }
 
 .person{
   padding:25px;
+
   border-radius:20px;
-  border:1px solid #ffffff12;
+
+  border:
+    1px solid #ffffff12;
+
   background:#ffffff05;
 }
 
@@ -531,98 +952,166 @@ nav a{
 
 .person h3{
   color:#f3dfa0;
+
   margin:8px 0;
 }
 
 .person p{
   color:#b8b7ac;
+
   font-size:10px;
+
   line-height:2;
 }
 
 .teacher-tags{
   display:flex;
+
   gap:8px;
+
   flex-wrap:wrap;
+
   margin-top:12px;
 }
 
 .teacher-tags span{
   padding:8px 13px;
-  border:1px solid #d9b85c40;
+
+  border:
+    1px solid #d9b85c40;
+
   border-radius:30px;
+
   font-size:10px;
 }
 
-/* استلام الدرع */
+/* =========================
+   الحصول على الدرع
+========================= */
 
 .guardian{
   min-height:100svh;
+
   display:grid;
   place-items:center;
+
   position:relative;
+
   padding:100px 20px;
+
   background:
-    radial-gradient(circle at 50% 40%,#0b6042,#03271c 40%,#010e0a 80%);
+    radial-gradient(
+      circle at 50% 40%,
+      #0b6042,
+      #03271c 40%,
+      #010e0a 80%
+    );
 }
 
 .name-stage{
   position:relative;
   z-index:3;
+
   width:min(620px,100%);
+
   text-align:center;
 }
 
 .mini-shield{
   width:90px;
   height:105px;
-  margin:0 auto 20px;
-  clip-path:polygon(50% 0,91% 14%,87% 65%,50% 100%,13% 65%,9% 14%);
-  background:linear-gradient(135deg,#8a611d,#ffe496,#a97928);
+
+  margin:
+    0 auto 20px;
+
+  clip-path:
+    polygon(
+      50% 0,
+      91% 14%,
+      87% 65%,
+      50% 100%,
+      13% 65%,
+      9% 14%
+    );
+
+  background:
+    linear-gradient(
+      135deg,
+      #8a611d,
+      #ffe496,
+      #a97928
+    );
+
   padding:4px;
 }
 
 .mini-shield div{
   width:100%;
   height:100%;
+
   clip-path:inherit;
+
   display:grid;
   place-items:center;
+
   background:#073b2a;
+
   color:#f6d97d;
+
   font-size:35px;
 }
 
 .name-stage h2{
   color:#f4d77e;
-  font-size:clamp(30px,7vw,53px);
+
+  font-size:
+    clamp(30px,7vw,53px);
+
   margin:8px 0;
 }
 
 .name-stage p{
   color:#c4c0b2;
+
   line-height:2;
+
   font-size:11px;
 }
 
 .name-box{
-  margin:30px auto 0;
+  margin:
+    30px auto 0;
+
   max-width:480px;
+
   padding:25px;
+
   border-radius:25px;
-  border:1px solid #e2be5d42;
+
+  border:
+    1px solid #e2be5d42;
+
   background:#021c15e8;
 }
 
 .name-box input{
   width:100%;
-  border:1px solid #49675d;
+
+  border:
+    1px solid #49675d;
+
   background:#01150f;
+
   color:white;
+
   padding:17px;
+
   border-radius:15px;
+
   outline:none;
+
   text-align:center;
+
   font-size:15px;
 }
 
@@ -632,39 +1121,78 @@ nav a{
 
 .gold-btn{
   width:100%;
+
   margin-top:14px;
-  border:1px solid #ffe39a;
+
+  border:
+    1px solid #ffe39a;
+
   border-radius:40px;
+
   padding:14px 27px;
+
   cursor:pointer;
+
   font-weight:800;
+
   color:#182117;
-  background:linear-gradient(100deg,#a77524,#ffe99c,#bd8c32);
-  box-shadow:0 12px 35px #0005;
+
+  background:
+    linear-gradient(
+      100deg,
+      #a77524,
+      #ffe99c,
+      #bd8c32
+    );
+
+  box-shadow:
+    0 12px 35px #0005;
 }
 
 .gold-btn:disabled{
   opacity:.65;
 }
 
-/* الحائط */
+/* =========================
+   حائط حراس الوطن
+========================= */
 
 .wall-section{
   position:relative;
+
   padding:100px 5%;
+
   background:
-    radial-gradient(circle at 50% 20%,rgba(20,123,84,.28),transparent 35%),
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(20,123,84,.28),
+      transparent 35%
+    ),
+
     #010e0a;
 }
 
 .wall-box{
   width:min(1050px,100%);
+
   margin:auto;
+
   padding:35px 25px;
-  border:1px solid rgba(220,183,83,.25);
+
+  border:
+    1px solid rgba(220,183,83,.25);
+
   border-radius:30px;
-  background:linear-gradient(145deg,rgba(5,54,39,.82),rgba(1,20,15,.95));
-  box-shadow:0 30px 90px #0008;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(5,54,39,.82),
+      rgba(1,20,15,.95)
+    );
+
+  box-shadow:
+    0 30px 90px #0008;
 }
 
 .wall-head{
@@ -673,89 +1201,154 @@ nav a{
 
 .wall-head h2{
   color:#f4d77e;
-  font-size:clamp(28px,6vw,45px);
+
+  font-size:
+    clamp(28px,6vw,45px);
+
   margin:0;
 }
 
 .wall-head p{
   color:#aaa99e;
+
   font-size:11px;
+
   line-height:2;
 }
 
 .progress-shield{
   width:85px;
   height:100px;
-  margin:30px auto 10px;
+
+  margin:
+    30px auto 10px;
+
   padding:4px;
-  clip-path:polygon(50% 0,91% 14%,87% 65%,50% 100%,13% 65%,9% 14%);
-  background:linear-gradient(135deg,#8a611d,#ffe496,#a97928);
+
+  clip-path:
+    polygon(
+      50% 0,
+      91% 14%,
+      87% 65%,
+      50% 100%,
+      13% 65%,
+      9% 14%
+    );
+
+  background:
+    linear-gradient(
+      135deg,
+      #8a611d,
+      #ffe496,
+      #a97928
+    );
 }
 
 .progress-core{
   width:100%;
   height:100%;
+
   clip-path:inherit;
+
   display:grid;
   place-items:center;
+
   color:#ffe79b;
+
   font-size:32px;
-  background:linear-gradient(
-    0deg,
-    #b78427 0 var(--fill,0%),
-    #073b2a var(--fill,0%) 100%
-  );
+
+  background:
+    linear-gradient(
+      0deg,
+      #b78427 0 var(--fill,0%),
+      #073b2a var(--fill,0%) 100%
+    );
 }
 
 .wall-count{
   text-align:center;
+
   color:#c6b574;
+
   font-size:11px;
+
   margin-bottom:25px;
 }
 
 .wall-count b{
   color:#ffe79b;
+
   font-size:22px;
 }
 
 .wall-names{
   display:flex;
+
   flex-wrap:wrap;
+
   justify-content:center;
+
   gap:10px;
 }
 
 .wall-name{
   padding:10px 17px;
+
   border-radius:50px;
-  border:1px solid rgba(224,190,94,.28);
-  background:linear-gradient(135deg,rgba(15,93,65,.55),rgba(3,41,30,.75));
+
+  border:
+    1px solid
+    rgba(224,190,94,.28);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15,93,65,.55),
+      rgba(3,41,30,.75)
+    );
+
   color:#f3e5b7;
+
   font-size:11px;
-  box-shadow:0 7px 25px rgba(0,0,0,.25);
+
+  box-shadow:
+    0 7px 25px
+    rgba(0,0,0,.25);
 }
 
-.wall-empty,
-.wall-error{
+.wall-empty{
   width:100%;
+
   text-align:center;
+
   color:#8e9187;
+
   font-size:11px;
+
   padding:30px;
 }
 
-/* بطاقة الطالبة */
+/* =========================
+   بطاقة الدرع
+========================= */
 
 #cardOverlay{
   position:fixed;
+
   inset:0;
+
   z-index:5000;
+
   display:none;
+
   place-items:center;
+
   overflow:auto;
+
   padding:25px 12px;
-  background:rgba(0,10,7,.94);
+
+  background:
+    rgba(0,10,7,.94);
 }
 
 #cardOverlay.show{
@@ -764,15 +1357,34 @@ nav a{
 
 .guard-card{
   position:relative;
+
   width:min(450px,95vw);
+
   padding:38px 25px;
+
   text-align:center;
+
   border-radius:30px;
-  border:2px solid #d8b354;
+
+  border:
+    2px solid #d8b354;
+
   background:
-    radial-gradient(circle at 50% 15%,rgba(26,132,88,.42),transparent 30%),
-    linear-gradient(160deg,#063d2c,#01150f 70%);
-  box-shadow:0 0 0 6px #05281e,0 30px 100px #000;
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(26,132,88,.42),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      160deg,
+      #063d2c,
+      #01150f 70%
+    );
+
+  box-shadow:
+    0 0 0 6px #05281e,
+    0 30px 100px #000;
 }
 
 .card-school{
@@ -782,47 +1394,86 @@ nav a{
 
 .card-title{
   color:#ffe38c;
+
   font-size:40px;
+
   font-weight:800;
+
   margin:5px 0 20px;
 }
 
 .card-shield{
   width:105px;
   height:125px;
-  margin:0 auto 20px;
+
+  margin:
+    0 auto 20px;
+
   padding:4px;
-  clip-path:polygon(50% 0,91% 14%,87% 65%,50% 100%,13% 65%,9% 14%);
-  background:linear-gradient(135deg,#fff0a7,#9b681b,#ffe397);
+
+  clip-path:
+    polygon(
+      50% 0,
+      91% 14%,
+      87% 65%,
+      50% 100%,
+      13% 65%,
+      9% 14%
+    );
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff0a7,
+      #9b681b,
+      #ffe397
+    );
 }
 
 .card-shield-inner{
   width:100%;
   height:100%;
+
   clip-path:inherit;
+
   display:grid;
   place-items:center;
+
   background:#06422f;
+
   color:#ffe393;
+
   font-size:40px;
 }
 
 #nationalQuote{
   color:#f5e6b3;
+
   font-size:12px;
+
   line-height:2;
 }
 
 .saudi-flag{
   font-size:30px;
+
   margin:10px 0;
 }
 
 .card-divider{
   width:90px;
   height:1px;
-  margin:18px auto;
-  background:linear-gradient(90deg,transparent,#dcb75c,transparent);
+
+  margin:
+    18px auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #dcb75c,
+      transparent
+    );
 }
 
 .student-label{
@@ -832,46 +1483,71 @@ nav a{
 
 #cardName{
   color:#ffe18b;
+
   font-size:25px;
+
   font-weight:800;
+
   margin:7px 0;
 }
 
 #guardNumber{
   color:#d6c284;
+
   font-size:11px;
 }
 
 .success-text{
   color:#b8b8ac;
+
   font-size:10px;
+
   line-height:2;
+
   margin:18px 0;
 }
 
 .card-action{
-  border:1px solid #dcb75c;
+  border:
+    1px solid #dcb75c;
+
   background:#082f23;
+
   color:#ffe298;
+
   padding:12px 25px;
+
   border-radius:40px;
+
   cursor:pointer;
 }
 
-/* الصوت */
+/* =========================
+   الصوت
+========================= */
 
 #audioBtn{
   position:fixed;
+
   z-index:800;
+
   left:18px;
   bottom:18px;
+
   width:48px;
   height:48px;
+
   border-radius:50%;
-  border:1px solid #d8b65c;
+
+  border:
+    1px solid #d8b65c;
+
   background:#063629;
+
   color:#ffe18b;
+
   display:none;
+
   cursor:pointer;
 }
 
@@ -881,16 +1557,21 @@ nav a{
 
 .bars{
   display:flex;
+
   justify-content:center;
   align-items:center;
+
   gap:3px;
 }
 
 .bars i{
   width:3px;
   height:16px;
+
   background:#ffe18b;
-  animation:music .7s infinite alternate;
+
+  animation:
+    music .7s infinite alternate;
 }
 
 .bars i:nth-child(2){
@@ -918,15 +1599,22 @@ nav a{
 
 footer{
   text-align:center;
+
   padding:55px 20px;
+
   color:#797e76;
+
   font-size:9px;
+
   background:#010b08;
 }
 
 .reveal{
   opacity:0;
-  transform:translateY(25px);
+
+  transform:
+    translateY(25px);
+
   transition:.8s;
 }
 
@@ -934,6 +1622,10 @@ footer{
   opacity:1;
   transform:none;
 }
+
+/* =========================
+   الجوال
+========================= */
 
 @media(max-width:700px){
 
@@ -982,6 +1674,25 @@ footer{
   .instruction{
     top:318px;
   }
+
+  .palm-left{
+    left:-55px;
+    transform:scale(.7);
+  }
+
+  .palm-left-2{
+    left:20%;
+    transform:scale(.42);
+  }
+
+  .palm-right{
+    right:-65px;
+    transform:scale(.6) scaleX(-1);
+  }
+
+  .hero-content{
+    text-align:right;
+  }
 }
 
 </style>
@@ -989,11 +1700,18 @@ footer{
 
 <body class="lock">
 
-<audio id="anthemAudio" preload="auto" playsinline src="./anthem.mp3"></audio>
+<audio
+  id="anthemAudio"
+  preload="auto"
+  playsinline
+  src="./anthem.mp3">
+</audio>
 
 <div id="sparkles"></div>
 
-<!-- شاشة البصمة -->
+<!-- =========================
+     شاشة الدخول
+========================= -->
 
 <div id="gate">
 
@@ -1016,7 +1734,7 @@ footer{
         class="fingerprint"
         id="fingerprint"
         type="button"
-        aria-label="اضغطي على البصمة للدخول">
+        aria-label="اضغط على البصمة للدخول">
 
         <svg viewBox="0 0 100 100">
 
@@ -1035,12 +1753,18 @@ footer{
 
         </svg>
 
-        <span class="check">✓</span>
+        <span class="check">
+          ✓
+        </span>
 
       </button>
 
-      <div class="instruction" id="instruction">
-        اضغطي على البصمة للدخول
+      <div
+        class="instruction"
+        id="instruction">
+
+        اضغط على البصمة للدخول
+
       </div>
 
     </div>
@@ -1053,7 +1777,9 @@ footer{
 
 </div>
 
-<!-- الموقع -->
+<!-- =========================
+     الموقع
+========================= -->
 
 <div id="app">
 
@@ -1064,14 +1790,72 @@ footer{
   </div>
 
   <a href="#guardian">
-    استلمي درعك
+    احصل على درعك
   </a>
 
 </nav>
 
-<!-- الرئيسية -->
+<!-- =========================
+     الرئيسية
+========================= -->
 
-<section class="hero" id="home">
+<section
+  class="hero"
+  id="home">
+
+  <!-- النخيل -->
+
+  <div class="palm-scene">
+
+    <div class="palm palm-left">
+
+      <div class="trunk"></div>
+
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+
+    </div>
+
+    <div class="palm palm-left-2">
+
+      <div class="trunk"></div>
+
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+
+    </div>
+
+    <div class="palm palm-right">
+
+      <div class="trunk"></div>
+
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+
+    </div>
+
+  </div>
 
   <div class="hero-content">
 
@@ -1090,15 +1874,17 @@ footer{
     <div class="hero-line"></div>
 
     <p>
-      رحلة وطنية تحتفي بالانتماء، وتُذكّرنا بأن لكل واحدةٍ منا
-      دورًا في حماية قيم وطنها، وخدمته بالعلم والأخلاق والعطاء.
+      رحلة وطنية تحتفي بالانتماء، وتُذكّر بأن لكل فرد دورًا
+      في حماية قيم الوطن وخدمته بالعلم والأخلاق والعطاء.
     </p>
 
   </div>
 
 </section>
 
-<!-- القيادة -->
+<!-- =========================
+     القيادة
+========================= -->
 
 <section class="section royal-section">
 
@@ -1118,8 +1904,6 @@ footer{
 
   <div class="royal-grid reveal">
 
-    <!-- الملك سلمان -->
-
     <div class="royal-card">
 
       <div class="royal-photo">
@@ -1136,8 +1920,6 @@ footer{
       </h3>
 
     </div>
-
-    <!-- الأمير محمد بن سلمان -->
 
     <div class="royal-card">
 
@@ -1162,9 +1944,13 @@ footer{
 
 </section>
 
-<!-- المدرسة -->
+<!-- =========================
+     المدرسة
+========================= -->
 
-<section class="section about" id="school">
+<section
+  class="section about"
+  id="school">
 
 <div class="container">
 
@@ -1179,7 +1965,8 @@ footer{
     </h2>
 
     <p>
-      بالعلم نصنع المستقبل، وبالقيم والانتماء نحفظ الوطن.
+      بالعلم نصنع المستقبل،
+      وبالقيم والانتماء نحفظ الوطن.
     </p>
 
   </div>
@@ -1217,11 +2004,17 @@ footer{
 
         <div class="teacher-tags">
 
-          <span>دارالهناء الحربي</span>
+          <span>
+            دارالهناء الحربي
+          </span>
 
-          <span>حصة الحربي</span>
+          <span>
+            حصة الحربي
+          </span>
 
-          <span>نبيهة عسيري</span>
+          <span>
+            نبيهه عسيري
+          </span>
 
         </div>
 
@@ -1240,9 +2033,13 @@ footer{
 
 </section>
 
-<!-- استلام الدرع -->
+<!-- =========================
+     الحصول على الدرع
+========================= -->
 
-<section class="guardian" id="guardian">
+<section
+  class="guardian"
+  id="guardian">
 
 <div class="name-stage reveal">
 
@@ -1251,16 +2048,16 @@ footer{
   </div>
 
   <div class="kicker">
-    حارسات درع الوطن
+    حُرّاس الوطن
   </div>
 
   <h2>
-    حان وقت استلام درعك
+    حان وقت الحصول على درعك
   </h2>
 
   <p>
-    اكتبي اسمك، وسيظهر درعك الشخصي
-    ويُضاف اسمك إلى حائط حارسات الدرع.
+    أدخل اسمك ليظهر درعك الشخصي،
+    ويُضاف اسمك إلى حائط حُرّاس الوطن.
   </p>
 
   <div class="name-box">
@@ -1270,7 +2067,7 @@ footer{
       type="text"
       maxlength="30"
       autocomplete="off"
-      placeholder="اكتبي اسمك هنا">
+      placeholder="أدخل اسمك هنا">
 
     <button
       class="gold-btn"
@@ -1278,7 +2075,7 @@ footer{
       type="button"
       onclick="createGuardianCard()">
 
-      استلمي درعك
+      احصل على درعك
 
     </button>
 
@@ -1288,20 +2085,24 @@ footer{
 
 </section>
 
-<!-- الحائط -->
+<!-- =========================
+     حائط حراس الوطن
+========================= -->
 
-<section class="wall-section" id="wall">
+<section
+  class="wall-section"
+  id="wall">
 
 <div class="wall-box reveal">
 
   <div class="wall-head">
 
     <h2>
-      💌 حائط حارسات الدرع
+      💌 حائط حُرّاس الوطن
     </h2>
 
     <p>
-      أسماء حارسات درع الوطن
+      أسماء المشاركين في رحلة درع الوطن
     </p>
 
   </div>
@@ -1324,7 +2125,7 @@ footer{
       0
     </b>
 
-    حارسة للدرع
+    من حُرّاس الوطن
 
   </div>
 
@@ -1333,7 +2134,7 @@ footer{
     id="wallNames">
 
     <div class="wall-empty">
-      بانتظار أول حارسة ✨
+      بانتظار الأسماء ✨
     </div>
 
   </div>
@@ -1354,7 +2155,9 @@ footer{
 
 </div>
 
-<!-- بطاقة الطالبة -->
+<!-- =========================
+     بطاقة الدرع
+========================= -->
 
 <div id="cardOverlay">
 
@@ -1385,7 +2188,7 @@ footer{
   <div class="card-divider"></div>
 
   <div class="student-label">
-    شاركتِ في رحلة درع الوطن
+    مشاركة مميزة في رحلة درع الوطن
   </div>
 
   <div id="cardName"></div>
@@ -1394,8 +2197,9 @@ footer{
 
   <div class="success-text">
 
-    ببصمتك واسمك أصبحتِ واحدةً من حارسات درع الوطن،
-    فليكن علمك وعطاؤك أثرًا يليق بوطنك.
+    أصبحت من حُرّاس الوطن،
+    فليكن العلم والأخلاق والعطاء
+    أثرًا يليق بوطننا.
 
   </div>
 
@@ -1430,7 +2234,9 @@ footer{
 
 <script>
 
-/* البصمة */
+/* =========================
+   البصمة
+========================= */
 
 const anthemAudio =
 document.getElementById("anthemAudio");
@@ -1476,18 +2282,27 @@ fingerprint.onclick=function(){
   })
   .catch(()=>{
 
-    audioBtn.classList.add("show","paused");
+    audioBtn.classList.add(
+      "show",
+      "paused"
+    );
 
   });
 
-  mainShield.classList.add("activated");
+  mainShield
+  .classList
+  .add("activated");
 
-  fingerprint.classList.add("verified");
+  fingerprint
+  .classList
+  .add("verified");
 
   instruction.textContent=
   "تم التحقق بنجاح ✓";
 
-  instruction.classList.add("success");
+  instruction
+  .classList
+  .add("success");
 
   if(navigator.vibrate){
     navigator.vibrate(70);
@@ -1495,15 +2310,21 @@ fingerprint.onclick=function(){
 
   setTimeout(()=>{
 
-    app.classList.add("visible");
+    app
+    .classList
+    .add("visible");
 
-    document.body.classList.remove("lock");
+    document.body
+    .classList
+    .remove("lock");
 
   },1200);
 
   setTimeout(()=>{
 
-    gate.classList.add("leave");
+    gate
+    .classList
+    .add("leave");
 
   },1500);
 
@@ -1520,7 +2341,9 @@ fingerprint.onclick=function(){
 };
 
 
-/* الصوت */
+/* =========================
+   الصوت
+========================= */
 
 function toggleAudio(){
 
@@ -1530,7 +2353,9 @@ function toggleAudio(){
     .play()
     .then(()=>{
 
-      audioBtn.classList.remove("paused");
+      audioBtn
+      .classList
+      .remove("paused");
 
     });
 
@@ -1538,14 +2363,18 @@ function toggleAudio(){
 
     anthemAudio.pause();
 
-    audioBtn.classList.add("paused");
+    audioBtn
+    .classList
+    .add("paused");
 
   }
 
 }
 
 
-/* حركة ظهور الأقسام */
+/* =========================
+   ظهور الأقسام
+========================= */
 
 function activateReveal(){
 
@@ -1558,9 +2387,14 @@ function activateReveal(){
 
       if(entry.isIntersecting){
 
-        entry.target.classList.add("visible");
+        entry.target
+        .classList
+        .add("visible");
 
-        observer.unobserve(entry.target);
+        observer
+        .unobserve(
+          entry.target
+        );
 
       }
 
@@ -1572,12 +2406,16 @@ function activateReveal(){
 
   document
   .querySelectorAll(".reveal")
-  .forEach(el=>observer.observe(el));
+  .forEach(
+    el=>observer.observe(el)
+  );
 
 }
 
 
-/* العبارات */
+/* =========================
+   العبارات الوطنية
+========================= */
 
 const nationalQuotes=[
 
@@ -1589,17 +2427,17 @@ const nationalQuotes=[
 
 "في وطننا نكبر بالأمل، ونبني بالعلم، ونحفظ العهد.",
 
-"وطني قصة فخر أرويها، وأمانة أحملها.",
+"وطني قصة فخر نرويها، وأمانة نحملها.",
 
 "السعودية دار العز، وفي القلب لها عهدٌ لا يتغير.",
 
-"بعلمي وأخلاقي وعطائي أشارك في بناء وطني.",
+"بالعلم والأخلاق والعطاء نشارك في بناء وطننا.",
 
 "وطنٌ شامخ، وطموحٌ يعانق السماء.",
 
 "هنا وطننا، وهنا جذورنا، وهنا مستقبلنا.",
 
-"أحمل وطني في قلبي، وأخدمه بعلمي وعملي."
+"نحمل وطننا في قلوبنا، ونخدمه بالعلم والعمل."
 
 ];
 
@@ -1608,7 +2446,11 @@ function nameHash(name){
 
   let hash=0;
 
-  for(let i=0;i<name.length;i++){
+  for(
+    let i=0;
+    i<name.length;
+    i++
+  ){
 
     hash=
     ((hash<<5)-hash)
@@ -1623,19 +2465,25 @@ function nameHash(name){
 }
 
 
-/* Firebase */
+/* =========================
+   Firebase
+========================= */
 
 const DB_ROOT=
 "https://der3-alwatan-45-default-rtdb.firebaseio.com";
 
 const COUNTER_URL=
-DB_ROOT+"/guardianCounter.json";
+DB_ROOT+
+"/guardianCounter.json";
 
 const WALL_URL=
-DB_ROOT+"/guardianWall.json";
+DB_ROOT+
+"/guardianWall.json";
 
 
-/* الرقم المتسلسل */
+/* =========================
+   رقم الدرع
+========================= */
 
 async function getNextGuardianNumber(){
 
@@ -1662,7 +2510,11 @@ async function getNextGuardianNumber(){
     );
 
     if(!read.ok){
-      throw new Error("counter-read");
+
+      throw new Error(
+        "counter-read"
+      );
+
     }
 
     const etag=
@@ -1672,8 +2524,11 @@ async function getNextGuardianNumber(){
     await read.json();
 
     const next=
-    (typeof current==="number"
-    ?current:0)+1;
+    (
+      typeof current==="number"
+      ?current
+      :0
+    )+1;
 
     const write=
     await fetch(
@@ -1684,31 +2539,44 @@ async function getNextGuardianNumber(){
         method:"PUT",
 
         headers:{
-          "Content-Type":"application/json",
+          "Content-Type":
+          "application/json",
+
           "if-match":etag
         },
 
-        body:JSON.stringify(next)
+        body:
+        JSON.stringify(next)
       }
 
     );
 
     if(write.ok){
+
       return await write.json();
+
     }
 
     if(write.status!==412){
-      throw new Error("counter-write");
+
+      throw new Error(
+        "counter-write"
+      );
+
     }
 
   }
 
-  throw new Error("counter-busy");
+  throw new Error(
+    "counter-busy"
+  );
 
 }
 
 
-/* إضافة الاسم للحائط */
+/* =========================
+   إضافة الاسم للحائط
+========================= */
 
 async function addNameToWall(
   name,
@@ -1728,27 +2596,36 @@ async function addNameToWall(
         "application/json"
       },
 
-      body:JSON.stringify({
+      body:
+      JSON.stringify({
 
         name:name,
 
         number:number,
 
-        createdAt:Date.now()
+        createdAt:
+        Date.now()
 
       })
+
     }
 
   );
 
   if(!response.ok){
-    throw new Error("wall-write");
+
+    throw new Error(
+      "wall-write"
+    );
+
   }
 
 }
 
 
-/* رسم الحائط */
+/* =========================
+   رسم الحائط
+========================= */
 
 function renderWall(data){
 
@@ -1763,9 +2640,13 @@ function renderWall(data){
   :[];
 
   items.sort(
+
     (a,b)=>
+
     (a.number||0)
-    -(b.number||0)
+    -
+    (b.number||0)
+
   );
 
   box.innerHTML="";
@@ -1773,16 +2654,23 @@ function renderWall(data){
   if(!items.length){
 
     box.innerHTML=
-    '<div class="wall-empty">بانتظار أول حارسة ✨</div>';
+    '<div class="wall-empty">بانتظار الأسماء ✨</div>';
 
     document
-    .getElementById("wallCount")
+    .getElementById(
+      "wallCount"
+    )
     .textContent="0";
 
     document
-    .getElementById("progressCore")
+    .getElementById(
+      "progressCore"
+    )
     .style
-    .setProperty("--fill","0%");
+    .setProperty(
+      "--fill",
+      "0%"
+    );
 
     return;
 
@@ -1790,16 +2678,21 @@ function renderWall(data){
 
   items.forEach(item=>{
 
-    if(!item || !item.name){
+    if(
+      !item ||
+      !item.name
+    ){
       return;
     }
 
     const el=
-    document.createElement("div");
+    document
+    .createElement("div");
 
-    el.className="wall-name";
+    el.className=
+    "wall-name";
 
-    /* يظهر الاسم فقط */
+    /* الاسم فقط بدون الرقم */
     el.textContent=
     "💌 "+item.name;
 
@@ -1807,24 +2700,41 @@ function renderWall(data){
 
   });
 
-  const count=items.length;
+  const count=
+  items.filter(
+    item=>
+    item &&
+    item.name
+  ).length;
 
   document
-  .getElementById("wallCount")
+  .getElementById(
+    "wallCount"
+  )
   .textContent=count;
 
   document
-  .getElementById("progressCore")
+  .getElementById(
+    "progressCore"
+  )
   .style
   .setProperty(
+
     "--fill",
-    Math.min(100,count)+"%"
+
+    Math.min(
+      100,
+      count
+    )+"%"
+
   );
 
 }
 
 
-/* تحميل الحائط */
+/* =========================
+   تحميل الحائط
+========================= */
 
 async function loadWall(){
 
@@ -1835,12 +2745,18 @@ async function loadWall(){
 
       WALL_URL,
 
-      {cache:"no-store"}
+      {
+        cache:"no-store"
+      }
 
     );
 
     if(!response.ok){
-      throw new Error("wall-read");
+
+      throw new Error(
+        "wall-read"
+      );
+
     }
 
     const data=
@@ -1852,18 +2768,27 @@ async function loadWall(){
 
   catch(error){
 
+    /*
+      لا نظهر أي رسالة تقنية
+      للمستخدم.
+    */
+
     document
-    .getElementById("wallNames")
+    .getElementById(
+      "wallNames"
+    )
     .innerHTML=
 
-    '<div class="wall-error">تعذر تحميل الأسماء الآن</div>';
+    '<div class="wall-empty">بانتظار الأسماء ✨</div>';
 
   }
 
 }
 
 
-/* إصدار الدرع */
+/* =========================
+   إصدار الدرع
+========================= */
 
 async function createGuardianCard(){
 
@@ -1887,7 +2812,7 @@ async function createGuardianCard(){
   if(name.length<2){
 
     alert(
-      "اكتبي اسمك أولًا ✨"
+      "أدخل الاسم أولًا ✨"
     );
 
     input.focus();
@@ -1901,7 +2826,7 @@ async function createGuardianCard(){
   btn.disabled=true;
 
   btn.textContent=
-  "جارٍ تجهيز درعك...";
+  "جارٍ تجهيز الدرع...";
 
   const hash=
   nameHash(name);
@@ -1917,10 +2842,27 @@ async function createGuardianCard(){
     const number=
     await getNextGuardianNumber();
 
-    await addNameToWall(
-      name,
-      number
-    );
+    /*
+      نحاول إضافة الاسم للحائط،
+      لكن لو حصلت مشكلة في الحائط
+      لا نمنع ظهور الدرع.
+    */
+
+    try{
+
+      await addNameToWall(
+        name,
+        number
+      );
+
+    }
+    catch(wallError){
+
+      console.log(
+        "Wall unavailable"
+      );
+
+    }
 
     document
     .getElementById(
@@ -1939,16 +2881,18 @@ async function createGuardianCard(){
       "guardNumber"
     )
     .textContent=
-    "حارسة الدرع رقم "+number;
+    "درع الوطن رقم "+number;
 
     document
     .getElementById(
       "cardOverlay"
     )
-    .classList.add("show");
+    .classList
+    .add("show");
 
     document.body
-    .classList.add("lock");
+    .classList
+    .add("lock");
 
     loadWall();
 
@@ -1959,7 +2903,7 @@ async function createGuardianCard(){
     console.error(error);
 
     alert(
-      "تعذر إصدار الدرع الآن، حاولي مرة أخرى."
+      "تعذر إصدار الدرع الآن، حاول مرة أخرى."
     );
 
   }
@@ -1971,14 +2915,16 @@ async function createGuardianCard(){
     btn.disabled=false;
 
     btn.textContent=
-    "استلمي درعك";
+    "احصل على درعك";
 
   }
 
 }
 
 
-/* إغلاق البطاقة */
+/* =========================
+   إغلاق البطاقة
+========================= */
 
 function closeCard(){
 
@@ -1986,13 +2932,17 @@ function closeCard(){
   .getElementById(
     "cardOverlay"
   )
-  .classList.remove("show");
+  .classList
+  .remove("show");
 
   document.body
-  .classList.remove("lock");
+  .classList
+  .remove("lock");
 
   document
-  .getElementById("home")
+  .getElementById(
+    "home"
+  )
   .scrollIntoView({
     behavior:"smooth"
   });
@@ -2000,7 +2950,9 @@ function closeCard(){
 }
 
 
-/* Enter */
+/* =========================
+   زر Enter
+========================= */
 
 document
 .getElementById(
@@ -2012,8 +2964,12 @@ document
 
   event=>{
 
-    if(event.key==="Enter"){
+    if(
+      event.key==="Enter"
+    ){
+
       createGuardianCard();
+
     }
 
   }
@@ -2021,12 +2977,15 @@ document
 );
 
 
-/* النجوم */
+/* =========================
+   النجوم
+========================= */
 
 function makeSparkles(){
 
   const host=
-  document.getElementById(
+  document
+  .getElementById(
     "sparkles"
   );
 
@@ -2037,11 +2996,13 @@ function makeSparkles(){
   ){
 
     const star=
-    document.createElement(
+    document
+    .createElement(
       "span"
     );
 
-    star.className="spark";
+    star.className=
+    "spark";
 
     star.textContent=
     i%3===0
@@ -2049,26 +3010,45 @@ function makeSparkles(){
     :"✧";
 
     star.style.left=
-    Math.random()*100+"%";
+    Math.random()*100
+    +"%";
 
     star.style.top=
-    Math.random()*100+"%";
+    Math.random()*100
+    +"%";
 
-    star.style.setProperty(
+    star.style
+    .setProperty(
+
       "--d",
-      (3+Math.random()*5)+"s"
+
+      (
+        3+
+        Math.random()*5
+      )+"s"
+
     );
 
-    star.style.setProperty(
+    star.style
+    .setProperty(
+
       "--delay",
-      (-Math.random()*7)+"s"
+
+      (
+        -Math.random()*7
+      )+"s"
+
     );
 
     star.style.fontSize=
-    (9+Math.random()*17)
-    +"px";
+    (
+      9+
+      Math.random()*17
+    )+"px";
 
-    host.appendChild(star);
+    host.appendChild(
+      star
+    );
 
   }
 
