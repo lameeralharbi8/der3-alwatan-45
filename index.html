@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#031a12">
+<meta name="theme-color" content="#032619">
 
 <title>درع الوطن | الابتدائية الخامسة والأربعون</title>
 
@@ -11,29 +11,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&display=swap');
 
 :root{
-  --dark:#010d09;
-  --green:#063d2c;
-  --green2:#0a6747;
-  --gold:#d6ad4f;
-  --gold2:#ffe79b;
-  --cream:#fff8dc;
+  --green:#043c29;
+  --dark:#00140d;
+  --dark2:#002419;
+  --gold:#d9b459;
+  --gold2:#ffe49a;
+  --cream:#fff6d6;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
-  background:#010d09;
-  color:var(--cream);
+  background:#00140d;
+  color:white;
   font-family:"Noto Kufi Arabic",Tahoma,sans-serif;
   overflow-x:hidden;
 }
 
-body.lock{overflow:hidden}
+body.lock{
+  overflow:hidden;
+}
 
-button,input{font-family:inherit}
+button,input{
+  font-family:inherit;
+}
 
 /* =========================
    النجوم
@@ -42,18 +50,18 @@ button,input{font-family:inherit}
 #sparkles{
   position:fixed;
   inset:0;
-  z-index:20;
+  z-index:50;
   pointer-events:none;
   overflow:hidden;
 }
 
 .spark{
   position:absolute;
-  color:#ffe79b;
-  opacity:.25;
+  color:#ffe99d;
+  opacity:.35;
   text-shadow:
-    0 0 7px #fff,
-    0 0 15px #ffd35f;
+    0 0 7px white,
+    0 0 16px #ffd567;
   animation:twinkle var(--d) ease-in-out infinite;
   animation-delay:var(--delay);
 }
@@ -61,72 +69,76 @@ button,input{font-family:inherit}
 @keyframes twinkle{
   0%,100%{
     opacity:.08;
-    transform:scale(.5) rotate(0)
+    transform:scale(.5) rotate(0deg);
   }
-
   50%{
     opacity:.9;
-    transform:scale(1.3) rotate(90deg)
+    transform:scale(1.3) rotate(90deg);
   }
 }
 
 /* =========================
-   شاشة البداية
+   شاشة البصمة
 ========================= */
 
 #gate{
   position:fixed;
   inset:0;
   z-index:9999;
+
   min-height:100svh;
+
   display:grid;
   place-items:center;
-  overflow:hidden;
 
   background:
-    radial-gradient(circle at 50% 35%,rgba(12,128,84,.48),transparent 28%),
-    radial-gradient(circle at 50% 110%,#0a5a3d,#03281c 43%,#010b08 80%);
+    radial-gradient(circle at 50% 38%,rgba(13,126,82,.55),transparent 30%),
+    radial-gradient(circle at 50% 110%,#0a6040,#03291c 45%,#000c08 82%);
+
+  overflow:hidden;
 }
 
 #gate:before{
   content:"";
   position:absolute;
-  inset:-35%;
+  inset:-30%;
 
   background:
     repeating-radial-gradient(
       circle,
-      transparent 0 70px,
-      rgba(255,224,140,.04) 71px 72px,
-      transparent 73px 140px
+      transparent 0 80px,
+      rgba(255,224,140,.035) 81px 82px,
+      transparent 83px 160px
     );
 
-  animation:rotate 30s linear infinite;
+  animation:rotateGate 35s linear infinite;
 }
 
-@keyframes rotate{
-  to{transform:rotate(360deg)}
+@keyframes rotateGate{
+  to{transform:rotate(360deg);}
 }
 
 .gate-content{
-  width:min(620px,92%);
   position:relative;
-  z-index:5;
+  z-index:3;
+  width:min(600px,94%);
   text-align:center;
 }
 
 .school-top{
-  color:#e8d18d;
+  color:#ead493;
   font-size:12px;
   margin-bottom:18px;
 }
 
 .shield{
-  position:relative;
-  width:min(350px,80vw);
+  width:min(350px,82vw);
   height:425px;
   margin:auto;
-  filter:drop-shadow(0 30px 50px #000a);
+  position:relative;
+
+  filter:
+    drop-shadow(0 30px 60px rgba(0,0,0,.75));
 }
 
 .shield-border,
@@ -172,65 +184,30 @@ button,input{font-family:inherit}
   transition:1s;
 }
 
-.shield.activated{
-  animation:shieldPulse 1.5s forwards;
-}
-
-@keyframes shieldPulse{
-  50%{
-    transform:scale(1.05);
-
-    filter:
-      drop-shadow(0 0 35px #ffe481)
-      drop-shadow(0 0 80px #c68b24);
-  }
-
-  100%{
-    transform:scale(1.03);
-
-    filter:
-      drop-shadow(0 0 40px #ffe481)
-      drop-shadow(0 0 100px #c68b24);
-  }
-}
-
-.shield.activated .shield-core{
-  background:
-    radial-gradient(
-      circle,
-      #d8aa40,
-      #93631b 48%,
-      #352206
-    );
-}
-
 .gate-title{
   position:absolute;
+  z-index:5;
+
   top:58px;
   left:0;
+
   width:100%;
-  z-index:30;
 
   color:#ffe69a;
 
   font-size:38px;
   font-weight:800;
-  line-height:1.2;
 
-  text-align:center;
   white-space:nowrap;
 
   text-shadow:
-    0 4px 8px rgba(0,0,0,.9),
-    0 0 22px rgba(255,218,111,.55);
+    0 4px 10px #000,
+    0 0 25px rgba(255,218,111,.65);
 }
 
 .fingerprint{
-  appearance:none;
-  -webkit-appearance:none;
-
   position:absolute;
-  z-index:25;
+  z-index:6;
 
   top:165px;
   left:50%;
@@ -242,24 +219,20 @@ button,input{font-family:inherit}
 
   border-radius:50%;
 
+  border:1px solid #f0cf72;
+
   display:grid;
   place-items:center;
 
   cursor:pointer;
 
   background:
-    radial-gradient(
-      circle at 50% 45%,
-      #074934,
-      #011b13 72%
-    );
-
-  border:1px solid #f0cf72;
+    radial-gradient(circle,#07523a,#011b13 72%);
 
   box-shadow:
     0 0 0 11px rgba(230,195,96,.05),
-    0 0 35px rgba(255,224,130,.25),
-    inset 0 0 30px rgba(255,225,135,.05);
+    0 0 40px rgba(255,224,130,.28),
+    inset 0 0 30px rgba(255,225,135,.07);
 }
 
 .fingerprint svg{
@@ -281,26 +254,48 @@ button,input{font-family:inherit}
   display:grid;
   place-items:center;
 
-  color:#fff8d4;
-
-  font-size:65px;
-  font-weight:800;
-
   opacity:0;
 
+  font-size:65px;
+  color:white;
+
   text-shadow:
-    0 0 15px #fff,
+    0 0 15px white,
     0 0 35px #ffd76b;
+}
+
+.instruction{
+  position:absolute;
+  top:330px;
+  width:100%;
+
+  color:#f3e2ad;
+  font-size:11px;
+}
+
+.shield.activated{
+  animation:shieldPulse 1.5s forwards;
+}
+
+@keyframes shieldPulse{
+  50%{
+    transform:scale(1.05);
+    filter:
+      drop-shadow(0 0 35px #ffe481)
+      drop-shadow(0 0 80px #c68b24);
+  }
+
+  100%{
+    transform:scale(1.03);
+    filter:
+      drop-shadow(0 0 40px #ffe481)
+      drop-shadow(0 0 100px #c68b24);
+  }
 }
 
 .fingerprint.verified{
   background:
-    radial-gradient(
-      circle,
-      #ffe9a2,
-      #c58a28 48%,
-      #5d3c0b
-    );
+    radial-gradient(circle,#ffe9a2,#c58a28 48%,#5d3c0b);
 
   box-shadow:
     0 0 40px #ffe184,
@@ -308,29 +303,11 @@ button,input{font-family:inherit}
 }
 
 .fingerprint.verified svg{
-  opacity:.15;
+  opacity:.1;
 }
 
 .fingerprint.verified .check{
   opacity:1;
-}
-
-.instruction{
-  position:absolute;
-
-  top:330px;
-  left:0;
-
-  width:100%;
-
-  color:#f3e2ad;
-
-  font-size:11px;
-  font-weight:500;
-
-  text-align:center;
-
-  text-shadow:0 2px 8px #000;
 }
 
 .instruction.success{
@@ -339,9 +316,9 @@ button,input{font-family:inherit}
 }
 
 .gate-bottom{
+  margin-top:17px;
   color:#ad9d68;
   font-size:10px;
-  margin-top:17px;
 }
 
 #gate.leave{
@@ -351,7 +328,7 @@ button,input{font-family:inherit}
 @keyframes gateLeave{
   to{
     opacity:0;
-    visibility:hidden
+    visibility:hidden;
   }
 }
 
@@ -370,40 +347,42 @@ button,input{font-family:inherit}
 
 nav{
   position:fixed;
-  z-index:700;
+  z-index:800;
 
   top:0;
-  right:0;
   left:0;
+  right:0;
 
   height:65px;
-
   padding:0 6%;
 
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 
-  background:#01140fca;
+  background:rgba(0,20,13,.76);
+  backdrop-filter:blur(18px);
 
-  backdrop-filter:blur(15px);
-
-  border-bottom:1px solid #d8b65c25;
+  border-bottom:1px solid rgba(222,188,92,.2);
 }
 
 .brand{
-  color:#efd277;
+  color:#f1d276;
   font-weight:800;
 }
 
 nav a{
-  color:#d5d1c1;
   text-decoration:none;
+  color:#e8dcae;
   font-size:10px;
+
+  border:1px solid rgba(227,190,88,.45);
+  padding:8px 15px;
+  border-radius:30px;
 }
 
 /* =========================
-   الرئيسية + النخيل
+   الواجهة الفخمة
 ========================= */
 
 .hero{
@@ -412,220 +391,120 @@ nav a{
   position:relative;
 
   display:flex;
+  justify-content:center;
   align-items:center;
 
-  padding:110px 7% 100px;
+  text-align:center;
+
+  padding:110px 7% 90px;
 
   overflow:hidden;
 
   background:
     radial-gradient(
-      circle at 80% 30%,
-      rgba(13,126,82,.58),
-      transparent 31%
+      circle at 50% 30%,
+      rgba(15,108,73,.65),
+      transparent 42%
     ),
-
-    radial-gradient(
-      circle at 10% 90%,
-      rgba(222,183,80,.11),
-      transparent 25%
-    ),
-
     linear-gradient(
-      125deg,
-      #010d09,
-      #03281d 55%,
-      #075038
+      180deg,
+      #043a28,
+      #012319 60%,
+      #00120c
     );
 }
 
-/* وهج خلفي */
+/* صورة النخل الواقعية */
 
-.hero:before{
+.hero-real-bg{
+  position:absolute;
+  inset:0;
+
+  z-index:0;
+
+  background-image:url("./saudi-bg.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  opacity:.65;
+
+  filter:
+    saturate(.9)
+    contrast(1.08);
+}
+
+/* تنظيف المنتصف للنص */
+
+.hero-real-bg:after{
   content:"";
 
   position:absolute;
+  inset:0;
 
-  width:650px;
-  height:650px;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0,43,29,.20) 0%,
+      rgba(0,34,23,.25) 32%,
+      rgba(0,20,13,.05) 65%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0,25,17,.18),
+      rgba(0,20,13,.20) 55%,
+      #00140d 100%
+    );
+}
 
-  right:-200px;
-  top:-160px;
+/* وهج ذهبي */
+
+.hero-glow{
+  position:absolute;
+
+  z-index:1;
+
+  width:620px;
+  height:620px;
 
   border-radius:50%;
 
-  border:1px solid rgba(255,220,126,.08);
+  top:50%;
+  left:50%;
 
-  box-shadow:
-    0 0 0 80px rgba(255,220,126,.018),
-    0 0 0 160px rgba(255,220,126,.012);
-
-  pointer-events:none;
-}
-
-/* أرضية رملية خفيفة */
-
-.hero:after{
-  content:"";
-
-  position:absolute;
-
-  left:-5%;
-  right:-5%;
-  bottom:-100px;
-
-  height:240px;
-
-  border-radius:50% 50% 0 0;
+  transform:translate(-50%,-50%);
 
   background:
-    linear-gradient(
-      180deg,
-      rgba(13,88,60,.15),
-      rgba(1,15,10,.8)
+    radial-gradient(
+      circle,
+      rgba(238,195,91,.10),
+      rgba(12,105,71,.08) 35%,
+      transparent 68%
     );
-
-  transform:rotate(-2deg);
 
   pointer-events:none;
-}
-
-/* النخيل */
-
-.palm-scene{
-  position:absolute;
-  z-index:1;
-
-  left:0;
-  right:0;
-  bottom:0;
-
-  height:75%;
-
-  pointer-events:none;
-
-  opacity:.38;
-}
-
-.palm{
-  position:absolute;
-  bottom:0;
-
-  width:170px;
-  height:390px;
-
-  transform-origin:bottom center;
-
-  filter:
-    drop-shadow(0 0 20px rgba(214,173,79,.07));
-}
-
-.palm-left{
-  left:4%;
-  transform:scale(.9);
-}
-
-.palm-left-2{
-  left:19%;
-  transform:scale(.58);
-  opacity:.55;
-}
-
-.palm-right{
-  right:3%;
-  transform:scale(.78) scaleX(-1);
-  opacity:.52;
-}
-
-.trunk{
-  position:absolute;
-
-  width:24px;
-  height:245px;
-
-  bottom:-15px;
-  left:73px;
-
-  border-radius:60% 35% 15% 15%;
-
-  background:
-    linear-gradient(
-      90deg,
-      #09291d,
-      #0d4b35,
-      #08281c
-    );
-
-  transform:rotate(4deg);
-}
-
-.leaf{
-  position:absolute;
-
-  width:120px;
-  height:28px;
-
-  left:74px;
-  top:112px;
-
-  transform-origin:left center;
-
-  border-radius:100% 10% 100% 10%;
-
-  background:
-    linear-gradient(
-      90deg,
-      #0b4934,
-      #0c6748,
-      #062b1f
-    );
-}
-
-.leaf:nth-child(2){
-  transform:rotate(-8deg);
-}
-
-.leaf:nth-child(3){
-  transform:rotate(28deg);
-}
-
-.leaf:nth-child(4){
-  transform:rotate(63deg);
-}
-
-.leaf:nth-child(5){
-  transform:rotate(100deg);
-}
-
-.leaf:nth-child(6){
-  transform:rotate(137deg);
-}
-
-.leaf:nth-child(7){
-  transform:rotate(174deg);
-}
-
-.leaf:nth-child(8){
-  transform:rotate(210deg);
-}
-
-.leaf:nth-child(9){
-  transform:rotate(246deg);
-}
-
-.leaf:nth-child(10){
-  transform:rotate(283deg);
 }
 
 .hero-content{
   position:relative;
-  z-index:5;
+  z-index:4;
 
-  max-width:800px;
+  width:min(820px,100%);
+}
+
+.hero-emblem{
+  margin-bottom:10px;
+
+  color:#e5c36b;
+
+  font-size:42px;
+
+  text-shadow:
+    0 0 22px rgba(236,194,88,.5);
 }
 
 .kicker{
-  color:#d2b35a;
+  color:#e0c16b;
 
   font-size:11px;
 
@@ -633,44 +512,84 @@ nav a{
 }
 
 .hero h1{
-  margin:5px 0;
+  margin:8px 0;
 
   color:#f2d477;
 
-  font-size:clamp(58px,11vw,110px);
+  font-size:clamp(62px,11vw,112px);
 
-  line-height:1.2;
+  line-height:1.25;
 
   text-shadow:
-    0 12px 40px #0008;
+    0 4px 0 #76501d,
+    0 10px 35px #000,
+    0 0 35px rgba(255,213,100,.22);
 }
 
 .hero h2{
-  font-size:clamp(19px,4vw,34px);
+  margin:15px 0;
+
+  color:#fff3c7;
+
+  font-size:clamp(18px,4vw,31px);
+
+  font-weight:500;
+
+  text-shadow:0 4px 18px #000;
 }
 
 .hero-line{
-  width:110px;
-  height:2px;
+  width:180px;
+  height:1px;
 
-  margin:25px 0;
+  margin:27px auto;
 
   background:
     linear-gradient(
       90deg,
       transparent,
-      #f2d478
+      #f4d477,
+      transparent
     );
 }
 
 .hero p{
   max-width:650px;
 
-  color:#d0cdbf;
+  margin:auto;
 
-  line-height:2.2;
+  color:#e6dfc7;
 
   font-size:12px;
+  line-height:2.2;
+
+  text-shadow:0 3px 12px #000;
+}
+
+.hero-scroll{
+  display:inline-block;
+
+  margin-top:32px;
+
+  padding:12px 45px;
+
+  color:#f5dc8c;
+
+  text-decoration:none;
+
+  font-size:11px;
+
+  border:
+    1px solid rgba(255,222,128,.65);
+
+  border-radius:50px;
+
+  background:
+    rgba(0,39,27,.7);
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.35),
+    inset 0 0 20px rgba(223,186,85,.04);
 }
 
 /* =========================
@@ -678,7 +597,7 @@ nav a{
 ========================= */
 
 .section{
-  padding:95px 0;
+  padding:100px 0;
 }
 
 .container{
@@ -688,26 +607,24 @@ nav a{
 
 .heading{
   text-align:center;
-  margin-bottom:45px;
+  margin-bottom:50px;
 }
 
 .heading small{
-  color:#c8a854;
+  color:#caaa55;
 }
 
 .heading h2{
   color:#f1d47a;
 
-  font-size:clamp(28px,5vw,43px);
+  font-size:clamp(28px,5vw,44px);
 
   margin:7px 0;
 }
 
 .heading p{
-  color:#a8aa9e;
-
+  color:#aeb1a5;
   font-size:11px;
-
   line-height:2;
 }
 
@@ -721,51 +638,27 @@ nav a{
 
   background:
     radial-gradient(
-      circle at 50% 0,
-      rgba(222,181,74,.16),
-      transparent 38%
+      circle at 50% 10%,
+      rgba(214,174,70,.14),
+      transparent 30%
     ),
-
-    radial-gradient(
-      circle at 15% 60%,
-      rgba(8,110,75,.24),
-      transparent 35%
-    ),
-
-    #021710;
-}
-
-.royal-section:before{
-  content:"";
-
-  position:absolute;
-
-  width:500px;
-  height:500px;
-
-  border:1px solid rgba(229,195,101,.08);
-
-  border-radius:50%;
-
-  top:-250px;
-  left:50%;
-
-  transform:translateX(-50%);
+    linear-gradient(
+      180deg,
+      #00140d,
+      #03271c,
+      #00140d
+    );
 }
 
 .royal-grid{
-  position:relative;
-  z-index:2;
-
   display:grid;
 
   grid-template-columns:
     repeat(2,1fr);
 
-  gap:28px;
+  gap:35px;
 
-  max-width:850px;
-
+  max-width:920px;
   margin:auto;
 }
 
@@ -774,111 +667,70 @@ nav a{
 
   text-align:center;
 
-  padding:10px 10px 25px;
-
-  overflow:hidden;
+  padding:9px 9px 26px;
 
   border-radius:30px;
 
-  background:
-    radial-gradient(
-      circle at 50% 20%,
-      rgba(28,126,86,.28),
-      transparent 42%
-    ),
+  border:
+    1px solid rgba(244,208,108,.58);
 
+  background:
     linear-gradient(
-      160deg,
-      #063c2c,
-      #01150f
+      155deg,
+      #075038,
+      #011b13 75%
     );
 
-  border:
-    1px solid
-    rgba(246,211,116,.42);
-
   box-shadow:
-    0 25px 70px rgba(0,0,0,.55),
-    inset 0 0 35px rgba(214,173,79,.05);
+    0 30px 80px rgba(0,0,0,.55),
+    0 0 30px rgba(216,180,83,.06);
 }
 
-.royal-card:before{
-  content:"✦";
-
-  position:absolute;
-
-  z-index:4;
-
-  top:18px;
-  right:20px;
-
-  color:#ffe69b;
-
-  font-size:20px;
-
-  opacity:.75;
-
-  text-shadow:
-    0 0 15px #ffd96b;
-}
+/* الصورة أصبحت أوضح */
 
 .royal-photo{
-  position:relative;
-
   width:100%;
 
   aspect-ratio:4/5;
 
-  border-radius:23px;
-
   overflow:hidden;
 
-  border:
-    1px solid
-    rgba(255,225,139,.32);
-
-  background:
-    radial-gradient(
-      circle at 50% 30%,
-      #0c6748,
-      #021b14 70%
-    );
-}
-
-.royal-photo:after{
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  pointer-events:none;
+  border-radius:23px;
 
   background:
     linear-gradient(
-      to top,
-      rgba(1,18,13,.48),
-      transparent 34%
+      180deg,
+      #0a5a3e,
+      #03261b
     );
+
+  border:
+    1px solid rgba(255,226,145,.45);
 }
 
 .royal-photo img{
+  display:block;
+
   width:100%;
   height:100%;
 
   object-fit:cover;
-  object-position:center top;
 
-  display:block;
+  /* بدون تعتيم */
+  opacity:1;
+
+  filter:
+    brightness(1.08)
+    contrast(1.04)
+    saturate(1.03);
+
+  object-position:center top;
 }
 
 .royal-card h3{
-  position:relative;
-  z-index:3;
+  margin:20px 10px 0;
 
-  margin:20px 5px 2px;
-
-  color:#ffe397;
+  color:#ffe59a;
 
   font-size:15px;
   font-weight:700;
@@ -886,7 +738,7 @@ nav a{
   line-height:2;
 
   text-shadow:
-    0 3px 12px rgba(0,0,0,.7);
+    0 3px 15px rgba(0,0,0,.7);
 }
 
 /* =========================
@@ -894,26 +746,32 @@ nav a{
 ========================= */
 
 .about{
-  background:#021710;
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(13,98,67,.25),
+      transparent 40%
+    ),
+    #01150f;
 }
 
 .school-card{
-  border:
-    1px solid #dfbd6033;
-
-  border-radius:28px;
-
   padding:40px;
+
+  border-radius:30px;
+
+  border:
+    1px solid rgba(223,189,96,.32);
 
   background:
     linear-gradient(
       145deg,
-      #073628,
-      #021a13
+      #073b2b,
+      #011a13
     );
 
   box-shadow:
-    0 30px 80px #0005;
+    0 30px 80px rgba(0,0,0,.45);
 }
 
 .school-name{
@@ -941,36 +799,31 @@ nav a{
   border-radius:20px;
 
   border:
-    1px solid #ffffff12;
+    1px solid rgba(255,255,255,.08);
 
-  background:#ffffff05;
+  background:
+    rgba(255,255,255,.025);
 }
 
 .person small{
-  color:#b89d55;
+  color:#c4a95c;
 }
 
 .person h3{
   color:#f3dfa0;
-
   margin:8px 0;
 }
 
 .person p{
   color:#b8b7ac;
-
   font-size:10px;
-
   line-height:2;
 }
 
 .teacher-tags{
   display:flex;
-
   gap:8px;
-
   flex-wrap:wrap;
-
   margin-top:12px;
 }
 
@@ -978,15 +831,17 @@ nav a{
   padding:8px 13px;
 
   border:
-    1px solid #d9b85c40;
+    1px solid rgba(217,184,92,.3);
 
   border-radius:30px;
 
   font-size:10px;
+
+  color:#f2dfaa;
 }
 
 /* =========================
-   الحصول على الدرع
+   الدرع
 ========================= */
 
 .guardian{
@@ -1003,17 +858,13 @@ nav a{
     radial-gradient(
       circle at 50% 40%,
       #0b6042,
-      #03271c 40%,
-      #010e0a 80%
+      #03271c 42%,
+      #010e0a 82%
     );
 }
 
 .name-stage{
-  position:relative;
-  z-index:3;
-
   width:min(620px,100%);
-
   text-align:center;
 }
 
@@ -1021,8 +872,9 @@ nav a{
   width:90px;
   height:105px;
 
-  margin:
-    0 auto 20px;
+  margin:0 auto 20px;
+
+  padding:4px;
 
   clip-path:
     polygon(
@@ -1041,18 +893,16 @@ nav a{
       #ffe496,
       #a97928
     );
-
-  padding:4px;
 }
 
 .mini-shield div{
   width:100%;
   height:100%;
 
-  clip-path:inherit;
-
   display:grid;
   place-items:center;
+
+  clip-path:inherit;
 
   background:#073b2a;
 
@@ -1072,45 +922,43 @@ nav a{
 
 .name-stage p{
   color:#c4c0b2;
-
   line-height:2;
-
   font-size:11px;
 }
 
 .name-box{
-  margin:
-    30px auto 0;
-
   max-width:480px;
+
+  margin:30px auto 0;
 
   padding:25px;
 
   border-radius:25px;
 
   border:
-    1px solid #e2be5d42;
+    1px solid rgba(226,190,93,.3);
 
-  background:#021c15e8;
+  background:
+    rgba(2,28,21,.92);
 }
 
 .name-box input{
   width:100%;
 
-  border:
-    1px solid #49675d;
-
-  background:#01150f;
-
-  color:white;
-
   padding:17px;
 
   border-radius:15px;
 
+  border:
+    1px solid #49675d;
+
   outline:none;
 
   text-align:center;
+
+  color:white;
+
+  background:#01150f;
 
   font-size:15px;
 }
@@ -1124,12 +972,12 @@ nav a{
 
   margin-top:14px;
 
+  padding:14px 27px;
+
   border:
     1px solid #ffe39a;
 
   border-radius:40px;
-
-  padding:14px 27px;
 
   cursor:pointer;
 
@@ -1146,20 +994,18 @@ nav a{
     );
 
   box-shadow:
-    0 12px 35px #0005;
+    0 12px 35px rgba(0,0,0,.35);
 }
 
 .gold-btn:disabled{
-  opacity:.65;
+  opacity:.6;
 }
 
 /* =========================
-   حائط حراس الوطن
+   الحائط
 ========================= */
 
 .wall-section{
-  position:relative;
-
   padding:100px 5%;
 
   background:
@@ -1168,7 +1014,6 @@ nav a{
       rgba(20,123,84,.28),
       transparent 35%
     ),
-
     #010e0a;
 }
 
@@ -1179,10 +1024,10 @@ nav a{
 
   padding:35px 25px;
 
+  border-radius:30px;
+
   border:
     1px solid rgba(220,183,83,.25);
-
-  border-radius:30px;
 
   background:
     linear-gradient(
@@ -1192,7 +1037,7 @@ nav a{
     );
 
   box-shadow:
-    0 30px 90px #0008;
+    0 30px 90px rgba(0,0,0,.55);
 }
 
 .wall-head{
@@ -1210,59 +1055,7 @@ nav a{
 
 .wall-head p{
   color:#aaa99e;
-
   font-size:11px;
-
-  line-height:2;
-}
-
-.progress-shield{
-  width:85px;
-  height:100px;
-
-  margin:
-    30px auto 10px;
-
-  padding:4px;
-
-  clip-path:
-    polygon(
-      50% 0,
-      91% 14%,
-      87% 65%,
-      50% 100%,
-      13% 65%,
-      9% 14%
-    );
-
-  background:
-    linear-gradient(
-      135deg,
-      #8a611d,
-      #ffe496,
-      #a97928
-    );
-}
-
-.progress-core{
-  width:100%;
-  height:100%;
-
-  clip-path:inherit;
-
-  display:grid;
-  place-items:center;
-
-  color:#ffe79b;
-
-  font-size:32px;
-
-  background:
-    linear-gradient(
-      0deg,
-      #b78427 0 var(--fill,0%),
-      #073b2a var(--fill,0%) 100%
-    );
 }
 
 .wall-count{
@@ -1270,24 +1063,20 @@ nav a{
 
   color:#c6b574;
 
-  font-size:11px;
+  margin:25px 0;
 
-  margin-bottom:25px;
+  font-size:11px;
 }
 
 .wall-count b{
   color:#ffe79b;
-
   font-size:22px;
 }
 
 .wall-names{
   display:flex;
-
   flex-wrap:wrap;
-
   justify-content:center;
-
   gap:10px;
 }
 
@@ -1297,8 +1086,7 @@ nav a{
   border-radius:50px;
 
   border:
-    1px solid
-    rgba(224,190,94,.28);
+    1px solid rgba(224,190,94,.28);
 
   background:
     linear-gradient(
@@ -1310,22 +1098,14 @@ nav a{
   color:#f3e5b7;
 
   font-size:11px;
-
-  box-shadow:
-    0 7px 25px
-    rgba(0,0,0,.25);
 }
 
 .wall-empty{
   width:100%;
-
-  text-align:center;
-
-  color:#8e9187;
-
-  font-size:11px;
-
   padding:30px;
+  text-align:center;
+  color:#92968c;
+  font-size:11px;
 }
 
 /* =========================
@@ -1334,21 +1114,16 @@ nav a{
 
 #cardOverlay{
   position:fixed;
-
   inset:0;
-
   z-index:5000;
 
   display:none;
-
   place-items:center;
-
-  overflow:auto;
 
   padding:25px 12px;
 
   background:
-    rgba(0,10,7,.94);
+    rgba(0,10,7,.95);
 }
 
 #cardOverlay.show{
@@ -1356,8 +1131,6 @@ nav a{
 }
 
 .guard-card{
-  position:relative;
-
   width:min(450px,95vw);
 
   padding:38px 25px;
@@ -1375,7 +1148,6 @@ nav a{
       rgba(26,132,88,.42),
       transparent 30%
     ),
-
     linear-gradient(
       160deg,
       #063d2c,
@@ -1394,11 +1166,8 @@ nav a{
 
 .card-title{
   color:#ffe38c;
-
   font-size:40px;
-
   font-weight:800;
-
   margin:5px 0 20px;
 }
 
@@ -1406,8 +1175,7 @@ nav a{
   width:105px;
   height:125px;
 
-  margin:
-    0 auto 20px;
+  margin:0 auto 20px;
 
   padding:4px;
 
@@ -1434,10 +1202,10 @@ nav a{
   width:100%;
   height:100%;
 
-  clip-path:inherit;
-
   display:grid;
   place-items:center;
+
+  clip-path:inherit;
 
   background:#06422f;
 
@@ -1448,15 +1216,12 @@ nav a{
 
 #nationalQuote{
   color:#f5e6b3;
-
   font-size:12px;
-
   line-height:2;
 }
 
 .saudi-flag{
   font-size:30px;
-
   margin:10px 0;
 }
 
@@ -1464,8 +1229,7 @@ nav a{
   width:90px;
   height:1px;
 
-  margin:
-    18px auto;
+  margin:18px auto;
 
   background:
     linear-gradient(
@@ -1483,43 +1247,36 @@ nav a{
 
 #cardName{
   color:#ffe18b;
-
   font-size:25px;
-
   font-weight:800;
-
   margin:7px 0;
 }
 
 #guardNumber{
   color:#d6c284;
-
   font-size:11px;
 }
 
 .success-text{
   color:#b8b8ac;
-
   font-size:10px;
-
   line-height:2;
-
   margin:18px 0;
 }
 
 .card-action{
+  padding:12px 25px;
+
   border:
     1px solid #dcb75c;
-
-  background:#082f23;
-
-  color:#ffe298;
-
-  padding:12px 25px;
 
   border-radius:40px;
 
   cursor:pointer;
+
+  color:#ffe298;
+
+  background:#082f23;
 }
 
 /* =========================
@@ -1529,7 +1286,7 @@ nav a{
 #audioBtn{
   position:fixed;
 
-  z-index:800;
+  z-index:900;
 
   left:18px;
   bottom:18px;
@@ -1537,16 +1294,16 @@ nav a{
   width:48px;
   height:48px;
 
+  display:none;
+
   border-radius:50%;
 
   border:
     1px solid #d8b65c;
 
-  background:#063629;
-
   color:#ffe18b;
 
-  display:none;
+  background:#063629;
 
   cursor:pointer;
 }
@@ -1557,26 +1314,21 @@ nav a{
 
 .bars{
   display:flex;
-
   justify-content:center;
   align-items:center;
-
   gap:3px;
 }
 
 .bars i{
   width:3px;
   height:16px;
-
   background:#ffe18b;
-
-  animation:
-    music .7s infinite alternate;
+  animation:music .7s infinite alternate;
 }
 
 .bars i:nth-child(2){
-  animation-delay:.2s;
   height:23px;
+  animation-delay:.2s;
 }
 
 .bars i:nth-child(3){
@@ -1584,12 +1336,12 @@ nav a{
 }
 
 .bars i:nth-child(4){
-  animation-delay:.1s;
   height:11px;
+  animation-delay:.1s;
 }
 
 @keyframes music{
-  to{height:6px}
+  to{height:6px;}
 }
 
 #audioBtn.paused i{
@@ -1598,9 +1350,9 @@ nav a{
 }
 
 footer{
-  text-align:center;
-
   padding:55px 20px;
+
+  text-align:center;
 
   color:#797e76;
 
@@ -1611,10 +1363,7 @@ footer{
 
 .reveal{
   opacity:0;
-
-  transform:
-    translateY(25px);
-
+  transform:translateY(25px);
   transition:.8s;
 }
 
@@ -1629,23 +1378,44 @@ footer{
 
 @media(max-width:700px){
 
+  .gate-title{
+    font-size:31px;
+  }
+
+  nav a{
+    display:none;
+  }
+
+  .hero{
+    padding-left:5%;
+    padding-right:5%;
+  }
+
+  .hero-real-bg{
+    background-position:center;
+  }
+
+  .hero h1{
+    font-size:60px;
+  }
+
   .royal-grid{
     gap:12px;
   }
 
   .royal-card{
-    padding:7px 7px 17px;
+    padding:6px 6px 18px;
     border-radius:20px;
   }
 
   .royal-photo{
-    border-radius:16px;
+    border-radius:15px;
   }
 
   .royal-card h3{
-    font-size:10px;
+    font-size:9px;
     line-height:1.9;
-    margin-top:13px;
+    margin:13px 3px 0;
   }
 
   .people{
@@ -1654,44 +1424,6 @@ footer{
 
   .school-card{
     padding:25px 18px;
-  }
-
-  nav a{
-    display:none;
-  }
-
-  .gate-title{
-    top:55px;
-    font-size:31px;
-  }
-
-  .fingerprint{
-    top:160px;
-    width:140px;
-    height:140px;
-  }
-
-  .instruction{
-    top:318px;
-  }
-
-  .palm-left{
-    left:-55px;
-    transform:scale(.7);
-  }
-
-  .palm-left-2{
-    left:20%;
-    transform:scale(.42);
-  }
-
-  .palm-right{
-    right:-65px;
-    transform:scale(.6) scaleX(-1);
-  }
-
-  .hero-content{
-    text-align:right;
   }
 }
 
@@ -1709,9 +1441,7 @@ footer{
 
 <div id="sparkles"></div>
 
-<!-- =========================
-     شاشة الدخول
-========================= -->
+<!-- شاشة البداية -->
 
 <div id="gate">
 
@@ -1733,11 +1463,9 @@ footer{
       <button
         class="fingerprint"
         id="fingerprint"
-        type="button"
-        aria-label="اضغط على البصمة للدخول">
+        type="button">
 
         <svg viewBox="0 0 100 100">
-
           <path d="M50 12c-20 0-36 15-36 34"/>
           <path d="M86 46c0-20-16-34-36-34"/>
           <path d="M22 53c0-16 12-28 28-28s28 12 28 28"/>
@@ -1750,21 +1478,14 @@ footer{
           <path d="M67 70c2 8 6 13 10 17"/>
           <path d="M49 76c-1 8-3 13-6 17"/>
           <path d="M55 78c1 6 3 11 6 15"/>
-
         </svg>
 
-        <span class="check">
-          ✓
-        </span>
+        <span class="check">✓</span>
 
       </button>
 
-      <div
-        class="instruction"
-        id="instruction">
-
+      <div class="instruction" id="instruction">
         اضغط على البصمة للدخول
-
       </div>
 
     </div>
@@ -1776,10 +1497,6 @@ footer{
   </div>
 
 </div>
-
-<!-- =========================
-     الموقع
-========================= -->
 
 <div id="app">
 
@@ -1795,69 +1512,18 @@ footer{
 
 </nav>
 
-<!-- =========================
-     الرئيسية
-========================= -->
+<!-- الواجهة -->
 
-<section
-  class="hero"
-  id="home">
+<section class="hero" id="home">
 
-  <!-- النخيل -->
-
-  <div class="palm-scene">
-
-    <div class="palm palm-left">
-
-      <div class="trunk"></div>
-
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-
-    </div>
-
-    <div class="palm palm-left-2">
-
-      <div class="trunk"></div>
-
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-
-    </div>
-
-    <div class="palm palm-right">
-
-      <div class="trunk"></div>
-
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-
-    </div>
-
-  </div>
+  <div class="hero-real-bg"></div>
+  <div class="hero-glow"></div>
 
   <div class="hero-content">
+
+    <div class="hero-emblem">
+      ✦
+    </div>
 
     <div class="kicker">
       المملكة العربية السعودية
@@ -1868,25 +1534,30 @@ footer{
     </h1>
 
     <h2>
-      وطنٌ نحبه، وعلمٌ نبني به مستقبله.
+      وطنٌ نحبه، وعلمٌ نبني به مستقبله
     </h2>
 
     <div class="hero-line"></div>
 
     <p>
-      رحلة وطنية تحتفي بالانتماء، وتُذكّر بأن لكل فرد دورًا
-      في حماية قيم الوطن وخدمته بالعلم والأخلاق والعطاء.
+      معًا لوطنٍ آمنٍ مزدهر...
+      نفخر به، ونحمي قيمه، ونبني مستقبله
+      بالعلم والأخلاق والعطاء.
     </p>
+
+    <a class="hero-scroll" href="#leadership">
+      ابدأ الرحلة
+    </a>
 
   </div>
 
 </section>
 
-<!-- =========================
-     القيادة
-========================= -->
+<!-- القيادة -->
 
-<section class="section royal-section">
+<section
+  class="section royal-section"
+  id="leadership">
 
 <div class="container">
 
@@ -1944,30 +1615,21 @@ footer{
 
 </section>
 
-<!-- =========================
-     المدرسة
-========================= -->
+<!-- المدرسة -->
 
-<section
-  class="section about"
-  id="school">
+<section class="section about">
 
 <div class="container">
 
   <div class="heading reveal">
 
     <small>
-      قيادة • تعليم • انتماء
+      تعليم • عطاء • انتماء
     </small>
 
     <h2>
       مدرستنا
     </h2>
-
-    <p>
-      بالعلم نصنع المستقبل،
-      وبالقيم والانتماء نحفظ الوطن.
-    </p>
 
   </div>
 
@@ -2033,9 +1695,7 @@ footer{
 
 </section>
 
-<!-- =========================
-     الحصول على الدرع
-========================= -->
+<!-- الحصول على الدرع -->
 
 <section
   class="guardian"
@@ -2052,11 +1712,11 @@ footer{
   </div>
 
   <h2>
-    حان وقت الحصول على درعك
+    درعك ينتظرك
   </h2>
 
   <p>
-    أدخل اسمك ليظهر درعك الشخصي،
+    أدخل اسمك ليظهر درعك الشخصي
     ويُضاف اسمك إلى حائط حُرّاس الوطن.
   </p>
 
@@ -2064,7 +1724,6 @@ footer{
 
     <input
       id="guardianName"
-      type="text"
       maxlength="30"
       autocomplete="off"
       placeholder="أدخل اسمك هنا">
@@ -2072,7 +1731,6 @@ footer{
     <button
       class="gold-btn"
       id="claimBtn"
-      type="button"
       onclick="createGuardianCard()">
 
       احصل على درعك
@@ -2085,13 +1743,9 @@ footer{
 
 </section>
 
-<!-- =========================
-     حائط حراس الوطن
-========================= -->
+<!-- الحائط -->
 
-<section
-  class="wall-section"
-  id="wall">
+<section class="wall-section">
 
 <div class="wall-box reveal">
 
@@ -2107,25 +1761,13 @@ footer{
 
   </div>
 
-  <div class="progress-shield">
-
-    <div
-      class="progress-core"
-      id="progressCore">
-
-      ✦
-
-    </div>
-
-  </div>
-
   <div class="wall-count">
+
+    عدد المشاركين
 
     <b id="wallCount">
       0
     </b>
-
-    من حُرّاس الوطن
 
   </div>
 
@@ -2155,9 +1797,7 @@ footer{
 
 </div>
 
-<!-- =========================
-     بطاقة الدرع
-========================= -->
+<!-- بطاقة الدرع -->
 
 <div id="cardOverlay">
 
@@ -2172,11 +1812,9 @@ footer{
   </div>
 
   <div class="card-shield">
-
     <div class="card-shield-inner">
       ✦
     </div>
-
   </div>
 
   <div id="nationalQuote"></div>
@@ -2196,16 +1834,13 @@ footer{
   <div id="guardNumber"></div>
 
   <div class="success-text">
-
     أصبحت من حُرّاس الوطن،
     فليكن العلم والأخلاق والعطاء
     أثرًا يليق بوطننا.
-
   </div>
 
   <button
     class="card-action"
-    type="button"
     onclick="closeCard()">
 
     العودة للرئيسية
@@ -2220,7 +1855,6 @@ footer{
 
 <button
   id="audioBtn"
-  type="button"
   onclick="toggleAudio()">
 
   <span class="bars">
@@ -2235,7 +1869,7 @@ footer{
 <script>
 
 /* =========================
-   البصمة
+   عناصر الصفحة
 ========================= */
 
 const anthemAudio =
@@ -2262,47 +1896,35 @@ document.getElementById("app");
 let opened=false;
 let creatingCard=false;
 
+/* =========================
+   البصمة
+========================= */
+
 fingerprint.onclick=function(){
 
   if(opened)return;
 
   opened=true;
 
-  anthemAudio.muted=false;
   anthemAudio.volume=1;
   anthemAudio.currentTime=0;
 
-  anthemAudio
-  .play()
+  anthemAudio.play()
   .then(()=>{
-
     audioBtn.classList.add("show");
     audioBtn.classList.remove("paused");
-
   })
   .catch(()=>{
-
-    audioBtn.classList.add(
-      "show",
-      "paused"
-    );
-
+    audioBtn.classList.add("show","paused");
   });
 
-  mainShield
-  .classList
-  .add("activated");
-
-  fingerprint
-  .classList
-  .add("verified");
+  mainShield.classList.add("activated");
+  fingerprint.classList.add("verified");
 
   instruction.textContent=
   "تم التحقق بنجاح ✓";
 
-  instruction
-  .classList
-  .add("success");
+  instruction.classList.add("success");
 
   if(navigator.vibrate){
     navigator.vibrate(70);
@@ -2310,36 +1932,26 @@ fingerprint.onclick=function(){
 
   setTimeout(()=>{
 
-    app
-    .classList
-    .add("visible");
+    app.classList.add("visible");
+    document.body.classList.remove("lock");
 
-    document.body
-    .classList
-    .remove("lock");
-
-  },1200);
+  },1100);
 
   setTimeout(()=>{
 
-    gate
-    .classList
-    .add("leave");
+    gate.classList.add("leave");
 
-  },1500);
+  },1450);
 
   setTimeout(()=>{
 
     gate.style.display="none";
-
     window.scrollTo(0,0);
-
     activateReveal();
 
-  },2300);
+  },2250);
 
 };
-
 
 /* =========================
    الصوت
@@ -2349,31 +1961,22 @@ function toggleAudio(){
 
   if(anthemAudio.paused){
 
-    anthemAudio
-    .play()
-    .then(()=>{
+    anthemAudio.play();
 
-      audioBtn
-      .classList
-      .remove("paused");
-
-    });
+    audioBtn.classList.remove("paused");
 
   }else{
 
     anthemAudio.pause();
 
-    audioBtn
-    .classList
-    .add("paused");
+    audioBtn.classList.add("paused");
 
   }
 
 }
 
-
 /* =========================
-   ظهور الأقسام
+   ظهور العناصر
 ========================= */
 
 function activateReveal(){
@@ -2381,24 +1984,21 @@ function activateReveal(){
   const observer=
   new IntersectionObserver(
 
-    entries=>
+    entries=>{
 
-    entries.forEach(entry=>{
+      entries.forEach(entry=>{
 
-      if(entry.isIntersecting){
+        if(entry.isIntersecting){
 
-        entry.target
-        .classList
-        .add("visible");
+          entry.target.classList.add("visible");
 
-        observer
-        .unobserve(
-          entry.target
-        );
+          observer.unobserve(entry.target);
 
-      }
+        }
 
-    }),
+      });
+
+    },
 
     {threshold:.1}
 
@@ -2406,15 +2006,12 @@ function activateReveal(){
 
   document
   .querySelectorAll(".reveal")
-  .forEach(
-    el=>observer.observe(el)
-  );
+  .forEach(el=>observer.observe(el));
 
 }
 
-
 /* =========================
-   العبارات الوطنية
+   العبارات
 ========================= */
 
 const nationalQuotes=[
@@ -2441,16 +2038,11 @@ const nationalQuotes=[
 
 ];
 
-
 function nameHash(name){
 
   let hash=0;
 
-  for(
-    let i=0;
-    i<name.length;
-    i++
-  ){
+  for(let i=0;i<name.length;i++){
 
     hash=
     ((hash<<5)-hash)
@@ -2464,7 +2056,6 @@ function nameHash(name){
 
 }
 
-
 /* =========================
    Firebase
 ========================= */
@@ -2473,13 +2064,10 @@ const DB_ROOT=
 "https://der3-alwatan-45-default-rtdb.firebaseio.com";
 
 const COUNTER_URL=
-DB_ROOT+
-"/guardianCounter.json";
+DB_ROOT+"/guardianCounter.json";
 
 const WALL_URL=
-DB_ROOT+
-"/guardianWall.json";
-
+DB_ROOT+"/guardianWall.json";
 
 /* =========================
    رقم الدرع
@@ -2487,11 +2075,7 @@ DB_ROOT+
 
 async function getNextGuardianNumber(){
 
-  for(
-    let attempt=0;
-    attempt<8;
-    attempt++
-  ){
+  for(let attempt=0;attempt<8;attempt++){
 
     const read=
     await fetch(
@@ -2510,11 +2094,7 @@ async function getNextGuardianNumber(){
     );
 
     if(!read.ok){
-
-      throw new Error(
-        "counter-read"
-      );
-
+      throw new Error("counter-read");
     }
 
     const etag=
@@ -2524,11 +2104,9 @@ async function getNextGuardianNumber(){
     await read.json();
 
     const next=
-    (
-      typeof current==="number"
-      ?current
-      :0
-    )+1;
+    (typeof current==="number"
+    ?current
+    :0)+1;
 
     const write=
     await fetch(
@@ -2539,9 +2117,7 @@ async function getNextGuardianNumber(){
         method:"PUT",
 
         headers:{
-          "Content-Type":
-          "application/json",
-
+          "Content-Type":"application/json",
           "if-match":etag
         },
 
@@ -2559,29 +2135,21 @@ async function getNextGuardianNumber(){
 
     if(write.status!==412){
 
-      throw new Error(
-        "counter-write"
-      );
+      throw new Error("counter-write");
 
     }
 
   }
 
-  throw new Error(
-    "counter-busy"
-  );
+  throw new Error("counter-busy");
 
 }
 
-
 /* =========================
-   إضافة الاسم للحائط
+   إضافة الاسم
 ========================= */
 
-async function addNameToWall(
-  name,
-  number
-){
+async function addNameToWall(name,number){
 
   const response=
   await fetch(
@@ -2592,47 +2160,35 @@ async function addNameToWall(
       method:"POST",
 
       headers:{
-        "Content-Type":
-        "application/json"
+        "Content-Type":"application/json"
       },
 
       body:
       JSON.stringify({
 
         name:name,
-
         number:number,
-
-        createdAt:
-        Date.now()
+        createdAt:Date.now()
 
       })
-
     }
 
   );
 
   if(!response.ok){
-
-    throw new Error(
-      "wall-write"
-    );
-
+    throw new Error("wall-write");
   }
 
 }
 
-
 /* =========================
-   رسم الحائط
+   الحائط
 ========================= */
 
 function renderWall(data){
 
   const box=
-  document.getElementById(
-    "wallNames"
-  );
+  document.getElementById("wallNames");
 
   const items=
   data
@@ -2640,59 +2196,35 @@ function renderWall(data){
   :[];
 
   items.sort(
-
     (a,b)=>
-
-    (a.number||0)
-    -
-    (b.number||0)
-
+    (a.number||0)-(b.number||0)
   );
 
   box.innerHTML="";
 
-  if(!items.length){
+  const valid=
+  items.filter(item=>item && item.name);
+
+  if(!valid.length){
 
     box.innerHTML=
     '<div class="wall-empty">بانتظار الأسماء ✨</div>';
 
     document
-    .getElementById(
-      "wallCount"
-    )
+    .getElementById("wallCount")
     .textContent="0";
-
-    document
-    .getElementById(
-      "progressCore"
-    )
-    .style
-    .setProperty(
-      "--fill",
-      "0%"
-    );
 
     return;
 
   }
 
-  items.forEach(item=>{
-
-    if(
-      !item ||
-      !item.name
-    ){
-      return;
-    }
+  valid.forEach(item=>{
 
     const el=
-    document
-    .createElement("div");
+    document.createElement("div");
 
-    el.className=
-    "wall-name";
+    el.className="wall-name";
 
-    /* الاسم فقط بدون الرقم */
     el.textContent=
     "💌 "+item.name;
 
@@ -2700,41 +2232,11 @@ function renderWall(data){
 
   });
 
-  const count=
-  items.filter(
-    item=>
-    item &&
-    item.name
-  ).length;
-
   document
-  .getElementById(
-    "wallCount"
-  )
-  .textContent=count;
-
-  document
-  .getElementById(
-    "progressCore"
-  )
-  .style
-  .setProperty(
-
-    "--fill",
-
-    Math.min(
-      100,
-      count
-    )+"%"
-
-  );
+  .getElementById("wallCount")
+  .textContent=valid.length;
 
 }
-
-
-/* =========================
-   تحميل الحائط
-========================= */
 
 async function loadWall(){
 
@@ -2742,21 +2244,12 @@ async function loadWall(){
 
     const response=
     await fetch(
-
       WALL_URL,
-
-      {
-        cache:"no-store"
-      }
-
+      {cache:"no-store"}
     );
 
     if(!response.ok){
-
-      throw new Error(
-        "wall-read"
-      );
-
+      throw new Error();
     }
 
     const data=
@@ -2768,52 +2261,35 @@ async function loadWall(){
 
   catch(error){
 
-    /*
-      لا نظهر أي رسالة تقنية
-      للمستخدم.
-    */
-
     document
-    .getElementById(
-      "wallNames"
-    )
+    .getElementById("wallNames")
     .innerHTML=
-
     '<div class="wall-empty">بانتظار الأسماء ✨</div>';
 
   }
 
 }
 
-
 /* =========================
-   إصدار الدرع
+   إنشاء الدرع
 ========================= */
 
 async function createGuardianCard(){
 
-  if(creatingCard){
-    return;
-  }
+  if(creatingCard)return;
 
   const input=
-  document.getElementById(
-    "guardianName"
-  );
+  document.getElementById("guardianName");
+
+  const btn=
+  document.getElementById("claimBtn");
 
   const name=
   input.value.trim();
 
-  const btn=
-  document.getElementById(
-    "claimBtn"
-  );
-
   if(name.length<2){
 
-    alert(
-      "أدخل الاسم أولًا ✨"
-    );
+    alert("أدخل الاسم أولًا ✨");
 
     input.focus();
 
@@ -2828,12 +2304,10 @@ async function createGuardianCard(){
   btn.textContent=
   "جارٍ تجهيز الدرع...";
 
-  const hash=
-  nameHash(name);
-
   const quote=
   nationalQuotes[
-    hash %
+    nameHash(name)
+    %
     nationalQuotes.length
   ];
 
@@ -2842,11 +2316,7 @@ async function createGuardianCard(){
     const number=
     await getNextGuardianNumber();
 
-    /*
-      نحاول إضافة الاسم للحائط،
-      لكن لو حصلت مشكلة في الحائط
-      لا نمنع ظهور الدرع.
-    */
+    /* الحائط لا يمنع ظهور الدرع */
 
     try{
 
@@ -2855,52 +2325,32 @@ async function createGuardianCard(){
         number
       );
 
-    }
-    catch(wallError){
-
-      console.log(
-        "Wall unavailable"
-      );
-
-    }
+    }catch(e){}
 
     document
-    .getElementById(
-      "nationalQuote"
-    )
+    .getElementById("nationalQuote")
     .textContent=quote;
 
     document
-    .getElementById(
-      "cardName"
-    )
+    .getElementById("cardName")
     .textContent=name;
 
     document
-    .getElementById(
-      "guardNumber"
-    )
+    .getElementById("guardNumber")
     .textContent=
     "درع الوطن رقم "+number;
 
     document
-    .getElementById(
-      "cardOverlay"
-    )
-    .classList
-    .add("show");
+    .getElementById("cardOverlay")
+    .classList.add("show");
 
-    document.body
-    .classList
-    .add("lock");
+    document.body.classList.add("lock");
 
     loadWall();
 
   }
 
   catch(error){
-
-    console.error(error);
 
     alert(
       "تعذر إصدار الدرع الآن، حاول مرة أخرى."
@@ -2921,61 +2371,36 @@ async function createGuardianCard(){
 
 }
 
-
-/* =========================
-   إغلاق البطاقة
-========================= */
-
 function closeCard(){
 
   document
-  .getElementById(
-    "cardOverlay"
-  )
-  .classList
-  .remove("show");
+  .getElementById("cardOverlay")
+  .classList.remove("show");
 
-  document.body
-  .classList
-  .remove("lock");
+  document.body.classList.remove("lock");
 
   document
-  .getElementById(
-    "home"
-  )
+  .getElementById("home")
   .scrollIntoView({
     behavior:"smooth"
   });
 
 }
 
-
-/* =========================
-   زر Enter
-========================= */
+/* Enter */
 
 document
-.getElementById(
-  "guardianName"
-)
+.getElementById("guardianName")
 .addEventListener(
-
   "keydown",
-
   event=>{
 
-    if(
-      event.key==="Enter"
-    ){
-
+    if(event.key==="Enter"){
       createGuardianCard();
-
     }
 
   }
-
 );
-
 
 /* =========================
    النجوم
@@ -2984,25 +2409,14 @@ document
 function makeSparkles(){
 
   const host=
-  document
-  .getElementById(
-    "sparkles"
-  );
+  document.getElementById("sparkles");
 
-  for(
-    let i=0;
-    i<30;
-    i++
-  ){
+  for(let i=0;i<32;i++){
 
     const star=
-    document
-    .createElement(
-      "span"
-    );
+    document.createElement("span");
 
-    star.className=
-    "spark";
+    star.className="spark";
 
     star.textContent=
     i%3===0
@@ -3010,45 +2424,25 @@ function makeSparkles(){
     :"✧";
 
     star.style.left=
-    Math.random()*100
-    +"%";
+    Math.random()*100+"%";
 
     star.style.top=
-    Math.random()*100
-    +"%";
+    Math.random()*100+"%";
 
-    star.style
-    .setProperty(
-
+    star.style.setProperty(
       "--d",
-
-      (
-        3+
-        Math.random()*5
-      )+"s"
-
+      (3+Math.random()*5)+"s"
     );
 
-    star.style
-    .setProperty(
-
+    star.style.setProperty(
       "--delay",
-
-      (
-        -Math.random()*7
-      )+"s"
-
+      (-Math.random()*7)+"s"
     );
 
     star.style.fontSize=
-    (
-      9+
-      Math.random()*17
-    )+"px";
+    (9+Math.random()*17)+"px";
 
-    host.appendChild(
-      star
-    );
+    host.appendChild(star);
 
   }
 
