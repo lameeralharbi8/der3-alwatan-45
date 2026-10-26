@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#032619">
+<meta name="theme-color" content="#021a12">
 
 <title>درع الوطن | الابتدائية الخامسة والأربعون</title>
 
@@ -12,6 +12,7 @@
 
 :root{
   --green:#043c29;
+  --green2:#07583d;
   --dark:#00140d;
   --dark2:#002419;
   --gold:#d9b459;
@@ -19,21 +20,25 @@
   --cream:#fff6d6;
 }
 
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
   background:#00140d;
-  color:white;
+  color:#fff;
   font-family:"Noto Kufi Arabic",Tahoma,sans-serif;
   overflow-x:hidden;
 }
 
-body.lock{overflow:hidden;}
-button,input{font-family:inherit;}
+body.lock{overflow:hidden}
 
-/* النجوم */
+button,input{font-family:inherit}
+
+/* =========================
+   النجوم
+========================= */
 
 #sparkles{
   position:fixed;
@@ -46,18 +51,26 @@ button,input{font-family:inherit;}
 .spark{
   position:absolute;
   color:#ffe99d;
-  opacity:.35;
-  text-shadow:0 0 7px white,0 0 16px #ffd567;
+  opacity:.25;
+  text-shadow:0 0 7px #fff,0 0 16px #ffd567;
   animation:twinkle var(--d) ease-in-out infinite;
   animation-delay:var(--delay);
 }
 
 @keyframes twinkle{
-  0%,100%{opacity:.08;transform:scale(.5) rotate(0deg);}
-  50%{opacity:.9;transform:scale(1.3) rotate(90deg);}
+  0%,100%{
+    opacity:.05;
+    transform:scale(.5) rotate(0deg)
+  }
+  50%{
+    opacity:.75;
+    transform:scale(1.15) rotate(90deg)
+  }
 }
 
-/* شاشة البصمة */
+/* =========================
+   شاشة الدخول
+========================= */
 
 #gate{
   position:fixed;
@@ -66,10 +79,11 @@ button,input{font-family:inherit;}
   min-height:100svh;
   display:grid;
   place-items:center;
+  overflow:hidden;
+
   background:
     radial-gradient(circle at 50% 38%,rgba(13,126,82,.55),transparent 30%),
     radial-gradient(circle at 50% 110%,#0a6040,#03291c 45%,#000c08 82%);
-  overflow:hidden;
 }
 
 #gate:before{
@@ -77,12 +91,17 @@ button,input{font-family:inherit;}
   position:absolute;
   inset:-30%;
   background:
-    repeating-radial-gradient(circle,transparent 0 80px,rgba(255,224,140,.035) 81px 82px,transparent 83px 160px);
+    repeating-radial-gradient(
+      circle,
+      transparent 0 80px,
+      rgba(255,224,140,.035) 81px 82px,
+      transparent 83px 160px
+    );
   animation:rotateGate 35s linear infinite;
 }
 
 @keyframes rotateGate{
-  to{transform:rotate(360deg);}
+  to{transform:rotate(360deg)}
 }
 
 .gate-content{
@@ -110,17 +129,34 @@ button,input{font-family:inherit;}
 .shield-core{
   position:absolute;
   inset:0;
-  clip-path:polygon(50% 0,91% 13%,88% 61%,78% 80%,50% 100%,22% 80%,12% 61%,9% 13%);
+  clip-path:polygon(
+    50% 0,
+    91% 13%,
+    88% 61%,
+    78% 80%,
+    50% 100%,
+    22% 80%,
+    12% 61%,
+    9% 13%
+  );
 }
 
 .shield-border{
-  background:linear-gradient(135deg,#765019,#ffe59a 20%,#a87928 45%,#fff0b0 65%,#825516);
+  background:
+    linear-gradient(
+      135deg,
+      #765019,
+      #ffe59a 20%,
+      #a87928 45%,
+      #fff0b0 65%,
+      #825516
+    );
 }
 
 .shield-core{
   inset:6px;
-  background:radial-gradient(circle at 50% 34%,#0e8259,#074632 48%,#021c14);
-  transition:1s;
+  background:
+    radial-gradient(circle at 50% 34%,#0e8259,#074632 48%,#021c14);
 }
 
 .gate-title{
@@ -133,7 +169,9 @@ button,input{font-family:inherit;}
   font-size:38px;
   font-weight:800;
   white-space:nowrap;
-  text-shadow:0 4px 10px #000,0 0 25px rgba(255,218,111,.65);
+  text-shadow:
+    0 4px 10px #000,
+    0 0 25px rgba(255,218,111,.65);
 }
 
 .fingerprint{
@@ -149,8 +187,14 @@ button,input{font-family:inherit;}
   display:grid;
   place-items:center;
   cursor:pointer;
-  background:radial-gradient(circle,#07523a,#011b13 72%);
-  box-shadow:0 0 0 11px rgba(230,195,96,.05),0 0 40px rgba(255,224,130,.28),inset 0 0 30px rgba(255,225,135,.07);
+
+  background:
+    radial-gradient(circle,#07523a,#011b13 72%);
+
+  box-shadow:
+    0 0 0 11px rgba(230,195,96,.05),
+    0 0 40px rgba(255,224,130,.28),
+    inset 0 0 30px rgba(255,225,135,.07);
 }
 
 .fingerprint svg{
@@ -171,7 +215,9 @@ button,input{font-family:inherit;}
   opacity:0;
   font-size:65px;
   color:white;
-  text-shadow:0 0 15px white,0 0 35px #ffd76b;
+  text-shadow:
+    0 0 15px white,
+    0 0 35px #ffd76b;
 }
 
 .instruction{
@@ -182,26 +228,37 @@ button,input{font-family:inherit;}
   font-size:11px;
 }
 
-.shield.activated{animation:shieldPulse 1.5s forwards;}
+.shield.activated{
+  animation:shieldPulse 1.5s forwards;
+}
 
 @keyframes shieldPulse{
   50%{
     transform:scale(1.05);
-    filter:drop-shadow(0 0 35px #ffe481) drop-shadow(0 0 80px #c68b24);
+    filter:
+      drop-shadow(0 0 35px #ffe481)
+      drop-shadow(0 0 80px #c68b24);
   }
+
   100%{
     transform:scale(1.03);
-    filter:drop-shadow(0 0 40px #ffe481) drop-shadow(0 0 100px #c68b24);
+    filter:
+      drop-shadow(0 0 40px #ffe481)
+      drop-shadow(0 0 100px #c68b24);
   }
 }
 
 .fingerprint.verified{
-  background:radial-gradient(circle,#ffe9a2,#c58a28 48%,#5d3c0b);
-  box-shadow:0 0 40px #ffe184,0 0 100px rgba(255,191,48,.55);
+  background:
+    radial-gradient(circle,#ffe9a2,#c58a28 48%,#5d3c0b);
+
+  box-shadow:
+    0 0 40px #ffe184,
+    0 0 100px rgba(255,191,48,.55);
 }
 
-.fingerprint.verified svg{opacity:.1;}
-.fingerprint.verified .check{opacity:1;}
+.fingerprint.verified svg{opacity:.1}
+.fingerprint.verified .check{opacity:1}
 
 .instruction.success{
   color:#fff0ad;
@@ -214,20 +271,31 @@ button,input{font-family:inherit;}
   font-size:10px;
 }
 
-#gate.leave{animation:gateLeave .8s forwards;}
-
-@keyframes gateLeave{
-  to{opacity:0;visibility:hidden;}
+#gate.leave{
+  animation:gateLeave .8s forwards;
 }
 
-/* الموقع */
+@keyframes gateLeave{
+  to{
+    opacity:0;
+    visibility:hidden
+  }
+}
+
+/* =========================
+   الموقع
+========================= */
 
 #app{
   opacity:0;
   transition:1s;
 }
 
-#app.visible{opacity:1;}
+#app.visible{opacity:1}
+
+/* =========================
+   القائمة
+========================= */
 
 nav{
   position:fixed;
@@ -235,136 +303,244 @@ nav{
   top:0;
   left:0;
   right:0;
-  height:65px;
+  height:68px;
   padding:0 6%;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
-  background:rgba(0,20,13,.76);
-  backdrop-filter:blur(18px);
+
+  background:rgba(0,18,12,.72);
+  backdrop-filter:blur(20px);
+
   border-bottom:1px solid rgba(222,188,92,.2);
+  box-shadow:0 8px 30px rgba(0,0,0,.18);
 }
 
 .brand{
   color:#f1d276;
   font-weight:800;
+  text-shadow:0 0 18px rgba(241,210,118,.2);
 }
 
 nav a{
   text-decoration:none;
-  color:#e8dcae;
+  color:#f3dfa2;
   font-size:10px;
-  border:1px solid rgba(227,190,88,.45);
-  padding:8px 15px;
+
+  border:1px solid rgba(227,190,88,.48);
+  padding:9px 18px;
   border-radius:30px;
+
+  background:rgba(255,255,255,.02);
 }
 
-/* الواجهة */
+/* =========================
+   الواجهة الرئيسية
+========================= */
 
 .hero{
   min-height:100svh;
   position:relative;
+
   display:flex;
   justify-content:center;
   align-items:center;
+
   text-align:center;
   padding:110px 7% 90px;
   overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 30%,rgba(15,108,73,.65),transparent 42%),
-    linear-gradient(180deg,#043a28,#012319 60%,#00120c);
+
+  background:#00140d;
 }
 
-/* الخلفية - JPG */
+/* الخلفية الواقعية */
 
 .hero-real-bg{
   position:absolute;
   inset:0;
   z-index:0;
-  background:url("saudi-bg.jpg?v=10") center center / cover no-repeat;
+
+  background-image:url("saudi-bg.jpg?v=20");
+  background-position:center center;
+  background-size:cover;
+  background-repeat:no-repeat;
+
   opacity:1;
   filter:none;
+
+  transform:scale(1.015);
+  animation:heroMove 16s ease-in-out infinite alternate;
+}
+
+@keyframes heroMove{
+  from{transform:scale(1.015)}
+  to{transform:scale(1.055)}
 }
 
 .hero-real-bg:after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    to bottom,
-    rgba(0,20,13,.08) 0%,
-    rgba(0,20,13,.12) 55%,
-    rgba(0,20,13,.55) 100%
-  );
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0,20,13,.02) 0%,
+      rgba(0,20,13,.06) 45%,
+      rgba(0,12,8,.22) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0,18,12,.05) 0%,
+      rgba(0,18,12,.05) 55%,
+      rgba(0,15,10,.65) 100%
+    );
+}
+
+.hero-glow{
+  position:absolute;
+  z-index:1;
+
+  width:700px;
+  height:700px;
+
+  top:50%;
+  left:50%;
+
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,214,111,.13),
+      rgba(12,105,71,.05) 38%,
+      transparent 68%
+    );
+
+  pointer-events:none;
 }
 
 .hero-content{
   position:relative;
   z-index:4;
-  width:min(820px,100%);
+  width:min(850px,100%);
 }
 
 .hero-emblem{
-  margin-bottom:10px;
-  color:#e5c36b;
+  margin-bottom:9px;
+  color:#ffe190;
   font-size:42px;
-  text-shadow:0 0 22px rgba(236,194,88,.5);
+
+  text-shadow:
+    0 0 12px #cfa33c,
+    0 0 35px rgba(255,215,110,.65);
 }
 
 .kicker{
-  color:#e0c16b;
+  color:#e8c96f;
   font-size:11px;
   letter-spacing:2px;
+  text-shadow:0 3px 12px #000;
 }
 
 .hero h1{
   margin:8px 0;
-  color:#f2d477;
-  font-size:clamp(62px,11vw,112px);
+
+  color:#f5d676;
+  font-size:clamp(62px,11vw,115px);
   line-height:1.25;
-  text-shadow:0 4px 0 #76501d,0 10px 35px #000,0 0 35px rgba(255,213,100,.22);
+
+  text-shadow:
+    0 3px 0 #7d561c,
+    0 9px 25px #000,
+    0 0 35px rgba(255,213,100,.25);
 }
 
 .hero h2{
-  margin:15px 0;
-  color:#fff3c7;
+  margin:14px 0;
+  color:#fff4c9;
+
   font-size:clamp(18px,4vw,31px);
   font-weight:500;
-  text-shadow:0 4px 18px #000;
+
+  text-shadow:
+    0 3px 12px #000,
+    0 0 20px rgba(0,0,0,.65);
 }
 
 .hero-line{
-  width:180px;
+  width:190px;
   height:1px;
   margin:27px auto;
-  background:linear-gradient(90deg,transparent,#f4d477,transparent);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #f4d477,
+      transparent
+    );
 }
 
 .hero p{
   max-width:650px;
   margin:auto;
-  color:#e6dfc7;
+
+  color:#f1ead4;
   font-size:12px;
   line-height:2.2;
-  text-shadow:0 3px 12px #000;
+
+  text-shadow:
+    0 2px 8px #000,
+    0 3px 18px #000;
 }
 
 .hero-scroll{
   display:inline-block;
+  position:relative;
+  overflow:hidden;
+
   margin-top:32px;
-  padding:12px 45px;
-  color:#f5dc8c;
+  padding:13px 48px;
+
+  color:#ffe295;
   text-decoration:none;
   font-size:11px;
-  border:1px solid rgba(255,222,128,.65);
+
+  border:1px solid rgba(255,226,145,.72);
   border-radius:50px;
-  background:rgba(0,39,27,.7);
-  box-shadow:0 12px 35px rgba(0,0,0,.35),inset 0 0 20px rgba(223,186,85,.04);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0,55,38,.86),
+      rgba(0,29,20,.78)
+    );
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.45),
+    inset 0 0 20px rgba(223,186,85,.06),
+    0 0 20px rgba(255,211,95,.08);
+
+  transition:.3s;
 }
 
-/* الأقسام */
+.hero-scroll:hover{
+  transform:translateY(-3px);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.5),
+    0 0 28px rgba(255,215,105,.18);
+}
 
-.section{padding:100px 0;}
+/* =========================
+   الأقسام
+========================= */
+
+.section{
+  padding:110px 0;
+}
 
 .container{
   width:min(1100px,90%);
@@ -373,93 +549,244 @@ nav a{
 
 .heading{
   text-align:center;
-  margin-bottom:50px;
+  margin-bottom:55px;
 }
 
-.heading small{color:#caaa55;}
+.heading small{
+  color:#caaa55;
+  letter-spacing:1px;
+}
 
 .heading h2{
   color:#f1d47a;
   font-size:clamp(28px,5vw,44px);
-  margin:7px 0;
+  margin:8px 0;
+
+  text-shadow:
+    0 4px 18px rgba(0,0,0,.5),
+    0 0 25px rgba(232,195,95,.1);
 }
 
-.heading p{
-  color:#aeb1a5;
-  font-size:11px;
-  line-height:2;
-}
-
-/* القيادة */
+/* =========================
+   القيادة
+========================= */
 
 .royal-section{
   position:relative;
   overflow:hidden;
+
   background:
-    radial-gradient(circle at 50% 10%,rgba(214,174,70,.14),transparent 30%),
-    linear-gradient(180deg,#00140d,#03271c,#00140d);
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(221,180,73,.14),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 50% 65%,
+      rgba(7,93,63,.28),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #00140d,
+      #03251a 50%,
+      #00140d
+    );
+}
+
+.royal-section:before{
+  content:"";
+  position:absolute;
+  width:600px;
+  height:600px;
+  border:1px solid rgba(223,190,97,.06);
+  border-radius:50%;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  box-shadow:
+    0 0 0 70px rgba(223,190,97,.025),
+    0 0 0 140px rgba(223,190,97,.015);
 }
 
 .royal-grid{
+  position:relative;
+  z-index:2;
+
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:35px;
-  max-width:920px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+
+  gap:40px;
+  max-width:950px;
   margin:auto;
 }
 
 .royal-card{
   position:relative;
+
   text-align:center;
-  padding:9px 9px 26px;
+
+  padding:8px 8px 30px;
+
   border-radius:30px;
-  border:1px solid rgba(244,208,108,.58);
-  background:linear-gradient(155deg,#075038,#011b13 75%);
-  box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 30px rgba(216,180,83,.06);
+  border:1px solid rgba(255,222,128,.7);
+
+  background:
+    linear-gradient(
+      155deg,
+      rgba(8,78,54,.95),
+      rgba(1,24,17,.98) 72%
+    );
+
+  box-shadow:
+    0 35px 90px rgba(0,0,0,.65),
+    0 0 40px rgba(216,180,83,.08);
+
+  overflow:hidden;
+  transition:.45s;
 }
 
+.royal-card:before{
+  content:"";
+  position:absolute;
+  z-index:3;
+
+  top:-120px;
+  left:-70px;
+
+  width:180px;
+  height:380px;
+
+  transform:rotate(35deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,240,177,.09),
+      transparent
+    );
+
+  pointer-events:none;
+}
+
+.royal-card:hover{
+  transform:translateY(-7px);
+
+  box-shadow:
+    0 45px 100px rgba(0,0,0,.7),
+    0 0 35px rgba(230,193,91,.14);
+}
+
+/* أهم جزء: الصور */
+
 .royal-photo{
+  position:relative;
+
   width:100%;
   aspect-ratio:4/5;
+
   overflow:hidden;
-  border-radius:23px;
-  background:linear-gradient(180deg,#0a5a3e,#03261b);
-  border:1px solid rgba(255,226,145,.45);
+
+  border-radius:23px 23px 18px 18px;
+
+  background:#073b2a;
+
+  border:1px solid rgba(255,228,151,.62);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.03),
+    0 15px 40px rgba(0,0,0,.35);
 }
 
 .royal-photo img{
+  position:relative;
+  z-index:2;
+
   display:block;
+
   width:100%;
   height:100%;
+
   object-fit:cover;
-  opacity:1;
-  filter:brightness(1.08) contrast(1.04) saturate(1.03);
   object-position:center top;
+
+  opacity:1 !important;
+  visibility:visible !important;
+
+  filter:none !important;
+
+  transform:none;
+}
+
+.royal-photo:after{
+  content:"";
+  position:absolute;
+  z-index:3;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  height:22%;
+
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(1,22,15,.42),
+      transparent
+    );
 }
 
 .royal-card h3{
-  margin:20px 10px 0;
-  color:#ffe59a;
+  position:relative;
+  z-index:5;
+
+  margin:22px 12px 0;
+
+  color:#ffe69c;
+
   font-size:15px;
   font-weight:700;
   line-height:2;
-  text-shadow:0 3px 15px rgba(0,0,0,.7);
+
+  text-shadow:
+    0 3px 15px rgba(0,0,0,.8);
 }
 
-/* المدرسة */
+/* =========================
+   المدرسة
+========================= */
 
 .about{
   background:
-    radial-gradient(circle at 50% 20%,rgba(13,98,67,.25),transparent 40%),
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(13,98,67,.25),
+      transparent 40%
+    ),
     #01150f;
 }
 
 .school-card{
-  padding:40px;
+  padding:42px;
+
   border-radius:30px;
-  border:1px solid rgba(223,189,96,.32);
-  background:linear-gradient(145deg,#073b2b,#011a13);
-  box-shadow:0 30px 80px rgba(0,0,0,.45);
+
+  border:
+    1px solid rgba(223,189,96,.32);
+
+  background:
+    linear-gradient(
+      145deg,
+      #073b2b,
+      #011a13
+    );
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.45);
 }
 
 .school-name{
@@ -478,11 +805,15 @@ nav a{
 .person{
   padding:25px;
   border-radius:20px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.025);
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  background:
+    rgba(255,255,255,.025);
 }
 
-.person small{color:#c4a95c;}
+.person small{color:#c4a95c}
 
 .person h3{
   color:#f3dfa0;
@@ -504,21 +835,37 @@ nav a{
 
 .teacher-tags span{
   padding:8px 13px;
-  border:1px solid rgba(217,184,92,.3);
+
+  border:
+    1px solid rgba(217,184,92,.3);
+
   border-radius:30px;
+
   font-size:10px;
   color:#f2dfaa;
 }
 
-/* الدرع */
+/* =========================
+   الدرع
+========================= */
 
 .guardian{
   min-height:100svh;
+
   display:grid;
   place-items:center;
+
   position:relative;
+
   padding:100px 20px;
-  background:radial-gradient(circle at 50% 40%,#0b6042,#03271c 42%,#010e0a 82%);
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      #0b6042,
+      #03271c 42%,
+      #010e0a 82%
+    );
 }
 
 .name-stage{
@@ -529,18 +876,38 @@ nav a{
 .mini-shield{
   width:90px;
   height:105px;
+
   margin:0 auto 20px;
   padding:4px;
-  clip-path:polygon(50% 0,91% 14%,87% 65%,50% 100%,13% 65%,9% 14%);
-  background:linear-gradient(135deg,#8a611d,#ffe496,#a97928);
+
+  clip-path:
+    polygon(
+      50% 0,
+      91% 14%,
+      87% 65%,
+      50% 100%,
+      13% 65%,
+      9% 14%
+    );
+
+  background:
+    linear-gradient(
+      135deg,
+      #8a611d,
+      #ffe496,
+      #a97928
+    );
 }
 
 .mini-shield div{
   width:100%;
   height:100%;
+
   display:grid;
   place-items:center;
+
   clip-path:inherit;
+
   background:#073b2a;
   color:#f6d97d;
   font-size:35px;
@@ -548,7 +915,10 @@ nav a{
 
 .name-stage h2{
   color:#f4d77e;
-  font-size:clamp(30px,7vw,53px);
+
+  font-size:
+    clamp(30px,7vw,53px);
+
   margin:8px 0;
 }
 
@@ -560,66 +930,119 @@ nav a{
 
 .name-box{
   max-width:480px;
+
   margin:30px auto 0;
   padding:25px;
+
   border-radius:25px;
-  border:1px solid rgba(226,190,93,.3);
-  background:rgba(2,28,21,.92);
+
+  border:
+    1px solid rgba(226,190,93,.3);
+
+  background:
+    rgba(2,28,21,.92);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.35);
 }
 
 .name-box input{
   width:100%;
+
   padding:17px;
+
   border-radius:15px;
-  border:1px solid #49675d;
+
+  border:
+    1px solid #49675d;
+
   outline:none;
+
   text-align:center;
   color:white;
+
   background:#01150f;
   font-size:15px;
 }
 
-.name-box input:focus{border-color:#e1bd61;}
+.name-box input:focus{
+  border-color:#e1bd61;
+  box-shadow:0 0 18px rgba(225,189,97,.08);
+}
 
 .gold-btn{
   width:100%;
+
   margin-top:14px;
   padding:14px 27px;
+
   border:1px solid #ffe39a;
   border-radius:40px;
+
   cursor:pointer;
   font-weight:800;
   color:#182117;
-  background:linear-gradient(100deg,#a77524,#ffe99c,#bd8c32);
-  box-shadow:0 12px 35px rgba(0,0,0,.35);
+
+  background:
+    linear-gradient(
+      100deg,
+      #a77524,
+      #ffe99c,
+      #bd8c32
+    );
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.35);
 }
 
-.gold-btn:disabled{opacity:.6;}
+.gold-btn:disabled{opacity:.6}
 
-/* الحائط */
+/* =========================
+   الحائط
+========================= */
 
 .wall-section{
   padding:100px 5%;
+
   background:
-    radial-gradient(circle at 50% 20%,rgba(20,123,84,.28),transparent 35%),
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(20,123,84,.28),
+      transparent 35%
+    ),
     #010e0a;
 }
 
 .wall-box{
   width:min(1050px,100%);
+
   margin:auto;
   padding:35px 25px;
+
   border-radius:30px;
-  border:1px solid rgba(220,183,83,.25);
-  background:linear-gradient(145deg,rgba(5,54,39,.82),rgba(1,20,15,.95));
-  box-shadow:0 30px 90px rgba(0,0,0,.55);
+
+  border:
+    1px solid rgba(220,183,83,.25);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(5,54,39,.82),
+      rgba(1,20,15,.95)
+    );
+
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.55);
 }
 
-.wall-head{text-align:center;}
+.wall-head{text-align:center}
 
 .wall-head h2{
   color:#f4d77e;
-  font-size:clamp(28px,6vw,45px);
+
+  font-size:
+    clamp(28px,6vw,45px);
+
   margin:0;
 }
 
@@ -631,6 +1054,7 @@ nav a{
 .wall-count{
   text-align:center;
   color:#c6b574;
+
   margin:25px 0;
   font-size:11px;
 }
@@ -649,45 +1073,83 @@ nav a{
 
 .wall-name{
   padding:10px 17px;
+
   border-radius:50px;
-  border:1px solid rgba(224,190,94,.28);
-  background:linear-gradient(135deg,rgba(15,93,65,.55),rgba(3,41,30,.75));
+
+  border:
+    1px solid rgba(224,190,94,.28);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15,93,65,.55),
+      rgba(3,41,30,.75)
+    );
+
   color:#f3e5b7;
   font-size:11px;
 }
 
 .wall-empty{
   width:100%;
+
   padding:30px;
+
   text-align:center;
   color:#92968c;
   font-size:11px;
 }
 
-/* بطاقة الدرع */
+/* =========================
+   بطاقة الدرع
+========================= */
 
 #cardOverlay{
   position:fixed;
   inset:0;
   z-index:5000;
+
   display:none;
   place-items:center;
+
   padding:25px 12px;
-  background:rgba(0,10,7,.95);
+
+  background:
+    rgba(0,10,7,.95);
+
+  backdrop-filter:blur(15px);
 }
 
-#cardOverlay.show{display:grid;}
+#cardOverlay.show{
+  display:grid;
+}
 
 .guard-card{
   width:min(450px,95vw);
+
   padding:38px 25px;
+
   text-align:center;
+
   border-radius:30px;
   border:2px solid #d8b354;
+
   background:
-    radial-gradient(circle at 50% 15%,rgba(26,132,88,.42),transparent 30%),
-    linear-gradient(160deg,#063d2c,#01150f 70%);
-  box-shadow:0 0 0 6px #05281e,0 30px 100px #000;
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(26,132,88,.42),
+      transparent 30%
+    ),
+    linear-gradient(
+      160deg,
+      #063d2c,
+      #01150f 70%
+    );
+
+  box-shadow:
+    0 0 0 6px #05281e,
+    0 30px 100px #000,
+    0 0 50px rgba(218,180,80,.12);
 }
 
 .card-school{
@@ -697,28 +1159,51 @@ nav a{
 
 .card-title{
   color:#ffe38c;
+
   font-size:40px;
   font-weight:800;
+
   margin:5px 0 20px;
 }
 
 .card-shield{
   width:105px;
   height:125px;
+
   margin:0 auto 20px;
   padding:4px;
-  clip-path:polygon(50% 0,91% 14%,87% 65%,50% 100%,13% 65%,9% 14%);
-  background:linear-gradient(135deg,#fff0a7,#9b681b,#ffe397);
+
+  clip-path:
+    polygon(
+      50% 0,
+      91% 14%,
+      87% 65%,
+      50% 100%,
+      13% 65%,
+      9% 14%
+    );
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff0a7,
+      #9b681b,
+      #ffe397
+    );
 }
 
 .card-shield-inner{
   width:100%;
   height:100%;
+
   display:grid;
   place-items:center;
+
   clip-path:inherit;
+
   background:#06422f;
   color:#ffe393;
+
   font-size:40px;
 }
 
@@ -736,8 +1221,16 @@ nav a{
 .card-divider{
   width:90px;
   height:1px;
+
   margin:18px auto;
-  background:linear-gradient(90deg,transparent,#dcb75c,transparent);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #dcb75c,
+      transparent
+    );
 }
 
 .student-label{
@@ -747,8 +1240,10 @@ nav a{
 
 #cardName{
   color:#ffe18b;
+
   font-size:25px;
   font-weight:800;
+
   margin:7px 0;
 }
 
@@ -759,38 +1254,59 @@ nav a{
 
 .success-text{
   color:#b8b8ac;
+
   font-size:10px;
   line-height:2;
+
   margin:18px 0;
 }
 
 .card-action{
   padding:12px 25px;
+
   border:1px solid #dcb75c;
   border-radius:40px;
+
   cursor:pointer;
+
   color:#ffe298;
   background:#082f23;
 }
 
-/* الصوت */
+/* =========================
+   الصوت
+========================= */
 
 #audioBtn{
   position:fixed;
+
   z-index:900;
+
   left:18px;
   bottom:18px;
+
   width:48px;
   height:48px;
+
   display:none;
+
   border-radius:50%;
-  border:1px solid #d8b65c;
+
+  border:
+    1px solid #d8b65c;
+
   color:#ffe18b;
   background:#063629;
+
   cursor:pointer;
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,.35);
 }
 
-#audioBtn.show{display:block;}
+#audioBtn.show{
+  display:block;
+}
 
 .bars{
   display:flex;
@@ -802,8 +1318,11 @@ nav a{
 .bars i{
   width:3px;
   height:16px;
+
   background:#ffe18b;
-  animation:music .7s infinite alternate;
+
+  animation:
+    music .7s infinite alternate;
 }
 
 .bars i:nth-child(2){
@@ -811,7 +1330,9 @@ nav a{
   animation-delay:.2s;
 }
 
-.bars i:nth-child(3){animation-delay:.4s;}
+.bars i:nth-child(3){
+  animation-delay:.4s;
+}
 
 .bars i:nth-child(4){
   height:11px;
@@ -819,7 +1340,7 @@ nav a{
 }
 
 @keyframes music{
-  to{height:6px;}
+  to{height:6px}
 }
 
 #audioBtn.paused i{
@@ -827,18 +1348,28 @@ nav a{
   height:8px;
 }
 
+/* =========================
+   Footer + reveal
+========================= */
+
 footer{
   padding:55px 20px;
+
   text-align:center;
+
   color:#797e76;
   font-size:9px;
+
   background:#010b08;
 }
 
 .reveal{
   opacity:0;
-  transform:translateY(25px);
-  transition:.8s;
+  transform:translateY(28px);
+
+  transition:
+    opacity .9s ease,
+    transform .9s ease;
 }
 
 .reveal.visible{
@@ -846,10 +1377,19 @@ footer{
   transform:none;
 }
 
+/* =========================
+   الجوال
+========================= */
+
 @media(max-width:700px){
 
-  .gate-title{font-size:31px;}
-  nav a{display:none;}
+  .gate-title{
+    font-size:31px;
+  }
+
+  nav a{
+    display:none;
+  }
 
   .hero{
     padding-left:5%;
@@ -857,19 +1397,25 @@ footer{
   }
 
   .hero-real-bg{
-    background-position:center;
+    background-position:center center;
   }
 
-  .hero h1{font-size:60px;}
+  .hero h1{
+    font-size:60px;
+  }
 
-  .royal-grid{gap:12px;}
+  .royal-grid{
+    gap:12px;
+  }
 
   .royal-card{
-    padding:6px 6px 18px;
+    padding:5px 5px 18px;
     border-radius:20px;
   }
 
-  .royal-photo{border-radius:15px;}
+  .royal-photo{
+    border-radius:16px;
+  }
 
   .royal-card h3{
     font-size:9px;
@@ -877,10 +1423,27 @@ footer{
     margin:13px 3px 0;
   }
 
-  .people{grid-template-columns:1fr;}
+  .people{
+    grid-template-columns:1fr;
+  }
 
   .school-card{
     padding:25px 18px;
+  }
+}
+
+@media(max-width:430px){
+
+  .royal-grid{
+    gap:8px;
+  }
+
+  .royal-card{
+    border-radius:17px;
+  }
+
+  .royal-card h3{
+    font-size:8.5px;
   }
 }
 
@@ -889,11 +1452,19 @@ footer{
 
 <body class="lock">
 
-<audio id="anthemAudio" preload="auto" playsinline src="./anthem.mp3"></audio>
+<audio
+  id="anthemAudio"
+  preload="auto"
+  playsinline
+  src="./anthem.mp3">
+</audio>
 
 <div id="sparkles"></div>
 
+<!-- شاشة الدخول -->
+
 <div id="gate">
+
   <div class="gate-content">
 
     <div class="school-top">
@@ -901,6 +1472,7 @@ footer{
     </div>
 
     <div class="shield" id="mainShield">
+
       <div class="shield-border"></div>
       <div class="shield-core"></div>
 
@@ -908,9 +1480,13 @@ footer{
         درع الوطن
       </div>
 
-      <button class="fingerprint" id="fingerprint" type="button">
+      <button
+        class="fingerprint"
+        id="fingerprint"
+        type="button">
 
         <svg viewBox="0 0 100 100">
+
           <path d="M50 12c-20 0-36 15-36 34"/>
           <path d="M86 46c0-20-16-34-36-34"/>
           <path d="M22 53c0-16 12-28 28-28s28 12 28 28"/>
@@ -923,14 +1499,19 @@ footer{
           <path d="M67 70c2 8 6 13 10 17"/>
           <path d="M49 76c-1 8-3 13-6 17"/>
           <path d="M55 78c1 6 3 11 6 15"/>
+
         </svg>
 
         <span class="check">✓</span>
+
       </button>
 
-      <div class="instruction" id="instruction">
+      <div
+        class="instruction"
+        id="instruction">
         اضغط على البصمة للدخول
       </div>
+
     </div>
 
     <div class="gate-bottom">
@@ -938,14 +1519,26 @@ footer{
     </div>
 
   </div>
+
 </div>
+
+<!-- الموقع -->
 
 <div id="app">
 
 <nav>
-  <div class="brand">درع الوطن</div>
-  <a href="#guardian">احصل على درعك</a>
+
+  <div class="brand">
+    درع الوطن
+  </div>
+
+  <a href="#guardian">
+    احصل على درعك
+  </a>
+
 </nav>
+
+<!-- الواجهة -->
 
 <section class="hero" id="home">
 
@@ -954,13 +1547,17 @@ footer{
 
   <div class="hero-content">
 
-    <div class="hero-emblem">✦</div>
+    <div class="hero-emblem">
+      ✦
+    </div>
 
     <div class="kicker">
       المملكة العربية السعودية
     </div>
 
-    <h1>درع الوطن</h1>
+    <h1>
+      درع الوطن
+    </h1>
 
     <h2>
       وطنٌ نحبه، وعلمٌ نبني به مستقبله
@@ -974,7 +1571,9 @@ footer{
       بالعلم والأخلاق والعطاء.
     </p>
 
-    <a class="hero-scroll" href="#leadership">
+    <a
+      class="hero-scroll"
+      href="#leadership">
       ابدأ الرحلة
     </a>
 
@@ -982,220 +1581,356 @@ footer{
 
 </section>
 
-<section class="section royal-section" id="leadership">
+<!-- القيادة -->
 
-<div class="container">
+<section
+  class="section royal-section"
+  id="leadership">
 
-  <div class="heading reveal">
-    <small>قيادة • عز • طموح</small>
-    <h2>وطنٌ نفخر بقيادته</h2>
-  </div>
+  <div class="container">
 
-  <div class="royal-grid reveal">
+    <div class="heading reveal">
 
-    <div class="royal-card">
+      <small>
+        قيادة • عز • طموح
+      </small>
 
-      <div class="royal-photo">
-        <img src="./king-salman.png" alt="الملك سلمان بن عبدالعزيز آل سعود">
-      </div>
-
-      <h3>
-        خادم الحرمين الشريفين<br>
-        الملك سلمان بن عبدالعزيز آل سعود
-      </h3>
+      <h2>
+        وطنٌ نفخر بقيادته
+      </h2>
 
     </div>
 
-    <div class="royal-card">
+    <div class="royal-grid reveal">
 
-      <div class="royal-photo">
-        <img src="./crown-prince.png" alt="الأمير محمد بن سلمان بن عبدالعزيز آل سعود">
+      <!-- الملك سلمان -->
+
+      <div class="royal-card">
+
+        <div class="royal-photo">
+
+          <img
+            src="king-salman.png?v=20"
+            alt="خادم الحرمين الشريفين الملك سلمان بن عبدالعزيز آل سعود">
+
+        </div>
+
+        <h3>
+          خادم الحرمين الشريفين<br>
+          الملك سلمان بن عبدالعزيز آل سعود
+        </h3>
+
       </div>
 
-      <h3>
-        صاحب السمو الملكي<br>
-        الأمير محمد بن سلمان بن عبدالعزيز آل سعود
-      </h3>
+      <!-- ولي العهد -->
+
+      <div class="royal-card">
+
+        <div class="royal-photo">
+
+          <img
+            src="crown-prince.png?v=20"
+            alt="صاحب السمو الملكي الأمير محمد بن سلمان بن عبدالعزيز آل سعود">
+
+        </div>
+
+        <h3>
+          صاحب السمو الملكي<br>
+          الأمير محمد بن سلمان بن عبدالعزيز آل سعود
+        </h3>
+
+      </div>
 
     </div>
 
   </div>
-</div>
+
 </section>
+
+<!-- المدرسة -->
 
 <section class="section about">
 
-<div class="container">
+  <div class="container">
 
-  <div class="heading reveal">
-    <small>تعليم • عطاء • انتماء</small>
-    <h2>مدرستنا</h2>
-  </div>
+    <div class="heading reveal">
 
-  <div class="school-card reveal">
+      <small>
+        تعليم • عطاء • انتماء
+      </small>
 
-    <div class="school-name">
-      الابتدائية الخامسة والأربعون
+      <h2>
+        مدرستنا
+      </h2>
+
     </div>
 
-    <div class="people">
+    <div class="school-card reveal">
 
-      <div class="person">
-        <small>مديرة المدرسة</small>
-        <h3>هبة فلمبان</h3>
-
-        <p>
-          بقيادة تصنع الإلهام،
-          وبالعلم نبني مستقبل الوطن.
-        </p>
+      <div class="school-name">
+        الابتدائية الخامسة والأربعون
       </div>
 
-      <div class="person">
+      <div class="people">
 
-        <small>المعلمات</small>
+        <div class="person">
 
-        <div class="teacher-tags">
-          <span>دارالهناء الحربي</span>
-          <span>حصة الحربي</span>
-          <span>نبيهه عسيري</span>
+          <small>
+            مديرة المدرسة
+          </small>
+
+          <h3>
+            هبة فلمبان
+          </h3>
+
+          <p>
+            بقيادة تصنع الإلهام،
+            وبالعلم نبني مستقبل الوطن.
+          </p>
+
         </div>
 
-        <p>
-          بعطاء المعلمة تبدأ المعرفة،
-          وبالمعرفة يزدهر الوطن.
-        </p>
+        <div class="person">
+
+          <small>
+            المعلمات
+          </small>
+
+          <div class="teacher-tags">
+
+            <span>
+              دارالهناء الحربي
+            </span>
+
+            <span>
+              حصة الحربي
+            </span>
+
+            <span>
+              نبيهه عسيري
+            </span>
+
+          </div>
+
+          <p>
+            بعطاء المعلمة تبدأ المعرفة،
+            وبالمعرفة يزدهر الوطن.
+          </p>
+
+        </div>
 
       </div>
+
     </div>
+
   </div>
-</div>
+
 </section>
 
-<section class="guardian" id="guardian">
+<!-- الدرع -->
 
-<div class="name-stage reveal">
+<section
+  class="guardian"
+  id="guardian">
 
-  <div class="mini-shield">
-    <div>✦</div>
+  <div class="name-stage reveal">
+
+    <div class="mini-shield">
+      <div>✦</div>
+    </div>
+
+    <div class="kicker">
+      حُرّاس الوطن
+    </div>
+
+    <h2>
+      درعك ينتظرك
+    </h2>
+
+    <p>
+      أدخل اسمك ليظهر درعك الشخصي
+      ويُضاف اسمك إلى حائط حُرّاس الوطن.
+    </p>
+
+    <div class="name-box">
+
+      <input
+        id="guardianName"
+        maxlength="30"
+        autocomplete="off"
+        placeholder="أدخل اسمك هنا">
+
+      <button
+        class="gold-btn"
+        id="claimBtn"
+        onclick="createGuardianCard()">
+
+        احصل على درعك
+
+      </button>
+
+    </div>
+
   </div>
 
-  <div class="kicker">حُرّاس الوطن</div>
-
-  <h2>درعك ينتظرك</h2>
-
-  <p>
-    أدخل اسمك ليظهر درعك الشخصي
-    ويُضاف اسمك إلى حائط حُرّاس الوطن.
-  </p>
-
-  <div class="name-box">
-
-    <input
-      id="guardianName"
-      maxlength="30"
-      autocomplete="off"
-      placeholder="أدخل اسمك هنا">
-
-    <button
-      class="gold-btn"
-      id="claimBtn"
-      onclick="createGuardianCard()">
-      احصل على درعك
-    </button>
-
-  </div>
-</div>
 </section>
+
+<!-- الحائط -->
 
 <section class="wall-section">
 
-<div class="wall-box reveal">
+  <div class="wall-box reveal">
 
-  <div class="wall-head">
-    <h2>💌 حائط حُرّاس الوطن</h2>
-    <p>أسماء المشاركين في رحلة درع الوطن</p>
-  </div>
+    <div class="wall-head">
 
-  <div class="wall-count">
-    عدد المشاركين
-    <b id="wallCount">0</b>
-  </div>
+      <h2>
+        💌 حائط حُرّاس الوطن
+      </h2>
 
-  <div class="wall-names" id="wallNames">
-    <div class="wall-empty">
-      بانتظار الأسماء ✨
+      <p>
+        أسماء المشاركين في رحلة درع الوطن
+      </p>
+
     </div>
+
+    <div class="wall-count">
+
+      عدد المشاركين
+
+      <b id="wallCount">
+        0
+      </b>
+
+    </div>
+
+    <div
+      class="wall-names"
+      id="wallNames">
+
+      <div class="wall-empty">
+        بانتظار الأسماء ✨
+      </div>
+
+    </div>
+
   </div>
 
-</div>
 </section>
 
 <footer>
+
   الابتدائية الخامسة والأربعون
+
   <br><br>
+
   درع الوطن • المملكة العربية السعودية 🇸🇦
+
 </footer>
 
 </div>
 
+<!-- بطاقة الدرع -->
+
 <div id="cardOverlay">
 
-<div class="guard-card">
+  <div class="guard-card">
 
-  <div class="card-school">
-    الابتدائية الخامسة والأربعون
+    <div class="card-school">
+      الابتدائية الخامسة والأربعون
+    </div>
+
+    <div class="card-title">
+      درع الوطن
+    </div>
+
+    <div class="card-shield">
+
+      <div class="card-shield-inner">
+        ✦
+      </div>
+
+    </div>
+
+    <div id="nationalQuote"></div>
+
+    <div class="saudi-flag">
+      🇸🇦
+    </div>
+
+    <div class="card-divider"></div>
+
+    <div class="student-label">
+      مشاركة مميزة في رحلة درع الوطن
+    </div>
+
+    <div id="cardName"></div>
+
+    <div id="guardNumber"></div>
+
+    <div class="success-text">
+
+      أصبحت من حُرّاس الوطن،
+      فليكن العلم والأخلاق والعطاء
+      أثرًا يليق بوطننا.
+
+    </div>
+
+    <button
+      class="card-action"
+      onclick="closeCard()">
+
+      العودة للرئيسية
+
+    </button>
+
   </div>
-
-  <div class="card-title">درع الوطن</div>
-
-  <div class="card-shield">
-    <div class="card-shield-inner">✦</div>
-  </div>
-
-  <div id="nationalQuote"></div>
-
-  <div class="saudi-flag">🇸🇦</div>
-
-  <div class="card-divider"></div>
-
-  <div class="student-label">
-    مشاركة مميزة في رحلة درع الوطن
-  </div>
-
-  <div id="cardName"></div>
-  <div id="guardNumber"></div>
-
-  <div class="success-text">
-    أصبحت من حُرّاس الوطن،
-    فليكن العلم والأخلاق والعطاء
-    أثرًا يليق بوطننا.
-  </div>
-
-  <button class="card-action" onclick="closeCard()">
-    العودة للرئيسية
-  </button>
 
 </div>
-</div>
 
-<button id="audioBtn" onclick="toggleAudio()">
+<!-- الصوت -->
+
+<button
+  id="audioBtn"
+  onclick="toggleAudio()">
+
   <span class="bars">
-    <i></i><i></i><i></i><i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
   </span>
+
 </button>
 
 <script>
 
-const anthemAudio=document.getElementById("anthemAudio");
-const audioBtn=document.getElementById("audioBtn");
-const fingerprint=document.getElementById("fingerprint");
-const mainShield=document.getElementById("mainShield");
-const instruction=document.getElementById("instruction");
-const gate=document.getElementById("gate");
-const app=document.getElementById("app");
+const anthemAudio =
+document.getElementById("anthemAudio");
+
+const audioBtn =
+document.getElementById("audioBtn");
+
+const fingerprint =
+document.getElementById("fingerprint");
+
+const mainShield =
+document.getElementById("mainShield");
+
+const instruction =
+document.getElementById("instruction");
+
+const gate =
+document.getElementById("gate");
+
+const app =
+document.getElementById("app");
 
 let opened=false;
 let creatingCard=false;
+
+/* =========================
+   الدخول
+========================= */
 
 fingerprint.onclick=function(){
 
@@ -1207,18 +1942,27 @@ fingerprint.onclick=function(){
   anthemAudio.currentTime=0;
 
   anthemAudio.play()
+
   .then(()=>{
+
     audioBtn.classList.add("show");
     audioBtn.classList.remove("paused");
+
   })
+
   .catch(()=>{
+
     audioBtn.classList.add("show","paused");
+
   });
 
   mainShield.classList.add("activated");
+
   fingerprint.classList.add("verified");
 
-  instruction.textContent="تم التحقق بنجاح ✓";
+  instruction.textContent=
+  "تم التحقق بنجاح ✓";
+
   instruction.classList.add("success");
 
   if(navigator.vibrate){
@@ -1226,45 +1970,72 @@ fingerprint.onclick=function(){
   }
 
   setTimeout(()=>{
+
     app.classList.add("visible");
+
     document.body.classList.remove("lock");
+
   },1100);
 
   setTimeout(()=>{
+
     gate.classList.add("leave");
+
   },1450);
 
   setTimeout(()=>{
+
     gate.style.display="none";
+
     window.scrollTo(0,0);
+
     activateReveal();
+
   },2250);
 
 };
 
+/* =========================
+   الصوت
+========================= */
+
 function toggleAudio(){
 
   if(anthemAudio.paused){
+
     anthemAudio.play();
+
     audioBtn.classList.remove("paused");
+
   }else{
+
     anthemAudio.pause();
+
     audioBtn.classList.add("paused");
+
   }
 
 }
 
+/* =========================
+   ظهور العناصر
+========================= */
+
 function activateReveal(){
 
-  const observer=new IntersectionObserver(
+  const observer=
+  new IntersectionObserver(
 
     entries=>{
 
       entries.forEach(entry=>{
 
         if(entry.isIntersecting){
+
           entry.target.classList.add("visible");
+
           observer.unobserve(entry.target);
+
         }
 
       });
@@ -1277,34 +2048,65 @@ function activateReveal(){
 
   document
   .querySelectorAll(".reveal")
-  .forEach(el=>observer.observe(el));
+  .forEach(
+    el=>observer.observe(el)
+  );
 
 }
 
+/* =========================
+   عبارات وطنية
+========================= */
+
 const nationalQuotes=[
+
 "وطني عزٌ نسكنه، وفخرٌ يسكن فينا.",
+
 "السعودية وطن المجد، ومستقبل نصنعه بالعلم والطموح.",
+
 "حب الوطن عملٌ وعطاءٌ ومسؤولية.",
+
 "في وطننا نكبر بالأمل، ونبني بالعلم، ونحفظ العهد.",
+
 "وطني قصة فخر نرويها، وأمانة نحملها.",
+
 "السعودية دار العز، وفي القلب لها عهدٌ لا يتغير.",
+
 "بالعلم والأخلاق والعطاء نشارك في بناء وطننا.",
+
 "وطنٌ شامخ، وطموحٌ يعانق السماء.",
+
 "هنا وطننا، وهنا جذورنا، وهنا مستقبلنا.",
+
 "نحمل وطننا في قلوبنا، ونخدمه بالعلم والعمل."
+
 ];
 
 function nameHash(name){
 
   let hash=0;
 
-  for(let i=0;i<name.length;i++){
-    hash=((hash<<5)-hash)+name.charCodeAt(i);
+  for(
+    let i=0;
+    i<name.length;
+    i++
+  ){
+
+    hash=
+    ((hash<<5)-hash)
+    +name.charCodeAt(i);
+
     hash|=0;
+
   }
 
   return Math.abs(hash);
+
 }
+
+/* =========================
+   Firebase
+========================= */
 
 const DB_ROOT=
 "https://der3-alwatan-45-default-rtdb.firebaseio.com";
@@ -1315,92 +2117,175 @@ DB_ROOT+"/guardianCounter.json";
 const WALL_URL=
 DB_ROOT+"/guardianWall.json";
 
+/* الرقم */
+
 async function getNextGuardianNumber(){
 
-  for(let attempt=0;attempt<8;attempt++){
+  for(
+    let attempt=0;
+    attempt<8;
+    attempt++
+  ){
 
-    const read=await fetch(
+    const read=
+    await fetch(
+
       COUNTER_URL,
+
       {
+
         method:"GET",
+
         headers:{
           "X-Firebase-ETag":"true",
           "Cache-Control":"no-cache"
         }
+
       }
+
     );
 
     if(!read.ok){
+
       throw new Error("counter-read");
+
     }
 
-    const etag=read.headers.get("ETag");
-    const current=await read.json();
+    const etag=
+    read.headers.get("ETag");
 
-    const next=(typeof current==="number" ? current : 0)+1;
+    const current=
+    await read.json();
 
-    const write=await fetch(
+    const next=
+    (
+      typeof current==="number"
+      ? current
+      : 0
+    )+1;
+
+    const write=
+    await fetch(
+
       COUNTER_URL,
+
       {
+
         method:"PUT",
+
         headers:{
-          "Content-Type":"application/json",
-          "if-match":etag
+          "Content-Type":
+          "application/json",
+
+          "if-match":
+          etag
         },
-        body:JSON.stringify(next)
+
+        body:
+        JSON.stringify(next)
+
       }
+
     );
 
     if(write.ok){
+
       return await write.json();
+
     }
 
     if(write.status!==412){
-      throw new Error("counter-write");
+
+      throw new Error(
+        "counter-write"
+      );
+
     }
 
   }
 
-  throw new Error("counter-busy");
+  throw new Error(
+    "counter-busy"
+  );
+
 }
 
-async function addNameToWall(name,number){
+/* إضافة الاسم */
 
-  const response=await fetch(
+async function addNameToWall(
+  name,
+  number
+){
+
+  const response=
+  await fetch(
+
     WALL_URL,
+
     {
+
       method:"POST",
+
       headers:{
-        "Content-Type":"application/json"
+        "Content-Type":
+        "application/json"
       },
-      body:JSON.stringify({
+
+      body:
+      JSON.stringify({
+
         name:name,
+
         number:number,
-        createdAt:Date.now()
+
+        createdAt:
+        Date.now()
+
       })
+
     }
+
   );
 
   if(!response.ok){
-    throw new Error("wall-write");
+
+    throw new Error(
+      "wall-write"
+    );
+
   }
 
 }
 
+/* عرض الحائط */
+
 function renderWall(data){
 
-  const box=document.getElementById("wallNames");
+  const box=
+  document.getElementById(
+    "wallNames"
+  );
 
-  const items=data ? Object.values(data) : [];
+  const items=
+  data
+  ? Object.values(data)
+  : [];
 
   items.sort(
-    (a,b)=>(a.number||0)-(b.number||0)
+    (a,b)=>
+    (a.number||0)
+    -
+    (b.number||0)
   );
 
   box.innerHTML="";
 
   const valid=
-  items.filter(item=>item && item.name);
+  items.filter(
+    item=>
+    item &&
+    item.name
+  );
 
   if(!valid.length){
 
@@ -1408,42 +2293,64 @@ function renderWall(data){
     '<div class="wall-empty">بانتظار الأسماء ✨</div>';
 
     document
-    .getElementById("wallCount")
+    .getElementById(
+      "wallCount"
+    )
     .textContent="0";
 
     return;
+
   }
 
   valid.forEach(item=>{
 
-    const el=document.createElement("div");
+    const el=
+    document.createElement(
+      "div"
+    );
 
-    el.className="wall-name";
-    el.textContent="💌 "+item.name;
+    el.className=
+    "wall-name";
+
+    el.textContent=
+    "💌 "+item.name;
 
     box.appendChild(el);
 
   });
 
   document
-  .getElementById("wallCount")
-  .textContent=valid.length;
+  .getElementById(
+    "wallCount"
+  )
+  .textContent=
+  valid.length;
+
 }
+
+/* تحميل الحائط */
 
 async function loadWall(){
 
   try{
 
-    const response=await fetch(
+    const response=
+    await fetch(
+
       WALL_URL,
+
       {cache:"no-store"}
+
     );
 
     if(!response.ok){
+
       throw new Error();
+
     }
 
-    const data=await response.json();
+    const data=
+    await response.json();
 
     renderWall(data);
 
@@ -1452,7 +2359,9 @@ async function loadWall(){
   catch(error){
 
     document
-    .getElementById("wallNames")
+    .getElementById(
+      "wallNames"
+    )
     .innerHTML=
     '<div class="wall-empty">بانتظار الأسماء ✨</div>';
 
@@ -1460,29 +2369,51 @@ async function loadWall(){
 
 }
 
+/* =========================
+   إنشاء الدرع
+========================= */
+
 async function createGuardianCard(){
 
   if(creatingCard)return;
 
-  const input=document.getElementById("guardianName");
-  const btn=document.getElementById("claimBtn");
-  const name=input.value.trim();
+  const input=
+  document.getElementById(
+    "guardianName"
+  );
+
+  const btn=
+  document.getElementById(
+    "claimBtn"
+  );
+
+  const name=
+  input.value.trim();
 
   if(name.length<2){
 
-    alert("أدخل الاسم أولًا ✨");
+    alert(
+      "أدخل الاسم أولًا ✨"
+    );
+
     input.focus();
+
     return;
 
   }
 
   creatingCard=true;
+
   btn.disabled=true;
-  btn.textContent="جارٍ تجهيز الدرع...";
+
+  btn.textContent=
+  "جارٍ تجهيز الدرع...";
 
   const quote=
   nationalQuotes[
-    nameHash(name)%nationalQuotes.length
+    nameHash(name)
+    %
+    nationalQuotes.length
   ];
 
   try{
@@ -1491,26 +2422,48 @@ async function createGuardianCard(){
     await getNextGuardianNumber();
 
     try{
-      await addNameToWall(name,number);
+
+      await addNameToWall(
+        name,
+        number
+      );
+
     }catch(e){}
 
     document
-    .getElementById("nationalQuote")
-    .textContent=quote;
+    .getElementById(
+      "nationalQuote"
+    )
+    .textContent=
+    quote;
 
     document
-    .getElementById("cardName")
-    .textContent=name;
+    .getElementById(
+      "cardName"
+    )
+    .textContent=
+    name;
 
     document
-    .getElementById("guardNumber")
-    .textContent="درع الوطن رقم "+number;
+    .getElementById(
+      "guardNumber"
+    )
+    .textContent=
+    "درع الوطن رقم "
+    +number;
 
     document
-    .getElementById("cardOverlay")
-    .classList.add("show");
+    .getElementById(
+      "cardOverlay"
+    )
+    .classList.add(
+      "show"
+    );
 
-    document.body.classList.add("lock");
+    document.body
+    .classList.add(
+      "lock"
+    );
 
     loadWall();
 
@@ -1518,60 +2471,111 @@ async function createGuardianCard(){
 
   catch(error){
 
-    alert("تعذر إصدار الدرع الآن، حاول مرة أخرى.");
+    alert(
+      "تعذر إصدار الدرع الآن، حاول مرة أخرى."
+    );
 
   }
 
   finally{
 
     creatingCard=false;
+
     btn.disabled=false;
-    btn.textContent="احصل على درعك";
+
+    btn.textContent=
+    "احصل على درعك";
 
   }
 
 }
+
+/* إغلاق البطاقة */
 
 function closeCard(){
 
   document
-  .getElementById("cardOverlay")
-  .classList.remove("show");
+  .getElementById(
+    "cardOverlay"
+  )
+  .classList.remove(
+    "show"
+  );
 
-  document.body.classList.remove("lock");
+  document.body
+  .classList.remove(
+    "lock"
+  );
 
   document
-  .getElementById("home")
+  .getElementById(
+    "home"
+  )
   .scrollIntoView({
+
     behavior:"smooth"
+
   });
 
 }
 
+/* Enter */
+
 document
-.getElementById("guardianName")
+.getElementById(
+  "guardianName"
+)
 .addEventListener(
+
   "keydown",
+
   event=>{
+
     if(event.key==="Enter"){
+
       createGuardianCard();
+
     }
+
   }
+
 );
+
+/* =========================
+   النجوم
+========================= */
 
 function makeSparkles(){
 
-  const host=document.getElementById("sparkles");
+  const host=
+  document.getElementById(
+    "sparkles"
+  );
 
-  for(let i=0;i<32;i++){
+  for(
+    let i=0;
+    i<24;
+    i++
+  ){
 
-    const star=document.createElement("span");
+    const star=
+    document.createElement(
+      "span"
+    );
 
-    star.className="spark";
-    star.textContent=i%3===0 ?"✦" :"✧";
+    star.className=
+    "spark";
 
-    star.style.left=Math.random()*100+"%";
-    star.style.top=Math.random()*100+"%";
+    star.textContent=
+    i%3===0
+    ?"✦"
+    :"✧";
+
+    star.style.left=
+    Math.random()*100+"%";
+
+    star.style.top=
+    Math.random()*100+"%";
 
     star.style.setProperty(
       "--d",
@@ -1584,7 +2588,7 @@ function makeSparkles(){
     );
 
     star.style.fontSize=
-    (9+Math.random()*17)+"px";
+    (8+Math.random()*14)+"px";
 
     host.appendChild(star);
 
@@ -1593,9 +2597,13 @@ function makeSparkles(){
 }
 
 makeSparkles();
+
 loadWall();
 
-setInterval(loadWall,12000);
+setInterval(
+  loadWall,
+  12000
+);
 
 </script>
 
